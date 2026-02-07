@@ -14,14 +14,13 @@ public class TargetMovement : MonoBehaviour
     private Transform child;
     private GameObject shards;
     private Animator shardAnimator;
-    public List<string> animations = new();
+    private animationStep[] animationSteps;
     public AudioSource breakSource1;
     public AudioSource breakSource2;
 
     void Start()
     {
         animatorRef = GetComponent<Animator>();
-        life = animations.Count + 1;
         kontroler = GameObject.Find("GameController");
         destroyQueue = GameObject.Find("DestroyQueue").transform;
         gun = kontroler.GetComponent<GunScript>();
@@ -29,8 +28,20 @@ public class TargetMovement : MonoBehaviour
         shardAnimator = shards.GetComponent<Animator>();
     }
 
+    public void SetAnimation(targetAnimation animation)
+    {
+        if (!AnimationDatabase.Animations.TryGetValue(animation, out animationSteps))
+        {
+            Debug.LogError($"Missing animation: {animation}");
+            animationSteps = System.Array.Empty<animationStep>();
+        }
+
+        life = animationSteps.Length + 1;
+    }
+
     public void FinishedMovement()
     {
+        Debug.Log("1: " + life);
         // W tym miejscu cel skoñczy³ siê pojawiaæ, wiêc zmienia prêdkoœæ na docelow¹ - zale¿n¹ od poziomu trudnoœci
         animatorRef.speed = speed;
         life--;
@@ -42,7 +53,11 @@ public class TargetMovement : MonoBehaviour
             StartCoroutine(Disappear());
             return;
         }
-        animatorRef.SetTrigger(animations[animations.Count - life]);
+
+        Debug.Log("2: " + life);
+
+        int index = animationSteps.Length - life;
+        animatorRef.SetTrigger(animationSteps[index].ToString());
     }
 
 

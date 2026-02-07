@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Threading;
 
 public class SpawnTarget : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class SpawnTarget : MonoBehaviour
     private int roundCooldown;
     // Prefab celu i animacje przypisywane sa w edytorze 
     public List<GameObject> targets = new();
-    public GameObject target;
     public Transform enemies;
     public Animator popupAnimator;
     public Animator fadeAnimator;
@@ -60,6 +60,7 @@ public class SpawnTarget : MonoBehaviour
             t.GetComponentInChildren<TargetMovement>().speed = (levelSpeed + roundNumber);
         }
         ChooseLevel();
+        targetAmount = chosenLevel.finishedTable.Count;
         StartCoroutine(TargetSpawnerCoroutine());
     }
 
@@ -73,10 +74,10 @@ public class SpawnTarget : MonoBehaviour
                 chosenLevel.Level1();
                 break;
             case 2:
-                chosenLevel.Level2();
+                //chosenLevel.Level2();
                 break;
             case 3:
-                chosenLevel.Level3();
+                //chosenLevel.Level3();
                 break;
             default:
                 break;
@@ -89,11 +90,12 @@ public class SpawnTarget : MonoBehaviour
         {
             // Pozycja celu okreslana jest recznie poprzez wpis do tabeli znajdujacej sie w klasie LevelData.cs
             // Stworz cel: numer prefabu (animacji), pozycja, obrot
-            targetPosition = new Vector3((chosenLevel.finishedTable[i].locationX), (chosenLevel.finishedTable[i].locationY));
-            newTarget = Instantiate(targets[chosenLevel.finishedTable[i].targetType], targetPosition, Quaternion.identity);
+            targetPosition = chosenLevel.finishedTable[i].spawnLocation;
+            newTarget = Instantiate(targets[(int)chosenLevel.finishedTable[i].targetType], targetPosition, Quaternion.identity);
             newTarget.transform.position = new Vector3(newTarget.transform.position.x, newTarget.transform.position.y, 100);
             newTarget.transform.parent = enemies;
-            
+            newTarget.GetComponentInChildren<TargetMovement>().SetAnimation(chosenLevel.finishedTable[i].animation);
+
             // Dodanie przerwy pomiedzy tworzeniem celow umozliwia sekwencyjnie ulozyc poziomy
             yield return new WaitForSeconds(chosenLevel.finishedTable[i].delay);
         }
@@ -128,3 +130,11 @@ public class SpawnTarget : MonoBehaviour
         }
     }
 }
+
+/*
+[System.Serializable]
+public class CombinedAnimationsContainer : List<animationStep>
+{
+    public List<animationStep> animationStepList = new();
+}
+*/
