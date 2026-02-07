@@ -64,8 +64,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4074013164484770167, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1880026639097836484, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8998075726489230211}
   m_SourcePrefab: {fileID: 100100000, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+--- !u!1 &2100896744482794638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1880026639097836484, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 518142866876882762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8998075726489230211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100896744482794638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd4d07d6fd7eeb4f92c55e6b5f8f812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorRef: {fileID: 0}
+  speed: 0
+  kontroler: {fileID: 0}
+  destroyQueue: {fileID: 0}
+  breakSource1: {fileID: 6788086243585264346}
+  breakSource2: {fileID: 7312611776097060435}
+--- !u!82 &6788086243585264346 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6414515963299157392, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 518142866876882762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7312611776097060435 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7082840169996605721, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 518142866876882762}
+  m_PrefabAsset: {fileID: 0}

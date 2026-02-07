@@ -32,6 +32,8 @@ public class LevelData
 
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-1f, 0f), delay = 1f });
         table.Add(new TargetData() { targetType = targetType.red, animation = targetAnimation.dblRight, spawnLocation = new Vector2(1f, 0f), delay = 3f });
+        table.Add(new TargetData() { targetType = targetType.red, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-1f, 0f), delay = 1f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(1f, 0f), delay = 3f });
 
         finishedTable = table;
     }

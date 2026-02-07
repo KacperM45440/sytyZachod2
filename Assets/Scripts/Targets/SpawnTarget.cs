@@ -57,7 +57,7 @@ public class SpawnTarget : MonoBehaviour
         chosenLevel = new();
         foreach (GameObject t in targets)
         {
-            t.GetComponentInChildren<TargetMovement>().speed = (levelSpeed + roundNumber);
+            t.GetComponentInChildren<TargetBehaviour>().speed = (levelSpeed + roundNumber);
         }
         ChooseLevel();
         targetAmount = chosenLevel.finishedTable.Count;
@@ -94,7 +94,7 @@ public class SpawnTarget : MonoBehaviour
             newTarget = Instantiate(targets[(int)chosenLevel.finishedTable[i].targetType], targetPosition, Quaternion.identity);
             newTarget.transform.position = new Vector3(newTarget.transform.position.x, newTarget.transform.position.y, 100);
             newTarget.transform.parent = enemies;
-            newTarget.GetComponentInChildren<TargetMovement>().SetAnimation(chosenLevel.finishedTable[i].animation);
+            newTarget.GetComponentInChildren<TargetBehaviour>().SetAnimation(chosenLevel.finishedTable[i].animation);
 
             // Dodanie przerwy pomiedzy tworzeniem celow umozliwia sekwencyjnie ulozyc poziomy
             yield return new WaitForSeconds(chosenLevel.finishedTable[i].delay);

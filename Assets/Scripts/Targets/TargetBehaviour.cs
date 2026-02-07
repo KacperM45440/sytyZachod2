@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetMovement : MonoBehaviour
+public class TargetBehaviour : MonoBehaviour
 {
     [HideInInspector] public Animator animatorRef;
     [HideInInspector] public float speed;
-    private GunScript gun;
+    protected GunScript gun;
     private int life;
     private int i;
     public GameObject kontroler;
@@ -18,7 +18,7 @@ public class TargetMovement : MonoBehaviour
     public AudioSource breakSource1;
     public AudioSource breakSource2;
 
-    void Start()
+    protected virtual void Start()
     {
         animatorRef = GetComponent<Animator>();
         kontroler = GameObject.Find("GameController");
@@ -60,8 +60,7 @@ public class TargetMovement : MonoBehaviour
         animatorRef.SetTrigger(animationSteps[index].ToString());
     }
 
-
-    private void OnMouseDown()
+    public virtual void OnClick()
     {
         if (gun.readyToFire)
         {
@@ -73,6 +72,7 @@ public class TargetMovement : MonoBehaviour
             StartCoroutine(DestroyMe());
         }
     }
+
 
     // Tutaj wlaczana jest animacja znikniecia i zniszczenia (wygasniecia) celu. Funkcja odpowiadzialna za zestrzelenie jest wyzej
     IEnumerator Disappear()
