@@ -3,7 +3,7 @@ using UnityEngine;
 public class TargetCollider : MonoBehaviour
 {
     private TargetBehaviour targetParent;
-    void Start()
+    private void Start()
     {
         targetParent = GetComponentInParent<TargetBehaviour>();
     }

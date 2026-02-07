@@ -16,13 +16,14 @@ public class SpawnTarget : MonoBehaviour
     // Przejscie przez animacje rund zajmuje (okolo) siedem sekund, wiec tyle czeka program
     private int roundCooldown;
     // Prefab celu i animacje przypisywane sa w edytorze 
+    [HideInInspector] public int targetAmount;
     public List<GameObject> targets = new();
     public Transform enemies;
     public Animator popupAnimator;
     public Animator fadeAnimator;
     public bool canPunch;
     public float levelSpeed;
-    public int targetAmount;
+
     public AudioSource bellSource;
 
     void Start()

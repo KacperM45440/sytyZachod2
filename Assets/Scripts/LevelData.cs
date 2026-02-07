@@ -14,6 +14,8 @@ public enum targetType : int
 {
     normal = 0,
     red = 1,
+    hole = 2,
+    shrink = 3
 }
 
 public class LevelData
@@ -31,9 +33,13 @@ public class LevelData
         List<TargetData> table = new();
 
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-1f, 0f), delay = 1f });
-        table.Add(new TargetData() { targetType = targetType.red, animation = targetAnimation.dblRight, spawnLocation = new Vector2(1f, 0f), delay = 3f });
-        table.Add(new TargetData() { targetType = targetType.red, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-1f, 0f), delay = 1f });
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(1f, 0f), delay = 3f });
+        table.Add(new TargetData() { targetType = targetType.red, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-1f, 0f), delay = 1f });
+        table.Add(new TargetData() { targetType = targetType.red, animation = targetAnimation.dblRight, spawnLocation = new Vector2(1f, 0f), delay = 3f });
+        table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-1f, 0f), delay = 1f });
+        table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.dblRight, spawnLocation = new Vector2(1f, 0f), delay = 3f });
+        table.Add(new TargetData() { targetType = targetType.shrink, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(-1f, -1f), delay = 0f });
+        table.Add(new TargetData() { targetType = targetType.shrink, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(1f, 1f), delay = 3f });
 
         finishedTable = table;
     }

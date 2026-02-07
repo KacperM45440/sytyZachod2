@@ -5,8 +5,8 @@ using UnityEngine;
 public class TargetBehaviour : MonoBehaviour
 {
     [HideInInspector] public Animator animatorRef;
+    [HideInInspector] public GunScript gun;
     [HideInInspector] public float speed;
-    protected GunScript gun;
     private int life;
     private int i;
     public GameObject kontroler;
@@ -41,7 +41,6 @@ public class TargetBehaviour : MonoBehaviour
 
     public void FinishedMovement()
     {
-        Debug.Log("1: " + life);
         // W tym miejscu cel skoñczy³ siê pojawiaæ, wiêc zmienia prêdkoœæ na docelow¹ - zale¿n¹ od poziomu trudnoœci
         animatorRef.speed = speed;
         life--;
@@ -53,8 +52,6 @@ public class TargetBehaviour : MonoBehaviour
             StartCoroutine(Disappear());
             return;
         }
-
-        Debug.Log("2: " + life);
 
         int index = animationSteps.Length - life;
         animatorRef.SetTrigger(animationSteps[index].ToString());
@@ -113,7 +110,11 @@ public class TargetBehaviour : MonoBehaviour
 
 
         transform.GetComponent<SpriteRenderer>().enabled = false;
-        transform.GetComponent<CircleCollider2D>().enabled = false;
+        CircleCollider2D[] collidersInChildren = transform.GetComponentsInChildren<CircleCollider2D>();
+        foreach (CircleCollider2D collider in collidersInChildren)
+        {
+            collider.enabled = false;
+        }
         shards.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
         yield return new WaitForSecondsRealtime(0);
