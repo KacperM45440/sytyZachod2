@@ -4,7 +4,9 @@ public enum targetAnimation
 {
     dblLeft,
     dblRight,
-    stop3Sec
+    stop3Sec,
+    leftSpinny,
+    rightSpinny
 }
 
 public enum animationStep
@@ -48,6 +50,22 @@ public static class AnimationDatabase
                 animationStep.Still,
                 animationStep.Still
             }
-        }
+        },
+        {
+            targetAnimation.leftSpinny,
+            new[]
+            {
+                animationStep.Left,
+                animationStep.Spinny
+            }
+        },
+        {
+            targetAnimation.rightSpinny,
+            new[]
+            {
+                animationStep.Right,
+                animationStep.SpinnyMirror
+            }
+        },
     };
 }
