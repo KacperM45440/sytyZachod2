@@ -23,7 +23,7 @@ public class TargetShieldedBehaviour : TargetBehaviour
         if (hasShield)
         {
             hasShield = false;
-            rendererRef.color = new Color32(255, 187, 132, 255);
+            rendererRef.color = new Color32(255, 255, 255, 255);
             gun.ShotFired();
         }
         else

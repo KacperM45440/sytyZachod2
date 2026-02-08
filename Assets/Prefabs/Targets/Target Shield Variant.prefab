@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3019871066406621334, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.10559807
       objectReference: {fileID: 0}
     - target: {fileID: 3019871066406621334, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.10559807
       objectReference: {fileID: 0}
     - target: {fileID: 3019871066406621334, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.1981132
       objectReference: {fileID: 0}
     - target: {fileID: 8210039709605267988, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Name
-      value: Target Red
+      value: Target Shield Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorRef: {fileID: 0}
+  gun: {fileID: 0}
   speed: 0
   kontroler: {fileID: 0}
   destroyQueue: {fileID: 0}
