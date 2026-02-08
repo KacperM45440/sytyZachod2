@@ -4903,6 +4903,7 @@ MonoBehaviour:
   - {fileID: 8565630639922402654, guid: 0888582cd34d9ee459ac5a1f68bea7bd, type: 3}
   - {fileID: 4688191402502546154, guid: 6a1cc0f65d1d13d4bad0f8b239df3b44, type: 3}
   - {fileID: 3377772738541806602, guid: 8417a3561f0ba0d48b872bdada9280a5, type: 3}
+  - {fileID: 1721441976995083186, guid: 8f55df6aa6d6bbd4f9514ab24c216b1d, type: 3}
   enemies: {fileID: 1807083584}
   popupAnimator: {fileID: 302346516}
   fadeAnimator: {fileID: 1097060212}
