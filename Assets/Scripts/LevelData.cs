@@ -33,9 +33,9 @@ public class LevelData
 
         List<TargetData> table = new();
 
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-1f, 0f), delay = 1f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(1f, 0f), delay = 2f });
-        table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-1f, 0f), delay = 1f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.leftThenCircleUp, spawnLocation = new Vector2(0f, 0f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.leftThenCircleUp, spawnLocation = new Vector2(0f, 0f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.leftThenCircleUp, spawnLocation = new Vector2(0f, 0f), delay = 2f });
         table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-1f, 0f), delay = 1f });
         table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.dblRight, spawnLocation = new Vector2(1f, 0f), delay = 3f });
         table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.dblRight, spawnLocation = new Vector2(1f, 0f), delay = 1f });
@@ -44,6 +44,30 @@ public class LevelData
         table.Add(new TargetData() { targetType = targetType.shrink, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(-1f, -1f), delay = 1f });
         table.Add(new TargetData() { targetType = targetType.shrink, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(1f, 1f), delay = 3f });
 
+        finishedTable = table;
+    }
+
+    public void Level2()
+    {
+        List<TargetData> table = new();
+        finishedTable = table;
+    }
+
+    public void Level3()
+    {
+        List<TargetData> table = new();
+        finishedTable = table;
+    }
+
+    public void Level4()
+    {
+        List<TargetData> table = new();
+        finishedTable = table;
+    }
+
+    public void Level5()
+    {
+        List<TargetData> table = new();
         finishedTable = table;
     }
 }

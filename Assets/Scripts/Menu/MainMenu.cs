@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ public class MainMenu : MonoBehaviour
 {
     public TransitionScript transitionRef;
     public AudioSource menuSource;
+    public List<TextMeshProUGUI> levelScores = new();
     // Efekty dzwiekowe i muzyka rozdzielone sa na dwa rozne kanaly ktorymi mozna sterowac, dzieki czemu mozemy zdecydowac ktore z nich chcemy miec glosniej
     public AudioMixer musicMixer;
     public AudioMixer soundFXMixer;
@@ -20,9 +22,10 @@ public class MainMenu : MonoBehaviour
 
         DOTween.Init();
     }
-    public void PlayGame()
+
+    public void PlayLevel(int levelIndex)
     {
-        transitionRef.PlayGame();
+        transitionRef.PlayLevel(levelIndex);
         MenuMusicScript.Instance.FadeOut();
     }
     
@@ -49,6 +52,17 @@ public class MainMenu : MonoBehaviour
 
         decibels = 30f * Mathf.Log10(PlayerPrefs.GetFloat("sfxValue") / 10f);
         soundFXMixer.SetFloat("SoundFXVolume", decibels);
+
+        LoadHighScores();
+    }
+
+    public void LoadHighScores()
+    {
+        for (int i = 0; i < levelScores.Count; i++)
+        {
+            int levelIndex = i + 1;
+            levelScores[i].text = PlayerPrefs.GetInt("highScore_level" + levelIndex).ToString();
+        }
     }
 
     // Wyjdz z gry, zamknij aplikacje

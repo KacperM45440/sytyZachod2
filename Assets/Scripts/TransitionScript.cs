@@ -23,22 +23,16 @@ public class TransitionScript : MonoBehaviour
             animatorRef.SetTrigger("Ended");
         }
     }
-
-    public void PlayGame()
-    {
-        PlayerPrefs.SetInt("currentScore", 0);
-        NextLevel();
-    }
     
     public void MainMenu()
     {
         StartCoroutine(LoadLevel(0)); 
     }
-    public void NextLevel()
+
+    public void PlayLevel(int levelIndex)
     {
-        // Zmien scene
-        sceneNumber = SceneManager.GetActiveScene().buildIndex + 1;
-        StartCoroutine(LoadLevel(sceneNumber));
+        PlayerPrefs.SetInt("currentScore", 0);
+        StartCoroutine(LoadLevel(levelIndex));
     }
 
     public void ThisLevel()

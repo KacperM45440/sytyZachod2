@@ -18,6 +18,7 @@ public class SpawnTarget : MonoBehaviour
     // Prefab celu i animacje przypisywane sa w edytorze 
     [HideInInspector] public int targetAmount;
     public List<GameObject> targets = new();
+    public WinCheck winChecker;
     public Transform enemies;
     public Animator popupAnimator;
     public Animator fadeAnimator;
@@ -62,6 +63,7 @@ public class SpawnTarget : MonoBehaviour
         }
         ChooseLevel();
         targetAmount = chosenLevel.finishedTable.Count;
+        winChecker.SetMaxScore();
         StartCoroutine(TargetSpawnerCoroutine());
     }
 
@@ -78,6 +80,12 @@ public class SpawnTarget : MonoBehaviour
                 //chosenLevel.Level2();
                 break;
             case 3:
+                //chosenLevel.Level3();
+                break;
+            case 4:
+                //chosenLevel.Level3();
+                break;
+            case 5:
                 //chosenLevel.Level3();
                 break;
             default:

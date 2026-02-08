@@ -35,11 +35,6 @@ public class WinCheck : MonoBehaviour
     public int combo;
     public int score;
 
-    private void Start()
-    {
-        // Maksymalny mozliwy wynik jest suma tarcz z obu rund
-        maxScore = spawnRef.targetAmount * 2;
-    }
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -66,6 +61,12 @@ public class WinCheck : MonoBehaviour
         {
             CheckPause();
         }
+    }
+
+    public void SetMaxScore()
+    {
+        // Maksymalny mozliwy wynik jest suma tarcz z obu rund
+        maxScore = spawnRef.targetAmount * 2;
     }
 
     public void CheckPause()
@@ -158,11 +159,20 @@ public class WinCheck : MonoBehaviour
         }
     }
     
-    IEnumerator NextLevel()
+    IEnumerator FinishLevelAndReturnToMenu()
     {
-        PlayerPrefs.SetInt("currentScore", score);
+        //PlayerPrefs.SetInt("currentScore", score);
+        string highscoreIndex = "highScore_level" + SceneManager.GetActiveScene().buildIndex;
+        int highscore = PlayerPrefs.GetInt(highscoreIndex, 0);
+        if (score > highscore)
+        {
+            //Ustanowiono nowy rekord dla tego poziomu
+            PlayerPrefs.SetInt(highscoreIndex, score);
+            PlayerPrefs.Save();
+        }
+
         yield return new WaitForSeconds(2);
-        changeScene.NextLevel();
+        changeScene.MainMenu();
     }
 
     public void Retry()
@@ -206,7 +216,7 @@ public class WinCheck : MonoBehaviour
         yield return new WaitForSeconds(1f);
         fadeAnimatorRef.SetTrigger("fade_in");
         popupAnimatorRef.SetTrigger("win_regular");
-        StartCoroutine(NextLevel());
+        StartCoroutine(FinishLevelAndReturnToMenu());
     }
     IEnumerator Finisher()
     {
@@ -234,6 +244,6 @@ public class WinCheck : MonoBehaviour
         fadeAnimatorRef.SetTrigger("fade_in");
         popupAnimatorRef.SetTrigger("win_domination");
 
-        StartCoroutine(NextLevel());
+        StartCoroutine(FinishLevelAndReturnToMenu());
     }
 }

@@ -6,7 +6,9 @@ public enum targetAnimation
     dblRight,
     stop3Sec,
     leftSpinny,
-    rightSpinny
+    rightSpinny,
+    leftThenCircleUp,
+    rightThenCircleUp
 }
 
 public enum animationStep
@@ -19,7 +21,11 @@ public enum animationStep
     SpinnyMirror,
     ZigZag,
     DownLow,
-    Still
+    Still,
+    HalfcircleUpLeft,
+    HalfcircleUpRight,
+    HalfcircleDownLeft,
+    HalfcircleDownRight
 }
 
 public static class AnimationDatabase
@@ -65,6 +71,28 @@ public static class AnimationDatabase
             {
                 animationStep.Right,
                 animationStep.SpinnyMirror
+            }
+        },
+                {
+        targetAnimation.leftThenCircleUp,
+            new[]
+            {
+                animationStep.Left,
+                animationStep.HalfcircleUpLeft,
+                animationStep.HalfcircleDownRight,
+                animationStep.HalfcircleUpLeft,
+                animationStep.HalfcircleDownRight,
+            }
+        },
+                        {
+        targetAnimation.rightThenCircleUp,
+            new[]
+            {
+                animationStep.Right,
+                animationStep.HalfcircleUpRight,
+                animationStep.HalfcircleDownLeft,
+                animationStep.HalfcircleUpRight,
+                animationStep.HalfcircleDownLeft,
             }
         },
     };
