@@ -5271,6 +5271,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 606154038}
     - target: {fileID: 354738206347983257, guid: c0e0fa7c59011ca41a3b8f9b6b1dcd47, type: 3}
+      propertyPath: levelToUnlock
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 354738206347983257, guid: c0e0fa7c59011ca41a3b8f9b6b1dcd47, type: 3}
       propertyPath: uiAnimatorRef
       value: 
       objectReference: {fileID: 1209444442}

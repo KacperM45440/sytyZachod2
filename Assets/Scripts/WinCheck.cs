@@ -34,6 +34,7 @@ public class WinCheck : MonoBehaviour
     public static bool isPaused;
     public int combo;
     public int score;
+    public int levelToUnlock;
 
     private void Awake()
     {
@@ -168,9 +169,10 @@ public class WinCheck : MonoBehaviour
         {
             //Ustanowiono nowy rekord dla tego poziomu
             PlayerPrefs.SetInt(highscoreIndex, score);
-            PlayerPrefs.Save();
         }
+        PlayerPrefs.SetInt("unlock_level" + levelToUnlock, 1);
 
+        PlayerPrefs.Save();
         yield return new WaitForSeconds(2);
         changeScene.MainMenu();
     }
