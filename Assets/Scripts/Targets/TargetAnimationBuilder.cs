@@ -5,6 +5,7 @@ public enum targetAnimation
     dblLeft,
     dblRight,
     stop3Sec,
+    stop2Sec,
     leftSpinny,
     rightSpinny,
     leftThenCircleUp,
@@ -53,6 +54,14 @@ public static class AnimationDatabase
             new[]
             {
                 animationStep.Still,
+                animationStep.Still,
+                animationStep.Still
+            }
+        },
+        {
+            targetAnimation.stop2Sec,
+            new[]
+            {
                 animationStep.Still,
                 animationStep.Still
             }

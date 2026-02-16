@@ -23,7 +23,6 @@ public class SpawnTarget : MonoBehaviour
     public Animator popupAnimator;
     public Animator fadeAnimator;
     public bool canPunch;
-    public float levelSpeed;
 
     public AudioSource bellSource;
 
@@ -57,9 +56,10 @@ public class SpawnTarget : MonoBehaviour
 
         // Za³aduj dane celów z poziomu, nadaj odpowiednia im predkosc a nastepnie rozpocznij proces tworzenia celów w grze
         chosenLevel = new();
+        float defaultSpeed = chosenLevel.levelSpeed;
         foreach (GameObject t in targets)
         {
-            t.GetComponentInChildren<TargetBehaviour>().speed = (levelSpeed + roundNumber);
+            t.GetComponentInChildren<TargetBehaviour>().speed = (defaultSpeed + (defaultSpeed * roundNumber));
         }
         ChooseLevel();
         targetAmount = chosenLevel.finishedTable.Count;

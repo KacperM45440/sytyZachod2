@@ -23,14 +23,31 @@ public class LevelData
 {
     public List<TargetData> finishedTable;
 
+    // Predkosc jest podwajana w rundzie drugiej
+    public float levelSpeed = 1f;
+
     // W tej klasie przechowywane sa dane kazdego poziomu, typ, wlasciwosci, kolejnosc celow oraz przerwy pomiedzy nimi.
-    // O ile logicznym wydaje siê przechowywanie takich danych w oddzielnym miejscu, tak nie uda³o znaleŸæ mi siê informacji *jak dobrze to zrobiæ*.
-    // W ten sposób? Przypisaæ je w edytorze? Pod³¹czyæ pod plik .json?
+    // Hard limity dla umieszczenia targetów to x: -6 do 6, y: -2 do 3
 
     public void Level1()
     {
-        // Predkosc pierwszego poziomu wynosi 1 i jest podwajana w rundzie drugiej
+        levelSpeed = 1f;
+        List<TargetData> table = new();
 
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(-3f, -2f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(0f, 0.5f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(3f, 3f), delay = 1.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(3f, -2f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(0f, 0.5f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(-3f, 3f), delay = 0.5f });
+
+
+        finishedTable = table;
+    }
+
+    public void Level2()
+    {
+        levelSpeed = 1f;
         List<TargetData> table = new();
 
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.leftThenCircleUp, spawnLocation = new Vector2(0f, 0f), delay = 0.5f });
@@ -44,12 +61,6 @@ public class LevelData
         table.Add(new TargetData() { targetType = targetType.shrink, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(-1f, -1f), delay = 1f });
         table.Add(new TargetData() { targetType = targetType.shrink, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(1f, 1f), delay = 3f });
 
-        finishedTable = table;
-    }
-
-    public void Level2()
-    {
-        List<TargetData> table = new();
         finishedTable = table;
     }
 
