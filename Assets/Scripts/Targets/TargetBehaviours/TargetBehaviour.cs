@@ -6,17 +6,18 @@ public class TargetBehaviour : MonoBehaviour
 {
     [HideInInspector] public Animator animatorRef;
     [HideInInspector] public GunScript gun;
+    [HideInInspector] public GameObject kontroler;
+    [HideInInspector] public Transform destroyQueue;
     [HideInInspector] public float speed;
+
+    [SerializeField] private AudioSource breakSource1;
+    [SerializeField] private AudioSource breakSource2;
+    [SerializeField] private GameObject shards;
+
     private int life;
     private int i;
-    public GameObject kontroler;
-    public Transform destroyQueue;
-    private Transform child;
-    private GameObject shards;
     private Animator shardAnimator;
     private animationStep[] animationSteps;
-    public AudioSource breakSource1;
-    public AudioSource breakSource2;
 
     protected virtual void Start()
     {
@@ -24,7 +25,6 @@ public class TargetBehaviour : MonoBehaviour
         kontroler = GameObject.Find("GameController");
         destroyQueue = GameObject.Find("DestroyQueue").transform;
         gun = kontroler.GetComponent<GunScript>();
-        shards = transform.parent.GetChild(1).gameObject;
         shardAnimator = shards.GetComponent<Animator>();
     }
 
@@ -85,8 +85,23 @@ public class TargetBehaviour : MonoBehaviour
     // Maja one podobna logike do luskach po pociskach, patrz: GunScript::80
     IEnumerator DestroyMe()
     {
-        shards.transform.SetPositionAndRotation(transform.position, transform.rotation);
-        shards.SetActive(true);
+        PlayShardsAnimation(shards, shardAnimator);
+
+        transform.GetComponent<SpriteRenderer>().enabled = false;
+        CircleCollider2D[] collidersInChildren = transform.GetComponentsInChildren<CircleCollider2D>();
+        foreach (CircleCollider2D collider in collidersInChildren)
+        {
+            collider.enabled = false;
+        }
+
+        yield return new WaitForSecondsRealtime(0);
+        Destroy(transform.parent.gameObject);
+    }
+
+    protected void PlayShardsAnimation(GameObject shardParent, Animator shardParentAnimator)
+    {
+        shardParent.transform.SetPositionAndRotation(transform.position, transform.rotation);
+        shardParent.SetActive(true);
 
         i = Random.Range(1, 3);
 
@@ -98,26 +113,16 @@ public class TargetBehaviour : MonoBehaviour
         {
             breakSource2.Play();
         }
-        shardAnimator.SetTrigger("shard_fade");
-        shards.transform.parent = destroyQueue;
+        shardParentAnimator.SetTrigger("shard_fade");
+        shardParent.transform.parent = destroyQueue;
 
-        for (int i = 0; i < 9; i++)
+        int shardCount = shardParent.transform.childCount;
+        for (int i = 0; i < shardCount; i++)
         {
-            child = shards.transform.GetChild(i);
-            child.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            child.GetComponent<Rigidbody2D>().AddForce(new Vector2(UnityEngine.Random.Range(-250, 250), 300));
+            Rigidbody2D childRbRef = shardParent.transform.GetChild(i).GetComponent<Rigidbody2D>();
+            childRbRef.bodyType = RigidbodyType2D.Dynamic;
+            childRbRef.AddForce(new Vector2(Random.Range(-250, 250), 300));
         }
-
-
-        transform.GetComponent<SpriteRenderer>().enabled = false;
-        CircleCollider2D[] collidersInChildren = transform.GetComponentsInChildren<CircleCollider2D>();
-        foreach (CircleCollider2D collider in collidersInChildren)
-        {
-            collider.enabled = false;
-        }
-        shards.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-
-        yield return new WaitForSecondsRealtime(0);
-        Destroy(transform.parent.gameObject);
+        shardParent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 }

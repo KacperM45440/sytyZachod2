@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MenuLevelSelectionButton : MonoBehaviour
 {
     public int levelIndex;
+    public List<int> levelUnlockRequirements = new();
 
     private Button buttonRef;
     private Mask maskRef;
@@ -25,11 +26,15 @@ public class MenuLevelSelectionButton : MonoBehaviour
     {
         if(levelIndex == 1 || levelIndex == 2) return;
 
-        bool storedUnlock = PlayerPrefs.GetInt("unlock_level" + levelIndex) > 0;
-        if (!storedUnlock)
+        foreach (int level in levelUnlockRequirements)
         {
-            maskRef.enabled = true;
-            buttonRef.interactable = false;
+            bool storedUnlock = PlayerPrefs.GetInt("completed_level" + level) > 0;
+            if (!storedUnlock)
+            {
+                maskRef.enabled = true;
+                buttonRef.interactable = false;
+                return;
+            }
         }
     }
 

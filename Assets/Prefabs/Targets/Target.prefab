@@ -486,7 +486,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorRef: {fileID: 0}
+  gun: {fileID: 0}
   speed: 0
+  shards: {fileID: 2239563186665656144}
   kontroler: {fileID: 0}
   destroyQueue: {fileID: 0}
   breakSource1: {fileID: 6414515963299157392}

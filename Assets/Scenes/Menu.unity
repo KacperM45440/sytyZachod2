@@ -816,6 +816,18 @@ PrefabInstance:
       propertyPath: levelIndex
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3109657398512044355, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
+      propertyPath: levelUnlockRequirements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109657398512044355, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
+      propertyPath: 'levelUnlockRequirements.Array.data[0]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109657398512044355, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
+      propertyPath: 'levelUnlockRequirements.Array.data[1]'
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7278064608863993891, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5361,6 +5373,14 @@ PrefabInstance:
       propertyPath: levelIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3109657398512044355, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
+      propertyPath: levelUnlockRequirements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109657398512044355, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
+      propertyPath: 'levelUnlockRequirements.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7278064608863993891, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7485,6 +7505,14 @@ PrefabInstance:
     - target: {fileID: 3109657398512044355, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: levelIndex
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109657398512044355, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
+      propertyPath: levelUnlockRequirements.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109657398512044355, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
+      propertyPath: 'levelUnlockRequirements.Array.data[0]'
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7278064608863993891, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

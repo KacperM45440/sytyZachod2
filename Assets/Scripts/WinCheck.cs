@@ -34,7 +34,6 @@ public class WinCheck : MonoBehaviour
     public static bool isPaused;
     public int combo;
     public int score;
-    public int levelToUnlock;
 
     private void Awake()
     {
@@ -163,14 +162,15 @@ public class WinCheck : MonoBehaviour
     IEnumerator FinishLevelAndReturnToMenu()
     {
         //PlayerPrefs.SetInt("currentScore", score);
-        string highscoreIndex = "highScore_level" + SceneManager.GetActiveScene().buildIndex;
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        string highscoreIndex = "highScore_level" + currentLevel;
         int highscore = PlayerPrefs.GetInt(highscoreIndex, 0);
         if (score > highscore)
         {
             //Ustanowiono nowy rekord dla tego poziomu
             PlayerPrefs.SetInt(highscoreIndex, score);
         }
-        PlayerPrefs.SetInt("unlock_level" + levelToUnlock, 1);
+        PlayerPrefs.SetInt("completed_level" + currentLevel, 1);
 
         PlayerPrefs.Save();
         yield return new WaitForSeconds(2);

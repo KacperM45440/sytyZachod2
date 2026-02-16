@@ -87,6 +87,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 7082840169996605721, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
   m_PrefabInstance: {fileID: 6849880435872755230}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4619337711359648078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2239563186665656144, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 6849880435872755230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4978900579576536538 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1880026639097836484, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
@@ -106,10 +111,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TargetShrinkBehaviour
   animatorRef: {fileID: 0}
   gun: {fileID: 0}
-  speed: 0
   kontroler: {fileID: 0}
   destroyQueue: {fileID: 0}
+  speed: 0
   breakSource1: {fileID: 435540464244046734}
   breakSource2: {fileID: 4414904693605807879}
+  shards: {fileID: 4619337711359648078}
   health: 3
   scaleShrink: 0.85
