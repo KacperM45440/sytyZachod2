@@ -24,7 +24,7 @@ public class BananaSplatEffect : MonoBehaviour
         rendererRef.transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(0, 360f));
         rendererRef.transform.localScale = Vector3.zero;
         Vector2 targetLocation = new Vector2(Random.Range(-splatRange.x, splatRange.x), Random.Range(-splatRange.y, splatRange.y));
-
+        Debug.Log(targetLocation);
         rendererRef.transform.DOMove(targetLocation, timeToSplat / 2);
         rendererRef.transform.DOScale(scaleTo, timeToSplat).SetEase(Ease.OutBack).OnComplete(() =>
             rendererRef.DOFade(0f, timeToDisappear).SetEase(Ease.InQuint).OnComplete(() =>
