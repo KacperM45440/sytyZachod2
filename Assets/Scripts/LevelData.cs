@@ -30,19 +30,6 @@ public class LevelData
     // W tej klasie przechowywane sa dane kazdego poziomu, typ, wlasciwosci, kolejnosc celow oraz przerwy pomiedzy nimi.
     // Hard limity dla umieszczenia targetów to x: -6 do 6, y: -2 do 3
 
-    public void Level0()
-    {
-        levelSpeed = 0.8f;
-        List<TargetData> table = new();
-
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(-3f, -2f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(0f, 0.5f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(3f, 3f), delay = 1.5f });
-
-
-        finishedTable = table;
-    }
-
     public void Level1()
     {
         levelSpeed = 1f;
