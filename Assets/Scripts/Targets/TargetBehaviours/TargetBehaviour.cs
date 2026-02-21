@@ -9,6 +9,7 @@ public class TargetBehaviour : MonoBehaviour
     [HideInInspector] public GameObject kontroler;
     [HideInInspector] public Transform destroyQueue;
     [HideInInspector] public float speed;
+    [HideInInspector] public Transform targetParent;
 
     [SerializeField] private float speedModifier = 1f;
     [SerializeField] private AudioSource breakSource1;

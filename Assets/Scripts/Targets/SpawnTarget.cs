@@ -19,7 +19,7 @@ public class SpawnTarget : MonoBehaviour
     [HideInInspector] public int targetAmount;
     public List<GameObject> targets = new();
     public WinCheck winChecker;
-    public Transform enemies;
+    public Transform targetsContainer;
     public Animator popupAnimator;
     public Animator fadeAnimator;
     public bool canPunch;
@@ -102,14 +102,16 @@ public class SpawnTarget : MonoBehaviour
             targetPosition = chosenLevel.finishedTable[i].spawnLocation;
             newTarget = Instantiate(targets[(int)chosenLevel.finishedTable[i].targetType], targetPosition, Quaternion.identity);
             newTarget.transform.position = new Vector3(newTarget.transform.position.x, newTarget.transform.position.y, 100);
-            newTarget.transform.parent = enemies;
-            newTarget.GetComponentInChildren<TargetBehaviour>().SetAnimation(chosenLevel.finishedTable[i].animation);
+            newTarget.transform.parent = targetsContainer;
+            TargetBehaviour targetScript = newTarget.GetComponentInChildren<TargetBehaviour>();
+            targetScript.SetAnimation(chosenLevel.finishedTable[i].animation);
+            targetScript.targetParent = targetsContainer;
 
             // Dodanie przerwy pomiedzy tworzeniem celow umozliwia sekwencyjnie ulozyc poziomy
             yield return new WaitForSeconds(chosenLevel.finishedTable[i].delay);
         }
         // Runda konczy sie kiedy wszystkie cele sie pojawia oraz wszystkie znikna
-        yield return new WaitUntil(() => enemies.childCount.Equals(1));
+        yield return new WaitUntil(() => targetsContainer.childCount.Equals(1));
         
         roundNumber++;
         if (roundNumber < 2)

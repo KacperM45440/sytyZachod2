@@ -5177,6 +5177,10 @@ PrefabInstance:
       propertyPath: popupAnimator
       value: 
       objectReference: {fileID: 302346516}
+    - target: {fileID: 1018837502828827450, guid: 193c221b4b3986a4fb152ae5ece5fd88, type: 3}
+      propertyPath: targetsContainer
+      value: 
+      objectReference: {fileID: 1807083584}
     - target: {fileID: 2696677984525124579, guid: 193c221b4b3986a4fb152ae5ece5fd88, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.8888154
