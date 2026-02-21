@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4074013164484770167, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: speedModifier
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8210039709605267988, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Name
       value: Target Fast Variant

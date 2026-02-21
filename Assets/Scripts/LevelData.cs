@@ -16,7 +16,8 @@ public enum targetType : int
     shield = 1,
     hole = 2,
     shrink = 3,
-    splat = 4
+    splat = 4,
+    fast = 5
 }
 
 public class LevelData
@@ -34,12 +35,12 @@ public class LevelData
         levelSpeed = 1f;
         List<TargetData> table = new();
 
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(-3f, -2f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(0f, 0.5f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(3f, 3f), delay = 1.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(3f, -2f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(0f, 0.5f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop3Sec, spawnLocation = new Vector2(-3f, 3f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(-3f, -2f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(0f, 0.5f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(3f, 3f), delay = 1.5f });
+        table.Add(new TargetData() { targetType = targetType.fast, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(3f, -2f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.fast, animation = targetAnimation.dblRight, spawnLocation = new Vector2(0f, 0.5f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.fast, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(-3f, 3f), delay = 0.5f });
 
 
         finishedTable = table;
