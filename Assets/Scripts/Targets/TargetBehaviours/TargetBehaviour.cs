@@ -10,6 +10,7 @@ public class TargetBehaviour : MonoBehaviour
     [HideInInspector] public Transform destroyQueue;
     [HideInInspector] public float speed;
 
+    [SerializeField] private float speedModifier = 1f;
     [SerializeField] private AudioSource breakSource1;
     [SerializeField] private AudioSource breakSource2;
     [SerializeField] private GameObject shards;
@@ -42,7 +43,7 @@ public class TargetBehaviour : MonoBehaviour
     public void FinishedMovement()
     {
         // W tym miejscu cel skoñczy³ siê pojawiaæ, wiêc zmienia prêdkoœæ na docelow¹ - zale¿n¹ od poziomu trudnoœci
-        animatorRef.speed = speed;
+        animatorRef.speed = speed * speedModifier;
         life--;
         if(life <= 0)
         {
