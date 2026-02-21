@@ -24,8 +24,8 @@ public class LevelData
 {
     public List<TargetData> finishedTable;
 
-    // Predkosc jest podwajana w rundzie drugiej
     public float levelSpeed = 1f;
+    public float levelSpeedBoosted = 2f;
 
     // W tej klasie przechowywane sa dane kazdego poziomu, typ, wlasciwosci, kolejnosc celow oraz przerwy pomiedzy nimi.
     // Hard limity dla umieszczenia targetów to x: -6 do 6, y: -2 do 3
@@ -33,6 +33,7 @@ public class LevelData
     public void Level0()
     {
         levelSpeed = 0.8f;
+        levelSpeedBoosted = 1.2f;
         List<TargetData> table = new();
 
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(-3f, -2f), delay = 0.5f });
@@ -46,6 +47,7 @@ public class LevelData
     public void Level1()
     {
         levelSpeed = 1f;
+        levelSpeedBoosted = 1.5f;
         List<TargetData> table = new();
 
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(-3f, -2f), delay = 0.5f });

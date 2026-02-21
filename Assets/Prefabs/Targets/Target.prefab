@@ -487,12 +487,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorRef: {fileID: 0}
   gun: {fileID: 0}
-  speed: 0
-  shards: {fileID: 2239563186665656144}
   kontroler: {fileID: 0}
   destroyQueue: {fileID: 0}
+  speed: 0
+  targetParent: {fileID: 0}
+  speedModifier: 1
   breakSource1: {fileID: 6414515963299157392}
   breakSource2: {fileID: 7082840169996605721}
+  shards: {fileID: 2239563186665656144}
 --- !u!1 &2116249450275818284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1259,6 @@ GameObject:
   - component: {fileID: 8092682192593699183}
   - component: {fileID: 115386597705913207}
   - component: {fileID: 6273506055864085811}
-  - component: {fileID: 88140017083472813}
   m_Layer: 0
   m_Name: shard9
   m_TagString: Untagged
@@ -1366,28 +1367,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!95 &88140017083472813
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6170982546401269253}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 141a0f3812faa9b43a9e8343351d45f2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7531594827370730535
 GameObject:
   m_ObjectHideFlags: 0

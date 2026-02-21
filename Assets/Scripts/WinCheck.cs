@@ -9,40 +9,39 @@ public class WinCheck : MonoBehaviour
 {
     // Z klasy WinCheck tworzony jest singleton, poniewaz sprawdzac czy wygralismy na pewno bedziemy w jednym miejscu.
     // Nie ma tez potrzeby tworzenia zadnych kopii tej klasy. Dzieki temu ulatwic mozna odwolywanie sie do niej z innych miejsc w programie.
-    [HideInInspector] public int targetCounter;
-
-    private int maxScore;
-    private float progress;
     private static WinCheck _instance;
     public static WinCheck Instance { get { return _instance; } }
-    public Animator fadeAnimatorRef;
-    public Animator popupAnimatorRef;
-    public Animator uiAnimatorRef;
-    public Animator enemyAnimatorRef;
-    public BackgroundScript backgroundRef;
-    public GameObject progressUI;
-    public GameObject finisherUI;
-    public GunScript gunRef;
-    public Slider scoreBar;
-    public Sprite enemyTired;
-    public Sprite enemyDominated;
+
     public SpriteRenderer enemySprite;
-    public SpawnTarget spawnRef;
-    public TMP_Text comboCounter;
-    public TMP_Text scoreCounter;
-    public TransitionScript changeScene;
-    public static bool isPaused;
-    public int combo;
-    public int score;
+
+    [HideInInspector] public int score;
+    [HideInInspector] public int targetCounter;
+
+    [SerializeField] private GunScript gunRef;
+    [SerializeField] private Animator fadeAnimatorRef;
+    [SerializeField] private Animator popupAnimatorRef;
+    [SerializeField] private Animator uiAnimatorRef;
+    [SerializeField] private Animator enemyAnimatorRef;
+    [SerializeField] private BackgroundScript backgroundRef;
+    [SerializeField] private GameObject progressUI;
+    [SerializeField] private GameObject finisherUI;
+    [SerializeField] private SpawnTarget spawnRef;
+    [SerializeField] private TransitionScript changeScene;
+    [SerializeField] private Slider scoreBar;
+    [SerializeField] private TMP_Text comboCounter;
+    [SerializeField] private TMP_Text scoreCounter;
+
+    [Header("Level Specific Variables")]
+    [SerializeField] private Sprite enemyTired;
+    [SerializeField] private Sprite enemyDominated;
+
+    private int maxScore;
+    private int combo;
+    private float progress;
+    private bool isPaused;
 
     private void Awake()
     {
-        Application.targetFrameRate = 60;
-        score = PlayerPrefs.GetInt("currentScore");
-        scoreCounter.text = score.ToString("D6");
-        isPaused = false;
-        changeScene.ChooseCursor("crosshairShooting");
-
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -51,6 +50,12 @@ public class WinCheck : MonoBehaviour
         {
             _instance = this;
         }
+
+        Application.targetFrameRate = 60;
+        score = PlayerPrefs.GetInt("currentScore");
+        scoreCounter.text = score.ToString("D6");
+        isPaused = false;
+        changeScene.ChooseCursor("crosshairShooting");
     }
 
     private void Update()

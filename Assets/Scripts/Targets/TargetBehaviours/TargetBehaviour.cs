@@ -16,6 +16,7 @@ public class TargetBehaviour : MonoBehaviour
     [SerializeField] private AudioSource breakSource2;
     [SerializeField] private GameObject shards;
 
+    private SpawnTarget spawnTargetRef;
     private int life;
     private int i;
     private Animator shardAnimator;
@@ -24,20 +25,22 @@ public class TargetBehaviour : MonoBehaviour
     protected virtual void Start()
     {
         animatorRef = GetComponent<Animator>();
-        kontroler = GameObject.Find("GameController");
-        destroyQueue = GameObject.Find("DestroyQueue").transform;
-        gun = kontroler.GetComponent<GunScript>();
         shardAnimator = shards.GetComponent<Animator>();
     }
 
-    public void SetAnimation(targetAnimation animation)
+    public void InitializeTarget(SpawnTarget spawnTarget, targetAnimation animation)
     {
+        spawnTargetRef = spawnTarget;
+        gun = spawnTargetRef.gunScriptRef;
+        destroyQueue = spawnTargetRef.targetDestroyQueue;
+
         if (!AnimationDatabase.Animations.TryGetValue(animation, out animationSteps))
         {
             Debug.LogError($"Missing animation: {animation}");
             animationSteps = System.Array.Empty<animationStep>();
         }
 
+        speed = spawnTarget.currentLevelSpeed;
         life = animationSteps.Length + 1;
     }
 
