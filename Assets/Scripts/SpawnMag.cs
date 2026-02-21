@@ -10,13 +10,11 @@ public class SpawnMag : MonoBehaviour
     [SerializeField] private GameObject magazinePrefab;
 
     private GunScript gunScriptRef;
-    private Transform cylinder;
 
     private void Start()
     {
         // Zapisz i przekaz obrot tak, aby pociski znajdowaly sie w dobrym miejscu w cylindrze
-        cylinder = transform;
-        originalRotation = cylinder.localEulerAngles;
+        originalRotation = transform.localEulerAngles;
     }
 
     public void Initialize(GunScript gunScript)
@@ -28,8 +26,8 @@ public class SpawnMag : MonoBehaviour
     {
         // Stworz nowy magazynek z prefabu, a nastepnie doklej go do cylindra
         GameObject currentMagazine = Instantiate(magazinePrefab);
-        currentMagazine.transform.parent = cylinder;
-        currentMagazine.transform.SetPositionAndRotation(cylinder.position, cylinder.rotation);
+        currentMagazine.transform.parent = transform;
+        currentMagazine.transform.SetPositionAndRotation(transform.position, transform.rotation);
         currentMagazine.transform.localScale = new Vector3(1, 1, 1);
         return currentMagazine;
     }
