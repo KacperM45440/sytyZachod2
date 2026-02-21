@@ -1484,6 +1484,8 @@ MonoBehaviour:
   kontroler: {fileID: 0}
   destroyQueue: {fileID: 0}
   speed: 0
+  targetParent: {fileID: 0}
+  speedModifier: 1
   breakSource1: {fileID: 6788086243585264346}
   breakSource2: {fileID: 7312611776097060435}
   shards: {fileID: 1739610925304303642}

@@ -8,26 +8,36 @@ using System.Threading;
 
 public class SpawnTarget : MonoBehaviour
 {
+    public GunScript gunScriptRef;
+    public WinCheck winCheckerRef;
+    public Transform targetDestroyQueue;
+
+    [SerializeField] private Transform targetsContainer;
+    [SerializeField] private Animator popupAnimator;
+    [SerializeField] private Animator fadeAnimator;
+
+    [Header("Level Specific Variables")]
+    [SerializeField] private int currentLevel;
+
+    [Header("Target Prefabs")]
+    [SerializeField] private List<GameObject> targets = new();
+
+    // Prefab celu i animacje przypisywane sa w edytorze 
+    [HideInInspector] public int targetAmount;
+    [HideInInspector] public float currentLevelSpeed;
+
+    private AudioSource bellSourceRef;
     private GameObject newTarget;
     private LevelData chosenLevel;
     private Vector2 targetPosition;
     private int roundNumber;
     // Przejscie przez animacje rund zajmuje (okolo) siedem sekund, wiec tyle czeka program
     private int roundCooldown;
-    // Prefab celu i animacje przypisywane sa w edytorze 
-    [HideInInspector] public int targetAmount;
-    public List<GameObject> targets = new();
-    public WinCheck winChecker;
-    public Transform targetsContainer;
-    public Animator popupAnimator;
-    public Animator fadeAnimator;
-    public int currentLevel;
-    public bool canPunch;
-
-    public AudioSource bellSource;
 
     void Start()
     {
+        bellSourceRef = GetComponent<AudioSource>();
+
         InitialiseLevel();
     }
 
@@ -45,7 +55,7 @@ public class SpawnTarget : MonoBehaviour
             roundCooldown = 3;
             fadeAnimator.SetTrigger("fade_in");
             popupAnimator.SetTrigger("round2");
-            bellSource.PlayDelayed(0.25f);
+            bellSourceRef.PlayDelayed(0.25f);
             StartCoroutine(FadeOut());
         }
     }
@@ -56,14 +66,17 @@ public class SpawnTarget : MonoBehaviour
 
         // Za³aduj dane celów z poziomu, nadaj odpowiednia im predkosc a nastepnie rozpocznij proces tworzenia celów w grze
         chosenLevel = new();
-        float defaultSpeed = chosenLevel.levelSpeed;
-        foreach (GameObject t in targets)
+        if (roundNumber == 0)
         {
-            t.GetComponentInChildren<TargetBehaviour>().speed = (defaultSpeed + (defaultSpeed * roundNumber));
+            currentLevelSpeed = chosenLevel.levelSpeed;
+        }
+        else
+        {
+            currentLevelSpeed = chosenLevel.levelSpeedBoosted;
         }
         ChooseLevel();
         targetAmount = chosenLevel.finishedTable.Count;
-        winChecker.SetMaxScore();
+        winCheckerRef.SetMaxScore();
         StartCoroutine(TargetSpawnerCoroutine());
     }
 
@@ -78,16 +91,16 @@ public class SpawnTarget : MonoBehaviour
                 chosenLevel.Level1();
                 break;
             case 2:
-                //chosenLevel.Level2();
+                chosenLevel.Level2();
                 break;
             case 3:
-                //chosenLevel.Level3();
+                chosenLevel.Level3();
                 break;
             case 4:
-                //chosenLevel.Level3();
+                chosenLevel.Level4();
                 break;
             case 5:
-                //chosenLevel.Level3();
+                chosenLevel.Level5();
                 break;
             default:
                 chosenLevel.Level0();
@@ -106,7 +119,7 @@ public class SpawnTarget : MonoBehaviour
             newTarget.transform.position = new Vector3(newTarget.transform.position.x, newTarget.transform.position.y, 100);
             newTarget.transform.parent = targetsContainer;
             TargetBehaviour targetScript = newTarget.GetComponentInChildren<TargetBehaviour>();
-            targetScript.SetAnimation(chosenLevel.finishedTable[i].animation);
+            targetScript.InitializeTarget(this, chosenLevel.finishedTable[i].animation);
             targetScript.targetParent = targetsContainer;
 
             // Dodanie przerwy pomiedzy tworzeniem celow umozliwia sekwencyjnie ulozyc poziomy
@@ -131,7 +144,7 @@ public class SpawnTarget : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         popupAnimator.SetTrigger("round1");
-        bellSource.PlayDelayed(0.75f);
+        bellSourceRef.PlayDelayed(0.75f);
         StartCoroutine(FadeOut());
     }
     IEnumerator FadeOut()
@@ -143,11 +156,3 @@ public class SpawnTarget : MonoBehaviour
         }
     }
 }
-
-/*
-[System.Serializable]
-public class CombinedAnimationsContainer : List<animationStep>
-{
-    public List<animationStep> animationStepList = new();
-}
-*/

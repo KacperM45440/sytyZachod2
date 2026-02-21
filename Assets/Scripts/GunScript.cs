@@ -8,35 +8,34 @@ using System;
 public class GunScript : MonoBehaviour
 {
     [HideInInspector] public Animator animatorRef;
+    [HideInInspector] public bool readyToFire;
+
+    [SerializeField] private GameObject cylinder;
+    [SerializeField] private Sprite firedBullet;
+    [SerializeField] private Transform destroyQueue;
+    [SerializeField] private AudioSource shotSource;
+    [SerializeField] private AudioSource reloadSource;
+    [SerializeField] private SpawnMag spawnMagRef;
+    [SerializeField] private int maxAmmo = 6;
+
     private GameObject currentBullet;
     private GameObject currentMagazine;
     private Transform cylinderBody;
     private SpriteRenderer spriteRef;
-    private bool isReloading;
-    public GameObject cylinder;
-    public GameObject magazinePrefab;
-    public Sprite firedBullet;
-    public Transform destroyQueue;
     private Vector3 cameraPos;
-    public bool readyToFire;
-    int currentAmmo;
-    int maxAmmo = 6;
-    float reloadTime = 1.25f;
-
-    public AudioSource shotSource;
-    public AudioSource reloadSource;
+    private bool isReloading;
+    private int currentAmmo;
 
     void Start()
     {
-        currentMagazine = GameObject.Find("Magazine(Clone)");
-        currentAmmo = maxAmmo;
-        readyToFire = true;
-    }
-
-    private void Awake()
-    {
         cylinderBody = cylinder.transform.GetChild(0);
         animatorRef = cylinderBody.GetComponent<Animator>();
+
+        spawnMagRef.Initialize(this);
+        currentMagazine = spawnMagRef.NewMagazine();
+
+        currentAmmo = maxAmmo;
+        readyToFire = true;
     }
 
     void Update()
@@ -113,18 +112,18 @@ public class GunScript : MonoBehaviour
     IEnumerator TimeOut()
     {
         // Zaczekaj na przeladowanie, nastepnie dodaj pociski na koncu przeladowania.       
-        // Obecnie timeout czeka okreslona recznie ilosc sekund, natomiast lepiej byloby zamienic ponizsza linijke jakims sygnalem, ze animacja zostala zakonczona.
         // Ponowna inicjalizacja magazynka; przeladowanie graficzne ma charakter wklejenie prefabu na nowo, wiec nie moze zostac odwolan do starych obiektow
         Destroy(currentMagazine);
         yield return new WaitUntil(() => currentMagazine.Equals(null));
 
-        cylinderBody.localEulerAngles = SpawnMag.Instance.originalRotation;
+        cylinderBody.localEulerAngles = spawnMagRef.originalRotation;
         animatorRef.SetTrigger("Full Rotate");
         reloadSource.Play();
+    }
 
-        yield return new WaitForSeconds(reloadTime);
-        SpawnMag.Instance.NewMagazine();
-        currentMagazine = GameObject.Find("Magazine(Clone)");
+    public void FinishReload()
+    {
+        currentMagazine = spawnMagRef.NewMagazine();
         isReloading = false;
         readyToFire = true;
     }
