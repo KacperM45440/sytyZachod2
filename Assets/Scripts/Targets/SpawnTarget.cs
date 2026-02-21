@@ -12,7 +12,6 @@ public class SpawnTarget : MonoBehaviour
     private LevelData chosenLevel;
     private Vector2 targetPosition;
     private int roundNumber;
-    private int currentLevel;
     // Przejscie przez animacje rund zajmuje (okolo) siedem sekund, wiec tyle czeka program
     private int roundCooldown;
     // Prefab celu i animacje przypisywane sa w edytorze 
@@ -22,6 +21,7 @@ public class SpawnTarget : MonoBehaviour
     public Transform targetsContainer;
     public Animator popupAnimator;
     public Animator fadeAnimator;
+    public int currentLevel;
     public bool canPunch;
 
     public AudioSource bellSource;
@@ -69,10 +69,11 @@ public class SpawnTarget : MonoBehaviour
 
     public void ChooseLevel()
     {
-        // Wybierz uklad celow zaleznie od tego na ktorym obecnie znajdujemy sie poziomie
-        currentLevel = SceneManager.GetActiveScene().buildIndex;
         switch (currentLevel)
         {
+            case 0:
+                chosenLevel.Level0();
+                break;
             case 1:
                 chosenLevel.Level1();
                 break;
@@ -89,6 +90,7 @@ public class SpawnTarget : MonoBehaviour
                 //chosenLevel.Level3();
                 break;
             default:
+                chosenLevel.Level0();
                 break;
         }
     }
