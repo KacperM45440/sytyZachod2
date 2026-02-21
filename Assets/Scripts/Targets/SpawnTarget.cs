@@ -116,7 +116,7 @@ public class SpawnTarget : MonoBehaviour
             // Stworz cel: numer prefabu (animacji), pozycja, obrot
             targetPosition = chosenLevel.finishedTable[i].spawnLocation;
             newTarget = Instantiate(targets[(int)chosenLevel.finishedTable[i].targetType], targetPosition, Quaternion.identity, targetsContainer);
-            newTarget.transform.position = new Vector3(newTarget.transform.position.x, newTarget.transform.position.y, 100);
+            newTarget.transform.position = new Vector3(newTarget.transform.position.x, newTarget.transform.position.y, 0);
             TargetBehaviour targetScript = newTarget.GetComponentInChildren<TargetBehaviour>();
             targetScript.InitializeTarget(this, chosenLevel.finishedTable[i].animation);
             targetScript.targetParent = targetsContainer;
@@ -126,7 +126,12 @@ public class SpawnTarget : MonoBehaviour
         }
         // Runda konczy sie kiedy wszystkie cele sie pojawia oraz wszystkie znikna
         yield return new WaitUntil(() => targetsContainer.childCount.Equals(1));
-        
+
+        EndRound();
+    }
+
+    private void EndRound()
+    {
         roundNumber++;
         if (roundNumber < 2)
         {
