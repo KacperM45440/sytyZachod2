@@ -115,9 +115,8 @@ public class SpawnTarget : MonoBehaviour
             // Pozycja celu okreslana jest recznie poprzez wpis do tabeli znajdujacej sie w klasie LevelData.cs
             // Stworz cel: numer prefabu (animacji), pozycja, obrot
             targetPosition = chosenLevel.finishedTable[i].spawnLocation;
-            newTarget = Instantiate(targets[(int)chosenLevel.finishedTable[i].targetType], targetPosition, Quaternion.identity);
+            newTarget = Instantiate(targets[(int)chosenLevel.finishedTable[i].targetType], targetPosition, Quaternion.identity, targetsContainer);
             newTarget.transform.position = new Vector3(newTarget.transform.position.x, newTarget.transform.position.y, 100);
-            newTarget.transform.parent = targetsContainer;
             TargetBehaviour targetScript = newTarget.GetComponentInChildren<TargetBehaviour>();
             targetScript.InitializeTarget(this, chosenLevel.finishedTable[i].animation);
             targetScript.targetParent = targetsContainer;
