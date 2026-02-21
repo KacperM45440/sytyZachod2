@@ -13,7 +13,7 @@ public class TargetFastBehaviour : TargetBehaviour
         particlesRef = GetComponentInChildren<ParticleSystem>();
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         particlesRef.transform.parent = targetParent;
         particlesRef.Stop();

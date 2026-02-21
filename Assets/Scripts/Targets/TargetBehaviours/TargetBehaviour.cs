@@ -81,7 +81,7 @@ public class TargetBehaviour : MonoBehaviour
     {
         animatorRef.SetTrigger("Disappear");
         float animationLength = animatorRef.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSecondsRealtime(animationLength/5);
+        yield return new WaitForSecondsRealtime(animationLength/4);
         Destroy(transform.parent.gameObject);
     }
 
@@ -99,7 +99,7 @@ public class TargetBehaviour : MonoBehaviour
             collider.enabled = false;
         }
 
-        yield return new WaitForSecondsRealtime(0);
+        yield return null;
         Destroy(transform.parent.gameObject);
     }
 

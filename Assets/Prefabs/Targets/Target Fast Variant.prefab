@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 379400749276507723}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -80,7 +80,7 @@ ParticleSystemRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -121,7 +121,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379400749276507723}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 2
   cullingMode: 0
@@ -129,7 +129,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -4980,16 +4980,62 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.3764706
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4074013164484770167, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2989138070082970419, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 499190266993132321}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1880026639097836484, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8108246585682831212}
   m_SourcePrefab: {fileID: 100100000, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+--- !u!82 &537415686969652328 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7082840169996605721, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 7295274098078231921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &4340051033344145633 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6414515963299157392, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 7295274098078231921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5495948587821682242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2989138070082970419, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
   m_PrefabInstance: {fileID: 7295274098078231921}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8802993529840214561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2239563186665656144, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 7295274098078231921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9162915834878566069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1880026639097836484, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 7295274098078231921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8108246585682831212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162915834878566069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019ba4299d486d447b2af6aca4789315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetFastBehaviour
+  animatorRef: {fileID: 0}
+  gun: {fileID: 0}
+  kontroler: {fileID: 0}
+  destroyQueue: {fileID: 0}
+  speed: 0
+  targetParent: {fileID: 0}
+  speedModifier: 1.5
+  breakSource1: {fileID: 4340051033344145633}
+  breakSource2: {fileID: 537415686969652328}
+  shards: {fileID: 8802993529840214561}
