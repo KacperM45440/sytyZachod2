@@ -4,33 +4,29 @@ using UnityEngine.UI;
 
 public class BackgroundScript : MonoBehaviour
 {
-    private GunScript gun;
-    public Animator enemyAnimator;
-    public GameObject gunController;
-    private SpriteRenderer rendererRef;
-    public WinCheck winCheckRef;
-    public Slider finisherBar;
-    public Sprite enemyDeadSprite;
-    public Sprite enemyPunched1;
-    public Sprite enemyPunched2;
-    public Sprite enemyPunched3;
-    public AudioSource enemyDeathSound;
-    public AudioSource punchSource1;
-    public AudioSource punchSource2;
-    public AudioSource punchSource3;
-    
+    [HideInInspector] public bool canPunch;
 
-    public bool dominated;
-    public bool canPunch;
-    int i;
-    int j;
-    int n;
-    int previousAnim;
+    [SerializeField] private GunScript gunControllerRef;
+    [SerializeField] private Animator enemyAnimator;
+    [SerializeField] private WinCheck winCheckRef;
+    [SerializeField] private Slider finisherBar;
+    [SerializeField] private Sprite enemyDeadSprite;
+    [SerializeField] private Sprite enemyPunched1;
+    [SerializeField] private Sprite enemyPunched2;
+    [SerializeField] private Sprite enemyPunched3;
+    [SerializeField] private AudioSource enemyDeathSound;
+    [SerializeField] private AudioSource punchSource1;
+    [SerializeField] private AudioSource punchSource2;
+    [SerializeField] private AudioSource punchSource3;
+
+    private SpriteRenderer rendererRef;
+
+    private bool dominated;
+    private int previousAnim;
 
     void Start()
     {
         rendererRef = winCheckRef.enemySprite;
-        gun = gunController.GetComponent<GunScript>();
         dominated = false;
     }
 
@@ -39,7 +35,7 @@ public class BackgroundScript : MonoBehaviour
         // Jako ze mozna nie trafic celu, klikniecie w tlo powoduje wystrzelenie (i zmarnowanie) pocisku
         if (!dominated)
         {
-            gun.ShotFired();
+            gunControllerRef.ShotFired();
             winCheckRef.Missed();
         }
         else
@@ -59,49 +55,34 @@ public class BackgroundScript : MonoBehaviour
         winCheckRef.DominationPunch();
         enemyAnimator.SetTrigger("hurt");
 
-        while (i.Equals(previousAnim))
+        int i;
+        do
         {
             i = Random.Range(1, 4);
         }
-        j = Random.Range(1, 3);
-        n = Random.Range(1, 3); 
+        while (i.Equals(previousAnim));
 
         if (i.Equals(1))
         {
             rendererRef.sprite = enemyPunched1;
             punchSource1.Play();
-            previousAnim = i;
         }
         else if (i.Equals(2))
         {
             rendererRef.sprite = enemyPunched2;
             punchSource2.Play();
-            previousAnim = i;
         }
         else
         {
             rendererRef.sprite = enemyPunched3;
             punchSource3.Play();
-            previousAnim = i;
         }
+        previousAnim = i;
 
-        if (j.Equals(1))
-        {
-            rendererRef.flipX = true;
-        }
-        else
-        {
-            rendererRef.flipX = false;
-        }
+        rendererRef.flipX = Random.Range(0, 2) == 0;
 
-        if (n.Equals(1))
-        {
-            enemyAnimator.SetTrigger("recoil1");
-        }
-        else
-        {
-            enemyAnimator.SetTrigger("recoil2");
-        }
+        int j = Random.Range(1, 3);
+        enemyAnimator.SetTrigger("recoil"+ j);
     }
     public void PunchOut()
     {

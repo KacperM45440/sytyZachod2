@@ -1980,20 +1980,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d26c425d972cc4ea2691801028f348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAnimator: {fileID: 0}
-  gunController: {fileID: 1072985835}
+  canPunch: 0
+  gunControllerRef: {fileID: 1072985839}
+  enemyAnimator: {fileID: 79322295}
   winCheckRef: {fileID: 1072985837}
   finisherBar: {fileID: 529215116}
   enemyDeadSprite: {fileID: 21300000, guid: 1fa43fb2e838eeb4fa7a7afad5aaab53, type: 3}
   enemyPunched1: {fileID: 21300000, guid: b481d89539830d444a973045fd500bce, type: 3}
   enemyPunched2: {fileID: 21300000, guid: 72b7d56a1c90b5740a18c38fe1797a7f, type: 3}
   enemyPunched3: {fileID: 21300000, guid: 38acdd8676a2c6d48b85f988b8ac7f01, type: 3}
-  enemyDeathSound: {fileID: 0}
+  enemyDeathSound: {fileID: 79322294}
   punchSource1: {fileID: 606154042}
   punchSource2: {fileID: 606154041}
   punchSource3: {fileID: 606154040}
-  dominated: 0
-  canPunch: 0
 --- !u!61 &606154039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2930,17 +2929,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071519653}
   m_CullTransparentMesh: 1
---- !u!1 &1072985835 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6787955798579878161, guid: c0e0fa7c59011ca41a3b8f9b6b1dcd47, type: 3}
-  m_PrefabInstance: {fileID: 7231223454233760857}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1072985837 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 354738206347983257, guid: c0e0fa7c59011ca41a3b8f9b6b1dcd47, type: 3}
   m_PrefabInstance: {fileID: 7231223454233760857}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072985835}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e4ba90be47475d41b143dd837b8e31c, type: 3}
@@ -2956,7 +2950,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 388522704334324925, guid: c0e0fa7c59011ca41a3b8f9b6b1dcd47, type: 3}
   m_PrefabInstance: {fileID: 7231223454233760857}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072985835}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7202ef264fc6bc7418c24d04217a1846, type: 3}
@@ -3047,7 +3041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
