@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEditor;
 using System;
+using UnityEngine.UI;
 
 public class GunScript : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class GunScript : MonoBehaviour
     private GameObject currentBullet;
     private GameObject currentMagazine;
     private Transform cylinderBody;
-    private SpriteRenderer spriteRef;
+    private Image spriteRef;
     private Vector3 cameraPos;
     private bool isReloading;
     private int currentAmmo;
@@ -82,11 +83,11 @@ public class GunScript : MonoBehaviour
         // Zmieniana im jest rowniez waga, kierunek odrzutu oraz obrazek w celu uatrakcyjnienia procesu przeladowania.
         currentBullet = currentMagazine.GetComponent<Transform>().GetChild(0).gameObject;
         currentBullet.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        currentBullet.transform.parent = destroyQueue;
+        currentBullet.transform.SetParent(destroyQueue);
         currentBullet.transform.position += new Vector3(0, 0, -1);
 
         currentBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(UnityEngine.Random.Range(-100, 100), 0));
-        spriteRef = currentBullet.GetComponent<SpriteRenderer>();
+        spriteRef = currentBullet.GetComponent<Image>();
         spriteRef.sprite = firedBullet;
     }
     public void ReloadGun()

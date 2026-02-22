@@ -28,9 +28,13 @@ public class SpawnMag : MonoBehaviour
         // Stworz nowy magazynek z prefabu, a nastepnie doklej go do cylindra
         GameObject currentMagazine = Instantiate(magazinePrefab);
         currentMagazine.transform.SetPositionAndRotation(transform.position, transform.rotation);
-        currentMagazine.transform.parent = magazineParent;
-        //transform.position += new Vector3(0, 0, -0.1f);
-        currentMagazine.transform.localScale = new Vector3(100, 100, 1);
+        currentMagazine.transform.SetParent(magazineParent);
+        currentMagazine.transform.localScale = Vector3.one;
+        currentMagazine.transform.localPosition = new Vector3(
+            currentMagazine.transform.localPosition.x,
+            currentMagazine.transform.localPosition.y,
+            0
+            );
         return currentMagazine;
     }
 
