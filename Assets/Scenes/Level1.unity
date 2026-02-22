@@ -3756,6 +3756,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5430492425887138594, guid: 7e871881924bf3d4d9ee34fc3561bfdb, type: 3}
     - target: {fileID: 8849699618396106552, guid: e4ab29fee97fa5841999dccdaab56d49, type: 3}
+      propertyPath: magazineParent
+      value: 
+      objectReference: {fileID: 1462998799}
+    - target: {fileID: 8849699618396106552, guid: e4ab29fee97fa5841999dccdaab56d49, type: 3}
       propertyPath: magazinePrefab
       value: 
       objectReference: {fileID: 5430492425887138594, guid: 7e871881924bf3d4d9ee34fc3561bfdb, type: 3}
@@ -4460,6 +4464,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b039c25f09c07f419a20a38cb2848ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1462998799 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6323078500308845119, guid: e4ab29fee97fa5841999dccdaab56d49, type: 3}
+  m_PrefabInstance: {fileID: 1248995155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1478724747
 GameObject:
   m_ObjectHideFlags: 0

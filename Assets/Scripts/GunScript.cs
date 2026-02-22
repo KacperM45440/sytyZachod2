@@ -83,6 +83,7 @@ public class GunScript : MonoBehaviour
         currentBullet = currentMagazine.GetComponent<Transform>().GetChild(0).gameObject;
         currentBullet.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         currentBullet.transform.parent = destroyQueue;
+        currentBullet.transform.position += new Vector3(0, 0, -1);
 
         currentBullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(UnityEngine.Random.Range(-100, 100), 0));
         spriteRef = currentBullet.GetComponent<SpriteRenderer>();

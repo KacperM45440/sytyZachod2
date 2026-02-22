@@ -5,9 +5,10 @@ using TMPro;
 
 public class SpawnMag : MonoBehaviour
 {
-    public Vector3 originalRotation;
+    [HideInInspector] public Vector3 originalRotation;
 
     [SerializeField] private GameObject magazinePrefab;
+    [SerializeField] private Transform magazineParent;
 
     private GunScript gunScriptRef;
 
@@ -26,9 +27,10 @@ public class SpawnMag : MonoBehaviour
     {
         // Stworz nowy magazynek z prefabu, a nastepnie doklej go do cylindra
         GameObject currentMagazine = Instantiate(magazinePrefab);
-        currentMagazine.transform.parent = transform;
         currentMagazine.transform.SetPositionAndRotation(transform.position, transform.rotation);
-        currentMagazine.transform.localScale = new Vector3(1, 1, 1);
+        currentMagazine.transform.parent = magazineParent;
+        //transform.position += new Vector3(0, 0, -0.1f);
+        currentMagazine.transform.localScale = new Vector3(100, 100, 1);
         return currentMagazine;
     }
 
