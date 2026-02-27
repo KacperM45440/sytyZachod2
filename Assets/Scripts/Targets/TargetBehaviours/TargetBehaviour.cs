@@ -8,7 +8,7 @@ public class TargetBehaviour : MonoBehaviour
     [HideInInspector] public GunScript gun;
     [HideInInspector] public GameObject kontroler;
     [HideInInspector] public Transform destroyQueue;
-    [HideInInspector] public float speed;
+    [HideInInspector] public float speed = 1;
     [HideInInspector] public Transform targetParent;
 
     [SerializeField] private float speedModifier = 1f;
@@ -44,7 +44,7 @@ public class TargetBehaviour : MonoBehaviour
         life = animationSteps.Length + 1;
     }
 
-    public void FinishedMovement()
+    public virtual void FinishedMovement()
     {
         // W tym miejscu cel skoñczy³ siê pojawiaæ, wiêc zmienia prêdkoœæ na docelow¹ - zale¿n¹ od poziomu trudnoœci
         animatorRef.speed = speed * speedModifier;
@@ -77,7 +77,7 @@ public class TargetBehaviour : MonoBehaviour
 
 
     // Tutaj wlaczana jest animacja znikniecia i zniszczenia (wygasniecia) celu. Funkcja odpowiadzialna za zestrzelenie jest wyzej
-    IEnumerator Disappear()
+    protected virtual IEnumerator Disappear()
     {
         animatorRef.SetTrigger("Disappear");
         float animationLength = animatorRef.GetCurrentAnimatorStateInfo(0).length;
@@ -88,7 +88,7 @@ public class TargetBehaviour : MonoBehaviour
     // Cel zosta³ klikniêty, wiêc gra animacjê "zniszczenia" oraz wydaje z siebie dzwiek.
     // Po celu zostaja roztrzaskane fragmenty, ktore zmniejszaja sie a nastepnie znikaja.
     // Maja one podobna logike do luskach po pociskach, patrz: GunScript::80
-    IEnumerator DestroyMe()
+    protected virtual IEnumerator DestroyMe()
     {
         PlayShardsAnimation(shards, shardAnimator);
 

@@ -12,6 +12,7 @@ public class SpawnTarget : MonoBehaviour
     public WinCheck winCheckerRef;
     public Transform targetDestroyQueue;
 
+    [SerializeField] private DialogueController dialogueControllerRef;
     [SerializeField] private Transform targetsContainer;
     [SerializeField] private Animator popupAnimator;
     [SerializeField] private Animator fadeAnimator;
@@ -32,7 +33,7 @@ public class SpawnTarget : MonoBehaviour
     private Vector2 targetPosition;
     private int roundNumber;
     // Przejscie przez animacje rund zajmuje (okolo) siedem sekund, wiec tyle czeka program
-    private int roundCooldown;
+    private int roundPopupCooldown = 3;
 
     void Start()
     {
@@ -41,29 +42,8 @@ public class SpawnTarget : MonoBehaviour
         InitialiseLevel();
     }
 
-    private void RoundPopup()
-    {
-        // Wyswietl plansze obecnego przeciwnika, nastepnie wywolaj animacje przebiegu rundy
-        if (roundNumber.Equals(0))
-        {
-            roundCooldown = 7;
-            popupAnimator.SetTrigger("versus");
-            StartCoroutine(Round1());
-        }
-        else
-        {
-            roundCooldown = 3;
-            fadeAnimator.SetTrigger("fade_in");
-            popupAnimator.SetTrigger("round2");
-            bellSourceRef.PlayDelayed(0.25f);
-            StartCoroutine(FadeOut());
-        }
-    }
     public void InitialiseLevel()
     {
-        // Animacja rundy
-        RoundPopup();
-
         // Za³aduj dane celów z poziomu, nadaj odpowiednia im predkosc a nastepnie rozpocznij proces tworzenia celów w grze
         chosenLevel = new();
         if (roundNumber == 0)
@@ -77,10 +57,22 @@ public class SpawnTarget : MonoBehaviour
         ChooseLevel();
         targetAmount = chosenLevel.finishedTable.Count;
         winCheckerRef.SetMaxScore();
-        StartCoroutine(TargetSpawnerCoroutine());
+
+        // Animacja rundy
+        StartCoroutine(ShowVersusScreen());
+        //StartCoroutine(TargetSpawnerCoroutine());
     }
 
-    public void ChooseLevel()
+    private IEnumerator ShowVersusScreen()
+    {
+        popupAnimator.SetTrigger("versus");
+        yield return new WaitForSeconds(2);
+        StartCoroutine(FadeOut());
+        yield return new WaitForSeconds(2);
+        PlayDialogue();
+    }
+
+    private void ChooseLevel()
     {
         switch (currentLevel)
         {
@@ -107,9 +99,68 @@ public class SpawnTarget : MonoBehaviour
                 break;
         }
     }
-    IEnumerator TargetSpawnerCoroutine()
+
+    private void PlayDialogue()
     {
-        yield return new WaitForSeconds(roundCooldown);
+        string playerPrefKey = "dialoguePlayed" + roundNumber;
+        if(PlayerPrefs.GetInt(playerPrefKey, 0) == 1)
+        {
+            StartRound();
+            return;
+        }
+        PlayerPrefs.SetInt(playerPrefKey, 1);
+        PlayerPrefs.Save();
+        switch (roundNumber)
+        {
+            case 0:
+                dialogueControllerRef.DisplayDialogue(chosenLevel.dialogueIntro);
+                break;
+            case 1:
+                dialogueControllerRef.DisplayDialogue(chosenLevel.dialogueMiddle);
+                break;
+            case 2:
+                if (winCheckerRef.PlayerHasEnoughPoints())
+                {
+                    dialogueControllerRef.DisplayDialogue(chosenLevel.dialogueOutro);
+                }
+                else
+                {
+                    StartRound();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void StartRound() //Odpalane z Dialogue controllera
+    {
+        switch (roundNumber)
+        {
+            case 0:
+                fadeAnimator.SetTrigger("fade_in");
+                popupAnimator.SetTrigger("round1");
+                bellSourceRef.PlayDelayed(0.75f);
+                StartCoroutine(TargetSpawnerCoroutine());
+                break;
+            case 1:
+                fadeAnimator.SetTrigger("fade_in");
+                popupAnimator.SetTrigger("round2");
+                bellSourceRef.PlayDelayed(0.25f);
+                StartCoroutine(TargetSpawnerCoroutine());
+                break;
+            case 2:
+                WinCheck.Instance.Checker();
+                break;
+            default:
+                break;
+        }
+        StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator TargetSpawnerCoroutine()
+    {
+        yield return new WaitForSeconds(roundPopupCooldown);
         for (int i = 0; i < targetAmount; i++)
         {
             // Pozycja celu okreslana jest recznie poprzez wpis do tabeli znajdujacej sie w klasie LevelData.cs
@@ -125,33 +176,13 @@ public class SpawnTarget : MonoBehaviour
             yield return new WaitForSeconds(chosenLevel.finishedTable[i].delay);
         }
         // Runda konczy sie kiedy wszystkie cele sie pojawia oraz wszystkie znikna
-        yield return new WaitUntil(() => targetsContainer.childCount.Equals(1));
+        yield return new WaitUntil(() => targetsContainer.childCount.Equals(2));
 
-        EndRound();
-    }
-
-    private void EndRound()
-    {
         roundNumber++;
-        if (roundNumber < 2)
-        {
-            // Pod koniec rundy 1 zaczyna runde druga, pod koniec rundy drugiej sprawdza czy gracz wygral
-            InitialiseLevel();
-        }
-        else
-        {
-            WinCheck.Instance.Checker();
-        }
+        PlayDialogue();
     }
 
-    IEnumerator Round1()
-    {
-        yield return new WaitForSeconds(4);
-        popupAnimator.SetTrigger("round1");
-        bellSourceRef.PlayDelayed(0.75f);
-        StartCoroutine(FadeOut());
-    }
-    IEnumerator FadeOut()
+    private IEnumerator FadeOut()
     {
         yield return new WaitForSeconds(2);
         if (!fadeAnimator.GetCurrentAnimatorStateInfo(0).IsName("fade_out"))

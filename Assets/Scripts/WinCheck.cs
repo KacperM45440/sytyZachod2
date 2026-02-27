@@ -163,6 +163,15 @@ public class WinCheck : MonoBehaviour
             popupAnimatorRef.SetTrigger("defeat");
         }
     }
+
+    public bool PlayerHasEnoughPoints()
+    {
+        if (targetCounter >= maxScore * 0.6f)
+        {
+            return true;
+        }
+        return false;
+    }
     
     IEnumerator FinishLevelAndReturnToMenu()
     {

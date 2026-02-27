@@ -51,6 +51,19 @@ public class MainMenu : MonoBehaviour
 
         decibels = 30f * Mathf.Log10(PlayerPrefs.GetFloat("sfxValue") / 10f);
         soundFXMixer.SetFloat("SoundFXVolume", decibels);
+
+        LevelClearDialogue();
+    }
+
+    private void LevelClearDialogue()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            string playerPrefKey = "dialoguePlayed" + i;
+            PlayerPrefs.SetInt(playerPrefKey, 0);
+        }
+        PlayerPrefs.Save();
+
     }
 
     // Wyjdz z gry, zamknij aplikacje

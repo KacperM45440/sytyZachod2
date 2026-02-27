@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4650441198094038949
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8210039709605267988, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Name
+      value: Target Dialogue Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4074013164484770167, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1880026639097836484, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4599592516817519750}
+  m_SourcePrefab: {fileID: 100100000, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+--- !u!82 &1841233277461488181 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6414515963299157392, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 4650441198094038949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2504813084741168828 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7082840169996605721, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 4650441198094038949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6529830117052384353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1880026639097836484, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 4650441198094038949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4599592516817519750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6529830117052384353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed929ea5ed15ab048add1e77f9a19507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetDialogueButtonBehaviour
+  animatorRef: {fileID: 0}
+  gun: {fileID: 0}
+  kontroler: {fileID: 0}
+  destroyQueue: {fileID: 0}
+  speed: 1
+  targetParent: {fileID: 0}
+  speedModifier: 1
+  breakSource1: {fileID: 1841233277461488181}
+  breakSource2: {fileID: 2504813084741168828}
+  shards: {fileID: 6889708613942851829}
+--- !u!1 &6889708613942851829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2239563186665656144, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 4650441198094038949}
+  m_PrefabAsset: {fileID: 0}

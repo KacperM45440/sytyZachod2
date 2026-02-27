@@ -23,6 +23,9 @@ public enum targetType : int
 public class LevelData
 {
     public List<TargetData> finishedTable;
+    public List<string> dialogueIntro = new();
+    public List<string> dialogueMiddle = new();
+    public List<string> dialogueOutro = new();
 
     public float levelSpeed = 1f;
     public float levelSpeedBoosted = 2f;
@@ -40,14 +43,20 @@ public class LevelData
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(0f, 0.5f), delay = 0.5f });
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblRight, spawnLocation = new Vector2(3f, 3f), delay = 1.5f });
 
-
         finishedTable = table;
+
+        dialogueIntro.Add("Welcome to the shooting range! Let's start with some basic targets to warm up your aim.");
+        dialogueIntro.Add("These targets will move in simple patterns, giving you a chance to get used to the controls and timing.");
+
+        dialogueMiddle.Add("Great job on the first round! Now, let's step it up a bit with some faster targets and more complex movements.");
+
+        dialogueOutro.Add("Congratulations on completing the shooting range! You've shown great skill and precision. Keep practicing to maintain your sharp aim!");
     }
 
     public void Level1()
     {
         levelSpeed = 1f;
-        levelSpeedBoosted = 1.5f;
+        levelSpeedBoosted = 1.8f;
         List<TargetData> table = new();
 
         table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.dblRight, spawnLocation = new Vector2(-3f, -2f), delay = 0.5f });
@@ -60,8 +69,14 @@ public class LevelData
         table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.dblLeft, spawnLocation = new Vector2(0f, 0.5f), delay = 0.5f });
         table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.dblRight, spawnLocation = new Vector2(3f, 3f), delay = 1.5f });
 
-
         finishedTable = table;
+
+        dialogueIntro.Add("Welcome to the shooting range! Let's start with some basic targets to warm up your aim.");
+        dialogueIntro.Add("These targets will move in simple patterns, giving you a chance to get used to the controls and timing.");
+
+        dialogueMiddle.Add("Great job on the first round! Now, let's step it up a bit with some faster targets and more complex movements.");
+
+        dialogueOutro.Add("Congratulations on completing the shooting range! You've shown great skill and precision. Keep practicing to maintain your sharp aim!");
     }
 
     public void Level2()
