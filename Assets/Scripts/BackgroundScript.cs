@@ -94,18 +94,24 @@ public class BackgroundScript : MonoBehaviour
     }
     public void KillEnemy()
     {
+        StartCoroutine(PlayDeathAnimationDelayed());
+    }
+
+    private IEnumerator PlayDeathAnimationDelayed()
+    {
+        yield return new WaitForSeconds(1);
         // Zagraj animacje zabicia przeciwnika
         enemyAnimator.SetTrigger("dead");
         enemyDeathSound.Play();
         rendererRef.sprite = enemyDeadSprite;
     }
-    IEnumerator Timer()
+    private IEnumerator Timer()
     {
         // Odmierz 5 sekund etapu bonusowego, po tym czasie zablokuj mozliwosc bicia
         yield return new WaitForSeconds(5);
         canPunch = false;
     }
-    IEnumerator DrainBar()
+    private IEnumerator DrainBar()
     {
         // Zaktualizuj wizualnie stan poziomu bonusowego na pasku
         for (int i=0; i<5; i++)

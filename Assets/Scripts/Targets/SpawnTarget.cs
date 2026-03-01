@@ -102,6 +102,7 @@ public class SpawnTarget : MonoBehaviour
 
     private void PlayDialogue()
     {
+        //ZMIEÑ TO TAK, ABY ANIMACJE I TAK ZAGRA£Y, NAWET JAK POSTACIE NIC NIE MÓWI¥ (ABY PRZYNAJMNIEJ NA START POSTACIE SIÊ PRZESUNÊ£Y)
         string playerPrefKey = "dialoguePlayed" + roundNumber;
         if(PlayerPrefs.GetInt(playerPrefKey, 0) == 1)
         {
