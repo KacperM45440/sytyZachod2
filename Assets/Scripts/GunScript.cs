@@ -129,4 +129,9 @@ public class GunScript : MonoBehaviour
         isReloading = false;
         readyToFire = true;
     }
+
+    public bool isGunFull()
+    {
+        return currentAmmo.Equals(maxAmmo);
+    }
 }

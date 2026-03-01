@@ -188,7 +188,7 @@ public class WinCheck : MonoBehaviour
         PlayerPrefs.SetInt("completed_level" + currentLevel, 1);
 
         PlayerPrefs.Save();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         changeScene.MainMenu();
     }
 

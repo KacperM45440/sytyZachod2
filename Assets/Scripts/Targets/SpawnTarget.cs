@@ -48,15 +48,8 @@ public class SpawnTarget : MonoBehaviour
     {
         // Za³aduj dane celów z poziomu, nadaj odpowiednia im predkosc a nastepnie rozpocznij proces tworzenia celów w grze
         chosenLevel = new();
-        if (roundNumber == 0)
-        {
-            currentLevelSpeed = chosenLevel.levelSpeed;
-        }
-        else
-        {
-            currentLevelSpeed = chosenLevel.levelSpeedBoosted;
-        }
         ChooseLevel();
+
         targetAmount = chosenLevel.finishedTable.Count;
         winCheckerRef.SetMaxScore();
 
@@ -137,7 +130,12 @@ public class SpawnTarget : MonoBehaviour
     {
         popupAnimator.GetComponent<Image>().enabled = true;
         popupAnimator.SetTrigger("versus");
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
+        if (!gunScriptRef.isGunFull())
+        {
+            gunScriptRef.ReloadGun();
+        }
+        yield return new WaitForSeconds(2);
         StartRound();
     }
 
@@ -155,12 +153,14 @@ public class SpawnTarget : MonoBehaviour
                 fadeAnimator.SetTrigger("fade_in");
                 popupAnimator.SetTrigger("round1");
                 bellSourceRef.PlayDelayed(0.75f);
+                currentLevelSpeed = chosenLevel.levelSpeed;
                 StartCoroutine(TargetSpawnerCoroutine());
                 break;
             case 1:
                 fadeAnimator.SetTrigger("fade_in");
                 popupAnimator.SetTrigger("round2");
                 bellSourceRef.PlayDelayed(0.25f);
+                currentLevelSpeed = chosenLevel.levelSpeedBoosted;
                 StartCoroutine(TargetSpawnerCoroutine());
                 break;
             case 2:
