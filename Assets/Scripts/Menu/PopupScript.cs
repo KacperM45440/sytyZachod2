@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PopupScript : MonoBehaviour
 {
-    public WinCheck winRef;
-    public AudioSource mumbleSource;
-    public AudioSource clapSource;
-    public AudioSource cheerSource;
+    [SerializeField] private WinCheck winRef;
+    [SerializeField] private AudioSource mumbleSource;
+    [SerializeField] private AudioSource clapSource;
+    [SerializeField] private AudioSource cheerSource;
 
     // Ta klasa odpowiedzialna jest za kontrolowanie zestawu dzwiekow i animacji dla elementow pop-up (takich jak np. rundy lub wygrywanie)
     public void CloseMenu()

@@ -15,6 +15,7 @@ public class TargetFastBehaviour : TargetBehaviour
 
     private void OnDisable()
     {
+        if(targetParent == null) return;
         particlesRef.transform.parent = targetParent;
         particlesRef.Stop();
     }

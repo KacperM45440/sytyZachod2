@@ -18,6 +18,7 @@ public class WinCheck : MonoBehaviour
     [HideInInspector] public int targetCounter;
 
     [SerializeField] private GunScript gunRef;
+    [SerializeField] private DialogueController dialogueControllerRef;
     [SerializeField] private Animator fadeAnimatorRef;
     [SerializeField] private Animator popupAnimatorRef;
     [SerializeField] private Animator uiAnimatorRef;
@@ -238,14 +239,15 @@ public class WinCheck : MonoBehaviour
     {
         // Podmien pasek postepu na pasek czasu etapu bonusowego
         uiAnimatorRef.SetTrigger("roll_back");
-        yield return new WaitForSeconds(0.5f);
+        dialogueControllerRef.MoveCharacters(false);
+        yield return new WaitForSeconds(1f);
         progressUI.SetActive(false);
         finisherUI.SetActive(true);
         uiAnimatorRef.SetTrigger("roll_up");
         changeScene.ChooseCursor("fistCrosshair");
 
         // Poczekaj na zakonczenie etapu, a nastepnie przyznaj dodatkowe punkty za pokonanie przeciwnika
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         backgroundRef.PunchOut();
         yield return new WaitUntil(() => backgroundRef.canPunch.Equals(false));
         score += 10000;

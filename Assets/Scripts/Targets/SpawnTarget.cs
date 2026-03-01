@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Threading;
+using Unity.VisualScripting;
 
 public class SpawnTarget : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class SpawnTarget : MonoBehaviour
     private GameObject newTarget;
     private LevelData chosenLevel;
     private Vector2 targetPosition;
+    private bool versusShown = false;
     private int roundNumber;
     // Przejscie przez animacje rund zajmuje (okolo) siedem sekund, wiec tyle czeka program
     private int roundPopupCooldown = 3;
@@ -59,15 +61,12 @@ public class SpawnTarget : MonoBehaviour
         winCheckerRef.SetMaxScore();
 
         // Animacja rundy
-        StartCoroutine(ShowVersusScreen());
-        //StartCoroutine(TargetSpawnerCoroutine());
+        fadeAnimator.SetTrigger("fade_out");
+        StartCoroutine(WaitToStartDialogue());
     }
 
-    private IEnumerator ShowVersusScreen()
+    private IEnumerator WaitToStartDialogue()
     {
-        popupAnimator.SetTrigger("versus");
-        yield return new WaitForSeconds(2);
-        StartCoroutine(FadeOut());
         yield return new WaitForSeconds(2);
         PlayDialogue();
     }
@@ -102,27 +101,27 @@ public class SpawnTarget : MonoBehaviour
 
     private void PlayDialogue()
     {
-        //ZMIEÑ TO TAK, ABY ANIMACJE I TAK ZAGRA£Y, NAWET JAK POSTACIE NIC NIE MÓWI¥ (ABY PRZYNAJMNIEJ NA START POSTACIE SIÊ PRZESUNÊ£Y)
         string playerPrefKey = "dialoguePlayed" + roundNumber;
         if(PlayerPrefs.GetInt(playerPrefKey, 0) == 1)
         {
+            dialogueControllerRef.MoveCharacters(false);
             StartRound();
             return;
         }
-        PlayerPrefs.SetInt(playerPrefKey, 1);
+        //PlayerPrefs.SetInt(playerPrefKey, 1); //ODBLOKUJ TO ABY TEKST NIE POWTARA£ SIÊ CO KA¯DE PODEJŒCIE
         PlayerPrefs.Save();
         switch (roundNumber)
         {
             case 0:
-                dialogueControllerRef.DisplayDialogue(chosenLevel.dialogueIntro);
+                dialogueControllerRef.DisplayDialogue(chosenLevel.dialogueIntro, false);
                 break;
             case 1:
-                dialogueControllerRef.DisplayDialogue(chosenLevel.dialogueMiddle);
+                dialogueControllerRef.DisplayDialogue(chosenLevel.dialogueMiddle, false);
                 break;
             case 2:
                 if (winCheckerRef.PlayerHasEnoughPoints())
                 {
-                    dialogueControllerRef.DisplayDialogue(chosenLevel.dialogueOutro);
+                    dialogueControllerRef.DisplayDialogue(chosenLevel.dialogueOutro, true);
                 }
                 else
                 {
@@ -134,8 +133,22 @@ public class SpawnTarget : MonoBehaviour
         }
     }
 
+    private IEnumerator ShowVersusPopup()
+    {
+        popupAnimator.GetComponent<Image>().enabled = true;
+        popupAnimator.SetTrigger("versus");
+        yield return new WaitForSeconds(4);
+        StartRound();
+    }
+
     public void StartRound() //Odpalane z Dialogue controllera
     {
+        if (versusShown == false)
+        {
+            versusShown = true;
+            StartCoroutine(ShowVersusPopup());
+            return;
+        }
         switch (roundNumber)
         {
             case 0:
@@ -168,7 +181,7 @@ public class SpawnTarget : MonoBehaviour
             // Stworz cel: numer prefabu (animacji), pozycja, obrot
             targetPosition = chosenLevel.finishedTable[i].spawnLocation;
             newTarget = Instantiate(targets[(int)chosenLevel.finishedTable[i].targetType], targetPosition, Quaternion.identity, targetsContainer);
-            newTarget.transform.position = new Vector3(newTarget.transform.position.x, newTarget.transform.position.y, 0);
+            newTarget.transform.position = new Vector3(newTarget.transform.position.x, newTarget.transform.position.y, targetsContainer.position.z);
             TargetBehaviour targetScript = newTarget.GetComponentInChildren<TargetBehaviour>();
             targetScript.InitializeTarget(this, chosenLevel.finishedTable[i].animation);
             targetScript.targetParent = targetsContainer;

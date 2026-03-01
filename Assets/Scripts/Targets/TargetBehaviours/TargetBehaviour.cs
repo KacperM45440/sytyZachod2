@@ -54,7 +54,7 @@ public class TargetBehaviour : MonoBehaviour
             // Tutaj cel znika: nie zostal zestrzelony, nie liczy sie do puli punktow
             // Animacja niszczenia nie ma byc zalezna od poziomu trudnosci, zmieniamy prêdkoœæ na domyœln¹ przed zniknieciem
             animatorRef.speed = 1;
-            StartCoroutine(Disappear());
+            animatorRef.SetTrigger("Disappear");
             return;
         }
 
@@ -76,12 +76,19 @@ public class TargetBehaviour : MonoBehaviour
     }
 
 
-    // Tutaj wlaczana jest animacja znikniecia i zniszczenia (wygasniecia) celu. Funkcja odpowiadzialna za zestrzelenie jest wyzej
-    protected virtual IEnumerator Disappear()
+    //Uruchamiane z Animacji TargetDisappear
+    public void DisableHitbox()
     {
-        animatorRef.SetTrigger("Disappear");
-        float animationLength = animatorRef.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSecondsRealtime(animationLength/4);
+        CircleCollider2D[] collidersInChildren = transform.GetComponentsInChildren<CircleCollider2D>();
+        foreach (CircleCollider2D collider in collidersInChildren)
+        {
+            collider.enabled = false;
+        }
+    }
+
+    //Uruchamiane z Animacji TargetDisappear
+    public void RemoveTargetAfterDisappearing()
+    {
         Destroy(transform.parent.gameObject);
     }
 
@@ -93,11 +100,7 @@ public class TargetBehaviour : MonoBehaviour
         PlayShardsAnimation(shards, shardAnimator);
 
         transform.GetComponent<SpriteRenderer>().enabled = false;
-        CircleCollider2D[] collidersInChildren = transform.GetComponentsInChildren<CircleCollider2D>();
-        foreach (CircleCollider2D collider in collidersInChildren)
-        {
-            collider.enabled = false;
-        }
+        DisableHitbox();
 
         yield return null;
         Destroy(transform.parent.gameObject);

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1891163267293916346}
   - component: {fileID: 354738206347983257}
   - component: {fileID: 388522704334324925}
+  - component: {fileID: 7136825862693150346}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -45,7 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4ba90be47475d41b143dd837b8e31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySprite: {fileID: 0}
+  score: 0
   targetCounter: 0
+  gunRef: {fileID: 388522704334324925}
+  dialogueControllerRef: {fileID: 7136825862693150346}
   fadeAnimatorRef: {fileID: 0}
   popupAnimatorRef: {fileID: 0}
   uiAnimatorRef: {fileID: 0}
@@ -53,17 +58,13 @@ MonoBehaviour:
   backgroundRef: {fileID: 0}
   progressUI: {fileID: 0}
   finisherUI: {fileID: 0}
-  gunRef: {fileID: 388522704334324925}
-  scoreBar: {fileID: 0}
-  enemyTired: {fileID: 21300000, guid: 8b46bc9e887182d46944b1d79fa727a9, type: 3}
-  enemyDominated: {fileID: 21300000, guid: a1634c9c54fb05948916119ae5790a14, type: 3}
-  enemySprite: {fileID: 0}
   spawnRef: {fileID: 0}
+  changeScene: {fileID: 0}
+  scoreBar: {fileID: 0}
   comboCounter: {fileID: 0}
   scoreCounter: {fileID: 0}
-  changeScene: {fileID: 0}
-  combo: 1
-  score: 0
+  enemyTired: {fileID: 21300000, guid: 8b46bc9e887182d46944b1d79fa727a9, type: 3}
+  enemyDominated: {fileID: 21300000, guid: a1634c9c54fb05948916119ae5790a14, type: 3}
 --- !u!114 &388522704334324925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,10 +78,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorRef: {fileID: 0}
+  readyToFire: 0
   cylinder: {fileID: 0}
-  magazinePrefab: {fileID: 5430492425887138594, guid: 7e871881924bf3d4d9ee34fc3561bfdb, type: 3}
   firedBullet: {fileID: 21300000, guid: 98c023b0f7b7c474f93000657b383ced, type: 3}
   destroyQueue: {fileID: 0}
-  readyToFire: 0
   shotSource: {fileID: 0}
   reloadSource: {fileID: 0}
+  spawnMagRef: {fileID: 0}
+  maxAmmo: 6
+--- !u!114 &7136825862693150346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787955798579878161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb20efafa7b10846b41ff8448664e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueController
+  targetDestroyQueue: {fileID: 0}
+  gunScriptRef: {fileID: 388522704334324925}
+  spawnTargetRef: {fileID: 0}
+  charactersAnimatorRef: {fileID: 0}
+  dialogueTextRef: {fileID: 0}
+  prefabDialogueTarget: {fileID: 3559607594733747633, guid: f3c786817158ddf4cbd4bc73ea0563ee, type: 3}
+  targetsParent: {fileID: 0}
+  spawnSpotTarget: {fileID: 0}
+  textAppearSpeed: 0.01
+  fontSizeIncrease: 200

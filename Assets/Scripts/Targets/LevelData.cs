@@ -33,6 +33,10 @@ public class LevelData
     // W tej klasie przechowywane sa dane kazdego poziomu, typ, wlasciwosci, kolejnosc celow oraz przerwy pomiedzy nimi.
     // Hard limity dla umieszczenia targetów to x: -6 do 6, y: -2 do 3
 
+    // Dodaj¹c dialog, mo¿na u¿yæ specjalnych znaczników:
+    // *tekst* - tekst wibruj¹cy, animowany. TYLKO RAZ NA WIERSZ
+    // ^ - zwiêksza rozmiar czcionki ca³ego wiersza. U¯YÆ NA POCZ¥TKU WIERSZA
+
     public void Level0()
     {
         levelSpeed = 0.8f;
@@ -45,7 +49,7 @@ public class LevelData
 
         finishedTable = table;
 
-        dialogueIntro.Add("Welcome to the shooting range! Let's start with some basic targets to warm up your aim.");
+        dialogueIntro.Add("Welcome to the *shooting range!* Let's start with some basic targets to warm up your aim.");
         dialogueIntro.Add("These targets will move in simple patterns, giving you a chance to get used to the controls and timing.");
 
         dialogueMiddle.Add("Great job on the first round! Now, let's step it up a bit with some faster targets and more complex movements.");
@@ -71,8 +75,9 @@ public class LevelData
 
         finishedTable = table;
 
-        dialogueIntro.Add("Welcome to the shooting range! Let's start with some basic targets to warm up your aim.");
+        dialogueIntro.Add("Welcome to the *shooting range!* Let's start with some basic targets to warm up your aim.");
         dialogueIntro.Add("These targets will move in simple patterns, giving you a chance to get used to the controls and timing.");
+        dialogueIntro.Add("^^*HEHEHEHEHE*");
 
         dialogueMiddle.Add("Great job on the first round! Now, let's step it up a bit with some faster targets and more complex movements.");
 
