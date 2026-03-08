@@ -8,15 +8,15 @@ public class MenuLevelSelectionButton : MonoBehaviour
     public int levelIndex;
     public List<int> levelUnlockRequirements = new();
 
+    [SerializeField] private TextMeshProUGUI levelScoreText;
+
     private Button buttonRef;
     private Mask maskRef;
-    private TextMeshProUGUI levelScoreText;
 
     private void Start()
     {
         buttonRef = GetComponentInChildren<Button>();
         maskRef = GetComponentInChildren<Mask>();
-        levelScoreText = GetComponentInChildren<TextMeshProUGUI>();
 
         LoadLevelScore();
         LoadLevelUnlock();
