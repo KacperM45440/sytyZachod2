@@ -39,6 +39,8 @@ public class LevelData
 
     public void Level0()
     {
+        //Tutorial level:
+            //Ma wprowadziæ fabu³ê i nauczyæ graæ
         levelSpeed = 0.8f;
         levelSpeedBoosted = 1.2f;
         List<TargetData> table = new();
@@ -50,12 +52,16 @@ public class LevelData
 
         finishedTable = table;
 
-        dialogueIntro.Add("Welcome to the *shooting range!* Let's start with some basic targets to warm up your aim.");
-        dialogueIntro.Add("These targets will move in simple patterns, giving you a chance to get used to the controls and timing.");
+        dialogueIntro.Add("Ty! Szeryf marchewa, jestem królem bandytów!");
+        dialogueIntro.Add("Nigdy mnie nie z³apiesz, nawet jak bêdziesz u¿ywa³ swojego 6 strza³owego rewolweru do trafienia wszystkich moich celów.");
+        dialogueIntro.Add("Mam nadziejê, ¿e zapomnisz o prze³adowywaniu prawym przyciskiem myszy.");
 
-        dialogueMiddle.Add("Great job on the first round! Now, let's step it up a bit with some faster targets and more complex movements.");
+        dialogueMiddle.Add("Oof, wci¹¿ pamiêtasz jak strzelaæ.");
+        dialogueMiddle.Add("Teraz w drugiej rundzie zobaczymy czy nad¹¿ysz jak przyspieszê tempo.");
+        dialogueMiddle.Add("Na pewno nie wiesz, ¿e musisz trafiæ przynajniej w 50% moich celów aby mnie pokonaæ!");
 
-        dialogueOutro.Add("Congratulations on completing the shooting range! You've shown great skill and precision. Keep practicing to maintain your sharp aim!");
+        dialogueOutro.Add("AAa uciekam tam gdzie mnie nie dogonisz. Do zobaczenia na bahamach marchewo");
+        dialogueOutro.Add("Mam tam pewnych znajomych, którzy oddaliby ¿ycie by mnie ochroniæ");
     }
 
     public void Level1()
