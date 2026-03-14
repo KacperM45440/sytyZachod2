@@ -16,6 +16,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private Transform spawnSpotTarget;
     [SerializeField] private float textAppearSpeed;
     [SerializeField] private float fontSizeIncrease;
+    [SerializeField] private float dialogueTargetSpawnVariation = 1f;
 
     private List<string> dialogue = new();
     private Vector2 shakyTextBounds = new Vector2(-1, -1);
@@ -113,6 +114,7 @@ public class DialogueController : MonoBehaviour
         }
         dialogueTextRef.text = dialogue[0];
 
+        charactersAnimatorRef.SetTrigger("StartTalking");
         StartCoroutine(TextAppearAnimation());
     }
 
@@ -158,13 +160,19 @@ public class DialogueController : MonoBehaviour
             yield return new WaitForSeconds(textAppearSpeed);
         }
         dialogue.RemoveAt(0);
+
         yield return new WaitForSeconds(0.5f);
         TextFinishAppearing();
     }
 
     private void TextFinishAppearing()
     {
-        GameObject newTarget = Instantiate(prefabDialogueTarget, spawnSpotTarget.position, transform.rotation, targetsParent);
+        charactersAnimatorRef.SetTrigger("StopTalking");
+
+        float a = dialogueTargetSpawnVariation;
+        Vector3 spawnPosition = spawnSpotTarget.position + new Vector3(Random.Range(-a, a), Random.Range(-a, a));
+        GameObject newTarget = Instantiate(prefabDialogueTarget, spawnPosition, transform.rotation, targetsParent);
+
         newTarget.GetComponentInChildren<TargetDialogueButtonBehaviour>().InitializeDialogueTarget(this);
     }
 
