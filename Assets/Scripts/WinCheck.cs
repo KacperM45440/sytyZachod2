@@ -230,7 +230,7 @@ public class WinCheck : MonoBehaviour
 
         backgroundRef.KillEnemy();
         Unpause();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         fadeAnimatorRef.SetTrigger("fade_in");
         popupAnimatorRef.SetTrigger("win_regular");
         StartCoroutine(FinishLevelAndReturnToMenu());
@@ -258,7 +258,7 @@ public class WinCheck : MonoBehaviour
         backgroundRef.KillEnemy();
         changeScene.ChooseCursor("crosshairShooting");
         Unpause();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         fadeAnimatorRef.SetTrigger("fade_in");
         popupAnimatorRef.SetTrigger("win_domination");
 

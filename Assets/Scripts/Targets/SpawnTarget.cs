@@ -130,12 +130,8 @@ public class SpawnTarget : MonoBehaviour
     {
         popupAnimator.GetComponent<Image>().enabled = true;
         popupAnimator.SetTrigger("versus");
-        yield return new WaitForSeconds(2);
-        if (!gunScriptRef.isGunFull())
-        {
-            gunScriptRef.ReloadGun();
-        }
-        yield return new WaitForSeconds(2);
+        StartCoroutine(ReloadGunAfterDelay());
+        yield return new WaitForSeconds(4);
         StartRound();
     }
 
@@ -152,6 +148,7 @@ public class SpawnTarget : MonoBehaviour
             case 0:
                 fadeAnimator.SetTrigger("fade_in");
                 popupAnimator.SetTrigger("round1");
+                StartCoroutine(ReloadGunAfterDelay());
                 bellSourceRef.PlayDelayed(0.75f);
                 currentLevelSpeed = chosenLevel.levelSpeed;
                 StartCoroutine(TargetSpawnerCoroutine());
@@ -159,6 +156,7 @@ public class SpawnTarget : MonoBehaviour
             case 1:
                 fadeAnimator.SetTrigger("fade_in");
                 popupAnimator.SetTrigger("round2");
+                StartCoroutine(ReloadGunAfterDelay());
                 bellSourceRef.PlayDelayed(0.25f);
                 currentLevelSpeed = chosenLevel.levelSpeedBoosted;
                 StartCoroutine(TargetSpawnerCoroutine());
@@ -194,6 +192,15 @@ public class SpawnTarget : MonoBehaviour
 
         roundNumber++;
         PlayDialogue();
+    }
+
+    private IEnumerator ReloadGunAfterDelay()
+    {
+        yield return new WaitForSeconds(1);
+        if (!gunScriptRef.isGunFull())
+        {
+            gunScriptRef.ReloadGun();
+        }
     }
 
     private IEnumerator FadeOut()
