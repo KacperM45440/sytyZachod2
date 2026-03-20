@@ -109,7 +109,7 @@ public class WinCheck : MonoBehaviour
         {
             combo++;
         }
-        comboCounter.text = "X" + combo;
+        comboCounter.text = "x" + combo;
         progress = (float)targetCounter / (float)maxScore;
         scoreBar.value = progress;
     }
@@ -132,7 +132,7 @@ public class WinCheck : MonoBehaviour
     {
         // Zresetuj combo w przypadku trafienia w tlo
         combo = 1;
-        comboCounter.text = "X"+combo;
+        comboCounter.text = "x"+combo;
     }
 
     public void DominationPunch()
