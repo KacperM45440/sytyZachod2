@@ -1782,8 +1782,9 @@ GameObject:
   - component: {fileID: 494365056}
   - component: {fileID: 494365055}
   - component: {fileID: 494365054}
+  - component: {fileID: 494365057}
   m_Layer: 5
-  m_Name: HelpButton
+  m_Name: Help Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1915,6 +1916,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494365052}
   m_CullTransparentMesh: 1
+--- !u!114 &494365057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494365052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc5d6ae3bda3864bbbf3db6c6425396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonHoverAnimation
+  rectTransform: {fileID: 1167428953}
+  additionalRotation: 5
+  rotationSpeed: 0.8
 --- !u!1 &516909110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1949,7 +1965,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -348, y: 381}
+  m_AnchoredPosition: {x: -348.00006, y: 381}
   m_SizeDelta: {x: -1394.81, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516909112
@@ -3950,8 +3966,9 @@ GameObject:
   - component: {fileID: 1005002369}
   - component: {fileID: 1005002368}
   - component: {fileID: 1005002367}
+  - component: {fileID: 1005002370}
   m_Layer: 5
-  m_Name: OptionButton
+  m_Name: OptionsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4083,6 +4100,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005002365}
   m_CullTransparentMesh: 1
+--- !u!114 &1005002370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005002365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc5d6ae3bda3864bbbf3db6c6425396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonHoverAnimation
+  rectTransform: {fileID: 1514424916}
+  additionalRotation: 5
+  rotationSpeed: 0.8
 --- !u!1 &1084338984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,7 +4418,7 @@ GameObject:
   - component: {fileID: 1167428955}
   - component: {fileID: 1167428954}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Help Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4523,8 +4555,9 @@ GameObject:
   - component: {fileID: 1169420752}
   - component: {fileID: 1169420751}
   - component: {fileID: 1169420750}
+  - component: {fileID: 1169420753}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: Exit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4668,6 +4701,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169420748}
   m_CullTransparentMesh: 1
+--- !u!114 &1169420753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169420748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc5d6ae3bda3864bbbf3db6c6425396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonHoverAnimation
+  rectTransform: {fileID: 1620053045}
+  additionalRotation: 5
+  rotationSpeed: 0.8
 --- !u!1 &1196743873
 GameObject:
   m_ObjectHideFlags: 0
@@ -5208,7 +5256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -622, y: 28}
+  m_AnchoredPosition: {x: -621.99994, y: 28}
   m_SizeDelta: {x: -1614.84, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1320495199
@@ -5420,7 +5468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -358, y: -388.61}
+  m_AnchoredPosition: {x: -358.00006, y: -388.61}
   m_SizeDelta: {x: -1822.68, y: -1020.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466460085
@@ -5979,7 +6027,7 @@ GameObject:
   - component: {fileID: 1514424918}
   - component: {fileID: 1514424917}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: OptionsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6214,7 +6262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -622, y: 162.44995}
+  m_AnchoredPosition: {x: -621.99994, y: 162.44995}
   m_SizeDelta: {x: -1614.84, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545943555
@@ -6541,7 +6589,7 @@ GameObject:
   - component: {fileID: 1620053047}
   - component: {fileID: 1620053046}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Exit Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6554,13 +6602,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620053044}
-  m_LocalRotation: {x: 0, y: 0, z: 0.008726558, w: 0.999962}
+  m_LocalRotation: {x: 0, y: 0, z: 0.01745245, w: 0.99984777}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1169420749}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -13271,7 +13319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -358, y: 331}
+  m_AnchoredPosition: {x: -358.00006, y: 331}
   m_SizeDelta: {x: -1522.74, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105812843

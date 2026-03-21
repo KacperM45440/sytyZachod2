@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 5725907189711758482}
   - component: {fileID: 2354401534446056269}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: DrinkIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 669242504272540408}
   - component: {fileID: 7278064608863993891}
   - component: {fileID: 3109657398512044355}
+  - component: {fileID: 3005335994227651827}
   m_Layer: 5
   m_Name: PlayButtonLevel
   m_TagString: Untagged
@@ -397,6 +398,21 @@ MonoBehaviour:
   levelIndex: 0
   levelUnlockRequirements: 
   levelScoreText: {fileID: 8918294459252413602}
+--- !u!114 &3005335994227651827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568218834539036529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc5d6ae3bda3864bbbf3db6c6425396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuButtonHoverAnimation
+  rectTransform: {fileID: 3003418098528199981}
+  additionalRotation: 7
+  rotationSpeed: 0.6
 --- !u!1 &4725029614208963119
 GameObject:
   m_ObjectHideFlags: 0
