@@ -262,5 +262,7 @@ MonoBehaviour:
   crosshairShooting: {fileID: 2800000, guid: 50b1a1a50dafb8d4984f377b4a533e2c, type: 3}
   crosshairKill: {fileID: 2800000, guid: 904f92aec138428419b2bca0c372cddd, type: 3}
   menuCrosshair: {fileID: 2800000, guid: b9e654770376b6c438234572a2199940, type: 3}
+  crosshairTalk: {fileID: 2800000, guid: a48f093ee9cd9714b8408843513f841c, type: 3}
+  crosshairTalkOpen: {fileID: 2800000, guid: 059f9f484ee9d4149987e8e64f8c2193, type: 3}
   animatorRef: {fileID: 4954649164800321449}
   startRn: 0

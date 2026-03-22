@@ -391,6 +391,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 630874219576240296}
     - target: {fileID: 3619277848326797065, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
+      propertyPath: transitionScriptRef
+      value: 
+      objectReference: {fileID: 4863408041091991689}
+    - target: {fileID: 3619277848326797065, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
       propertyPath: playerGunAnimatorRef
       value: 
       objectReference: {fileID: 2776518481712313396}
@@ -510,6 +514,10 @@ PrefabInstance:
       propertyPath: targetDestroyQueue
       value: 
       objectReference: {fileID: 1000308840883806867}
+    - target: {fileID: 6076785395286519102, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
+      propertyPath: transitionScriptRef
+      value: 
+      objectReference: {fileID: 4863408041091991689}
     - target: {fileID: 6076785395286519102, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
       propertyPath: charactersAnimatorRef
       value: 

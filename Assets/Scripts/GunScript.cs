@@ -11,6 +11,8 @@ public class GunScript : MonoBehaviour
     [HideInInspector] public Animator animatorRef;
     [HideInInspector] public bool readyToFire;
 
+    [SerializeField] private DialogueController dialogueControllerRef;
+    [SerializeField] private TransitionScript transitionScriptRef;
     [SerializeField] private GameObject cylinder;
     [SerializeField] private Sprite firedBullet;
     [SerializeField] private Transform destroyQueue;
@@ -27,6 +29,7 @@ public class GunScript : MonoBehaviour
     private Image spriteRef;
     private Vector3 cameraPos;
     private bool isReloading;
+    private bool isTalking;
     private int currentAmmo;
 
     void Start()
@@ -62,6 +65,18 @@ public class GunScript : MonoBehaviour
 
     public void ShotFired()
     {
+        if (isTalking)
+        {
+            dialogueControllerRef.ShowNextLine();
+            if (!isTalking)
+            {
+                return;
+            }
+
+            transitionScriptRef.ChooseCursor(cursorType.crosshairTalkOpen);
+            StartCoroutine(ChangeBackTalkingCursor());
+            return;
+        }
         // Zaktualizuj przy wystrzale ilosc obecnie posiadanej amunicji.
         // Funckja ma charakter nadzorczy (samej broni), niszczeniem celu zajmuje sie juz jego klasa "TargetMovement"
         if (readyToFire)
@@ -83,6 +98,28 @@ public class GunScript : MonoBehaviour
         }
     }
 
+    private IEnumerator ChangeBackTalkingCursor()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (isTalking)
+        {
+            transitionScriptRef.ChooseCursor(cursorType.crosshairTalk);
+        }
+    }
+
+    public void ChangeToTalk()
+    {
+        transitionScriptRef.ChooseCursor(cursorType.crosshairTalk);
+        readyToFire = false;
+        isTalking = true;
+    }
+
+    public void StopTalking()
+    {
+        readyToFire = true;
+        isTalking = false;
+        transitionScriptRef.ChooseCursor(cursorType.crosshairShooting);
+    }
 
     public void DestroyBullet()
     {
@@ -118,6 +155,7 @@ public class GunScript : MonoBehaviour
             currentAmmo = maxAmmo;
         }
     }
+
     IEnumerator TimeOut()
     {
         // Zaczekaj na przeladowanie, nastepnie dodaj pociski na koncu przeladowania.       

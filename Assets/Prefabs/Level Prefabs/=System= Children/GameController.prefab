@@ -50,6 +50,7 @@ MonoBehaviour:
   score: 0
   targetCounter: 0
   gunRef: {fileID: 388522704334324925}
+  characterSpriteChangerRef: {fileID: 0}
   dialogueControllerRef: {fileID: 7136825862693150346}
   fadeAnimatorRef: {fileID: 0}
   popupAnimatorRef: {fileID: 0}
@@ -63,8 +64,9 @@ MonoBehaviour:
   scoreBar: {fileID: 0}
   comboCounter: {fileID: 0}
   scoreCounter: {fileID: 0}
-  enemyTired: {fileID: 21300000, guid: 8b46bc9e887182d46944b1d79fa727a9, type: 3}
-  enemyDominated: {fileID: 21300000, guid: a1634c9c54fb05948916119ae5790a14, type: 3}
+  enemyColliderRef: {fileID: 0}
+  minWinScorePercent: 0.6
+  minDominationScorePercent: 0.8
 --- !u!114 &388522704334324925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,12 +81,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorRef: {fileID: 0}
   readyToFire: 0
+  dialogueControllerRef: {fileID: 7136825862693150346}
+  transitionScriptRef: {fileID: 0}
   cylinder: {fileID: 0}
   firedBullet: {fileID: 21300000, guid: 98c023b0f7b7c474f93000657b383ced, type: 3}
   destroyQueue: {fileID: 0}
   shotSource: {fileID: 0}
   reloadSource: {fileID: 0}
   spawnMagRef: {fileID: 0}
+  dustParticleSystemRef: {fileID: 0}
+  playerGunAnimatorRef: {fileID: 0}
   maxAmmo: 6
 --- !u!114 &7136825862693150346
 MonoBehaviour:
@@ -108,3 +114,4 @@ MonoBehaviour:
   spawnSpotTarget: {fileID: 0}
   textAppearSpeed: 0.01
   fontSizeIncrease: 200
+  dialogueTargetSpawnVariation: 1

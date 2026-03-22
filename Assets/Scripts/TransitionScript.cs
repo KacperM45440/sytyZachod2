@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +7,9 @@ public enum cursorType
     fistCrosshair,
     crosshairShooting,
     crosshairKill,
-    menuCrosshair
+    menuCrosshair,
+    crosshairTalk,
+    crosshairTalkOpen
 }
 
 public class TransitionScript : MonoBehaviour
@@ -17,6 +18,8 @@ public class TransitionScript : MonoBehaviour
     public Texture2D crosshairShooting;
     public Texture2D crosshairKill;
     public Texture2D menuCrosshair;
+    public Texture2D crosshairTalk;
+    public Texture2D crosshairTalkOpen;
     private Vector2 cursorHotspot;
     private float transitionTime = 1.25f;
     private int sceneNumber;
@@ -69,6 +72,14 @@ public class TransitionScript : MonoBehaviour
             case cursorType.menuCrosshair:
                 cursorHotspot = new Vector2(0, 0);
                 Cursor.SetCursor(menuCrosshair, cursorHotspot, CursorMode.Auto);
+                break;
+            case cursorType.crosshairTalk:
+                cursorHotspot = new Vector2(crosshairShooting.width / 2, crosshairShooting.height / 2);
+                Cursor.SetCursor(crosshairTalk, cursorHotspot, CursorMode.Auto);
+                break;
+            case cursorType.crosshairTalkOpen:
+                cursorHotspot = new Vector2(crosshairShooting.width / 2, crosshairShooting.height / 2);
+                Cursor.SetCursor(crosshairTalkOpen, cursorHotspot, CursorMode.Auto);
                 break;
             default:
                 break;

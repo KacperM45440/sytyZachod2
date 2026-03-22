@@ -4,7 +4,6 @@ using UnityEngine;
 public class MenuCharacterScript : MonoBehaviour
 {
     [SerializeField] private Transform handWithGunRef;
-    [SerializeField] private float originalGunRotation = 70f;
     [SerializeField] private Vector2 specialAnimationTimeRange = new Vector2(8f, 16f);
     [SerializeField] private int numberOfSpecialAnimations = 2;
 

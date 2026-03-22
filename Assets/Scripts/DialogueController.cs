@@ -23,6 +23,8 @@ public class DialogueController : MonoBehaviour
     private bool charactersInView = true;
     private bool finalDialogue = false;
     private float defaultFontSize;
+    private bool textIsAppearing = false;
+    private bool skipDialogue = false;
 
     private void Start()
     {
@@ -96,6 +98,7 @@ public class DialogueController : MonoBehaviour
         dialogue = newDialogue;
         MoveCharacters(true);
 
+        gunScriptRef.ChangeToTalk();
         StartCoroutine(WaitThenShowText());
     }
 
@@ -107,7 +110,12 @@ public class DialogueController : MonoBehaviour
 
     public void ShowNextLine()
     {
-        if(dialogue.Count == 0)
+        if (textIsAppearing)
+        {
+            skipDialogue = true;
+            return;
+        }
+        if (dialogue.Count == 0)
         {
             FinishDialogue();
             return;
@@ -119,11 +127,14 @@ public class DialogueController : MonoBehaviour
     }
 
 
+
     private IEnumerator TextAppearAnimation()
     {
         string fullText = dialogue[0];
         shakyTextBounds = new Vector2(-1, -1);
         dialogueTextRef.fontSize = defaultFontSize;
+        skipDialogue = false;
+        textIsAppearing = true;
 
         int asteriskCount = 0;
         for (int i = 0; i < fullText.Length; i++)
@@ -157,28 +168,36 @@ public class DialogueController : MonoBehaviour
                     break;
             }
             dialogueTextRef.text = fullText.Substring(0, i + 1);
-            yield return new WaitForSeconds(textAppearSpeed);
+            if (!skipDialogue)
+            {
+                yield return new WaitForSeconds(textAppearSpeed);
+            }
         }
         dialogue.RemoveAt(0);
+        skipDialogue = false;
 
-        yield return new WaitForSeconds(0.5f);
+        textIsAppearing = false;
+
+        yield return null;
         TextFinishAppearing();
     }
 
     private void TextFinishAppearing()
     {
         charactersAnimatorRef.SetTrigger("StopTalking");
-
+        /*
         float a = dialogueTargetSpawnVariation;
         Vector3 spawnPosition = spawnSpotTarget.position + new Vector3(Random.Range(-a, a), Random.Range(-a, a));
         GameObject newTarget = Instantiate(prefabDialogueTarget, spawnPosition, transform.rotation, targetsParent);
 
         newTarget.GetComponentInChildren<TargetDialogueButtonBehaviour>().InitializeDialogueTarget(this);
+        */
     }
 
     private void FinishDialogue()
     {
-        if(!finalDialogue)
+        gunScriptRef.StopTalking();
+        if (!finalDialogue)
         {
             MoveCharacters(false);
         }
