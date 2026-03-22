@@ -390,6 +390,10 @@ PrefabInstance:
       propertyPath: reloadSource
       value: 
       objectReference: {fileID: 630874219576240296}
+    - target: {fileID: 3619277848326797065, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
+      propertyPath: dustParticleSystemRef
+      value: 
+      objectReference: {fileID: 8516579224174967411}
     - target: {fileID: 3725116624098921005, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
       propertyPath: scoreBar
       value: 
@@ -681,6 +685,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80bc37f17073fe4fafa095064cdfbbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!198 &8516579224174967411 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3422118748246765541, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}
+  m_PrefabInstance: {fileID: 6434862598702257558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9046855179250057226 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2648639582341567900, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}

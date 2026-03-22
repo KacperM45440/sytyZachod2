@@ -17,6 +17,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] private AudioSource shotSource;
     [SerializeField] private AudioSource reloadSource;
     [SerializeField] private SpawnMag spawnMagRef;
+    [SerializeField] private ParticleSystem dustParticleSystemRef;
     [SerializeField] private int maxAmmo = 6;
 
     private GameObject currentBullet;
@@ -64,6 +65,10 @@ public class GunScript : MonoBehaviour
         // Funckja ma charakter nadzorczy (samej broni), niszczeniem celu zajmuje sie juz jego klasa "TargetMovement"
         if (readyToFire)
         {
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            dustParticleSystemRef.transform.position = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
+            dustParticleSystemRef.Play();
+
             shotSource.Play();
             currentAmmo--;
             animatorRef.SetTrigger("Rotate Single");
