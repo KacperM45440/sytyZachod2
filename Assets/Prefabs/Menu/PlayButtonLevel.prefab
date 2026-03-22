@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuButtonHoverAnimation
   rectTransform: {fileID: 3003418098528199981}
-  additionalRotation: 7
+  additionalRotation: 9
   rotationSpeed: 0.6
 --- !u!1 &4725029614208963119
 GameObject:

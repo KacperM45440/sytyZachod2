@@ -409,6 +409,46 @@ MonoBehaviour:
     punched:
     - {fileID: 21300000, guid: 0560fb906fa1a184da0b40979d54ee63, type: 3}
     - {fileID: 21300000, guid: 97ee88006df719b44be2545f138cf381, type: 3}
+  - idle: {fileID: 21300000, guid: 4b0d1e87cdd68c44baa81a47b545563b, type: 3}
+    hurt: {fileID: 21300000, guid: 466b52196be64e74dbee1633bd4d75d3, type: 3}
+    defeated: {fileID: 21300000, guid: a17afa7f066f68548877ac88cebb6fee, type: 3}
+    dominated: {fileID: 21300000, guid: 289728f1343dc7745bacf0cbcaac64be, type: 3}
+    dead: {fileID: 21300000, guid: 2c01b249af8ea754fad8a3e62615b2eb, type: 3}
+    punched:
+    - {fileID: 21300000, guid: f117a7ad48bc2c84aa9d9241a9599aa8, type: 3}
+    - {fileID: 21300000, guid: f84341aca4d79264894347f1bf08cb34, type: 3}
+  - idle: {fileID: 21300000, guid: bac561fb13f5fca4ca2057041d21a60e, type: 3}
+    hurt: {fileID: 21300000, guid: ec1695d132dc52b46be30cd0673afd39, type: 3}
+    defeated: {fileID: 21300000, guid: 95fcfc1d195089e46832b60a41f2cbd7, type: 3}
+    dominated: {fileID: 21300000, guid: 2a28e665aac45e04f9b0168476b00b4f, type: 3}
+    dead: {fileID: 21300000, guid: bac561fb13f5fca4ca2057041d21a60e, type: 3}
+    punched:
+    - {fileID: 21300000, guid: 75f6415009cc43f4597a74806d2d0de0, type: 3}
+    - {fileID: 21300000, guid: 98c2655c14b40fb42bc10cb34d1bb691, type: 3}
+  - idle: {fileID: 21300000, guid: adee948e7332ace46b32c0a08788af3e, type: 3}
+    hurt: {fileID: 21300000, guid: d8488bfef2a71ca48a829f75e191a240, type: 3}
+    defeated: {fileID: 21300000, guid: e569b8368c125674d856c7adfc3ab972, type: 3}
+    dominated: {fileID: 21300000, guid: 6283d3d0f11daec458c962eeecfe3552, type: 3}
+    dead: {fileID: 21300000, guid: 72e0db4a289b5ee42895576c1ad904b1, type: 3}
+    punched:
+    - {fileID: 21300000, guid: 15927ac7fb27808419e1cb9e626a1244, type: 3}
+    - {fileID: 21300000, guid: 64043332d6ab7704983df7822a360cc1, type: 3}
+  - idle: {fileID: 21300000, guid: 0770c80e9af61e149979abb9f07bd9ab, type: 3}
+    hurt: {fileID: 21300000, guid: e01457cca23f52e4f9f62593d259a39a, type: 3}
+    defeated: {fileID: 21300000, guid: 666019e59be26d147bafbbfdea74e834, type: 3}
+    dominated: {fileID: 21300000, guid: 87501988a0c0b0146af42bfe7f3d20a6, type: 3}
+    dead: {fileID: 21300000, guid: 2bb5124f58c88c74698fc7b311c973ae, type: 3}
+    punched:
+    - {fileID: 21300000, guid: 0560fb906fa1a184da0b40979d54ee63, type: 3}
+    - {fileID: 21300000, guid: 97ee88006df719b44be2545f138cf381, type: 3}
+  - idle: {fileID: 21300000, guid: 01dbe1a4033207e419ad8cd6e455ceb0, type: 3}
+    hurt: {fileID: 21300000, guid: e0157492a250f5e44a9a7a1dbb400611, type: 3}
+    defeated: {fileID: 21300000, guid: ee3513ee7e77d554c9201da93471a169, type: 3}
+    dominated: {fileID: 21300000, guid: 6d78abdb805dfbe4d807fe88b505ad8e, type: 3}
+    dead: {fileID: 21300000, guid: 256af99c253c20840a818ab57ef03167, type: 3}
+    punched:
+    - {fileID: 21300000, guid: 8c2430f860ccac642a9bb3cecda90df3, type: 3}
+    - {fileID: 21300000, guid: bbe37632f6fbe7248a58611f1a3d9957, type: 3}
   enemySpriteRenderer: {fileID: 2450454494278508025}
 --- !u!1 &7551283404014918476
 GameObject:
