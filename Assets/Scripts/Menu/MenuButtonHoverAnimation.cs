@@ -16,9 +16,6 @@ public class MenuButtonHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPo
 
         float z = NormalizeAngle(rotationDefault.z);
         rotationTarget = new Vector3(rotationDefault.x, rotationDefault.y, -z);
-
-        Debug.Log("Default rotation: " + rotationDefault);
-        Debug.Log("Target rotation: " + rotationTarget);
     }
 
     public void OnPointerEnter(PointerEventData pointerEventData)

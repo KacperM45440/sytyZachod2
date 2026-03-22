@@ -18,6 +18,7 @@ public class WinCheck : MonoBehaviour
     [HideInInspector] public int targetCounter;
 
     [SerializeField] private GunScript gunRef;
+    [SerializeField] private CharacterSpritesChanger characterSpriteChangerRef;
     [SerializeField] private DialogueController dialogueControllerRef;
     [SerializeField] private Animator fadeAnimatorRef;
     [SerializeField] private Animator popupAnimatorRef;
@@ -31,11 +32,10 @@ public class WinCheck : MonoBehaviour
     [SerializeField] private Slider scoreBar;
     [SerializeField] private TMP_Text comboCounter;
     [SerializeField] private TMP_Text scoreCounter;
+    [SerializeField] private float minWinScorePercent = 0.6f;
+    [SerializeField] private float minDominationScorePercent = 0.8f;
 
-    [Header("Level Specific Variables")]
-    [SerializeField] private Sprite enemyTired;
-    [SerializeField] private Sprite enemyDominated;
-
+    private int enemyHurtStage = 0;
     private int maxScore;
     private int combo;
     private float progress;
@@ -119,13 +119,20 @@ public class WinCheck : MonoBehaviour
         // Gdy zestrzelony jest cel, przeciwnik gra animacje bolu
         // Sprawdzane jest rowniez, czy zostalo zestrzelone wystarczajaco celow aby podmienic mu obrazek na bardziej zmeczony, zaznaczajac tym samym postep poziomu
         enemyAnimatorRef.SetTrigger("hurt");
-        if (targetCounter >= maxScore * 0.6f && targetCounter < maxScore * 0.8f)
+        if (enemyHurtStage == 0 && targetCounter >= maxScore * 0.3f)
         {
-            enemySprite.sprite = enemyTired;
+            enemyHurtStage++;
+            characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.hurt);
         }
-        else if (targetCounter >= maxScore * 0.8f)
+        if (enemyHurtStage == 1 && targetCounter >= maxScore * minWinScorePercent)
         {
-            enemySprite.sprite = enemyDominated;
+            enemyHurtStage++;
+            characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.hurt);
+        }
+        else if (enemyHurtStage == 2 && targetCounter >= maxScore * minDominationScorePercent)
+        {
+            enemyHurtStage++;
+            characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.dominated);
         }
     }
     public void Missed()
@@ -146,11 +153,11 @@ public class WinCheck : MonoBehaviour
     // Sprawdz, czy gracz wygral w gre. 
     public void Checker() 
     {
-        if (targetCounter >= maxScore * 0.6f && targetCounter < maxScore * 0.8f)
+        if (enemyHurtStage == 2)
         {
             StartCoroutine(Completed());
         }
-        else if (targetCounter >= maxScore * 0.8f)
+        else if (enemyHurtStage == 3)
         {
             // Zestrzelenie wiekszosci celow wynagradza etapem bonusowym przed zmiana poziomu
             StartCoroutine(Finisher());
@@ -167,7 +174,7 @@ public class WinCheck : MonoBehaviour
 
     public bool PlayerHasEnoughPoints()
     {
-        if (targetCounter >= maxScore * 0.6f)
+        if (enemyHurtStage > 1)
         {
             return true;
         }

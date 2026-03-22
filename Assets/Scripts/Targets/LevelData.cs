@@ -27,6 +27,8 @@ public class LevelData
     public List<string> dialogueMiddle = new();
     public List<string> dialogueOutro = new();
 
+    public enemySprites enemySprite;
+
     public float levelSpeed = 1f;
     public float levelSpeedBoosted = 2f;
 
@@ -40,7 +42,9 @@ public class LevelData
     public void Level0()
     {
         //Tutorial level:
-            //Ma wprowadziæ fabu³ê i nauczyæ graæ
+        //Ma wprowadziæ fabu³ê i nauczyæ graæ
+
+        enemySprite = enemySprites.cucumberWestern;
         levelSpeed = 0.8f;
         levelSpeedBoosted = 1.2f;
         List<TargetData> table = new();
@@ -66,6 +70,7 @@ public class LevelData
 
     public void Level1()
     {
+        enemySprite = enemySprites.banana;
         levelSpeed = 1f;
         levelSpeedBoosted = 1.8f;
         List<TargetData> table = new();
@@ -94,6 +99,7 @@ public class LevelData
 
     public void Level2()
     {
+        enemySprite = enemySprites.starFruit;
         levelSpeed = 1f;
         List<TargetData> table = new();
 

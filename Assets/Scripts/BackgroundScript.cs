@@ -6,6 +6,7 @@ public class BackgroundScript : MonoBehaviour
 {
     [HideInInspector] public bool canPunch;
 
+    [SerializeField] private CharacterSpritesChanger characterSpriteChangerRef;
     [SerializeField] private GunScript gunControllerRef;
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private WinCheck winCheckRef;
@@ -15,9 +16,10 @@ public class BackgroundScript : MonoBehaviour
     [SerializeField] private Sprite enemyPunched2;
     [SerializeField] private Sprite enemyPunched3;
     [SerializeField] private AudioSource enemyDeathSound;
-    [SerializeField] private AudioSource punchSource1;
-    [SerializeField] private AudioSource punchSource2;
-    [SerializeField] private AudioSource punchSource3;
+    [SerializeField] private AudioSource punchSoundSource;
+    [SerializeField] private AudioClip punchSound1;
+    [SerializeField] private AudioClip punchSound2;
+    [SerializeField] private AudioClip punchSound3;
 
     private SpriteRenderer rendererRef;
 
@@ -54,29 +56,27 @@ public class BackgroundScript : MonoBehaviour
     {
         winCheckRef.DominationPunch();
         enemyAnimator.SetTrigger("hurt");
+        characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.punched);
 
         int i;
         do
         {
-            i = Random.Range(1, 4);
+            i = Random.Range(0, 3);
         }
         while (i.Equals(previousAnim));
 
-        if (i.Equals(1))
+        AudioClip punchSound = punchSound1;
+        switch (i)
         {
-            rendererRef.sprite = enemyPunched1;
-            punchSource1.Play();
+            case 1:
+                punchSound = punchSound2;
+                break;
+            case 2:
+                punchSound = punchSound3;
+                break;
         }
-        else if (i.Equals(2))
-        {
-            rendererRef.sprite = enemyPunched2;
-            punchSource2.Play();
-        }
-        else
-        {
-            rendererRef.sprite = enemyPunched3;
-            punchSource3.Play();
-        }
+        punchSoundSource.PlayOneShot(punchSound);
+
         previousAnim = i;
 
         rendererRef.flipX = Random.Range(0, 2) == 0;
@@ -103,7 +103,7 @@ public class BackgroundScript : MonoBehaviour
         // Zagraj animacje zabicia przeciwnika
         enemyAnimator.SetTrigger("dead");
         enemyDeathSound.Play();
-        rendererRef.sprite = enemyDeadSprite;
+        characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.dead);
     }
     private IEnumerator Timer()
     {

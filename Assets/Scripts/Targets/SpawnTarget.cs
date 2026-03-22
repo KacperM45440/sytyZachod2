@@ -14,6 +14,7 @@ public class SpawnTarget : MonoBehaviour
     public Transform targetDestroyQueue;
 
     [SerializeField] private DialogueController dialogueControllerRef;
+    [SerializeField] private CharacterSpritesChanger characterSpriteChangerRef;
     [SerializeField] private Transform targetsContainer;
     [SerializeField] private Animator popupAnimator;
     [SerializeField] private Animator fadeAnimator;
@@ -50,6 +51,8 @@ public class SpawnTarget : MonoBehaviour
         chosenLevel = new();
         ChooseLevel();
 
+        characterSpriteChangerRef.SetEnemy(chosenLevel.enemySprite);
+
         targetAmount = chosenLevel.finishedTable.Count;
         winCheckerRef.SetMaxScore();
 
@@ -85,9 +88,6 @@ public class SpawnTarget : MonoBehaviour
                 break;
             case 5:
                 chosenLevel.Level5();
-                break;
-            default:
-                chosenLevel.Level0();
                 break;
         }
     }
