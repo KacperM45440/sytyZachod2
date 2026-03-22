@@ -36,7 +36,7 @@ public class ScoreScript : MonoBehaviour
     {
         PopulateData();
         PrintScores();
-        changeScene.ChooseCursor("menuCrosshair");
+        changeScene.ChooseCursor(cursorType.menuCrosshair);
     }
 
     private void Update()

@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        transitionRef.ChooseCursor("menuCrosshair");
+        transitionRef.ChooseCursor(cursorType.menuCrosshair);
 
         DOTween.Init();
     }

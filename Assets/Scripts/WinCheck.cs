@@ -32,6 +32,7 @@ public class WinCheck : MonoBehaviour
     [SerializeField] private Slider scoreBar;
     [SerializeField] private TMP_Text comboCounter;
     [SerializeField] private TMP_Text scoreCounter;
+    [SerializeField] private EnemyHitCheck enemyColliderRef;
     [SerializeField] private float minWinScorePercent = 0.6f;
     [SerializeField] private float minDominationScorePercent = 0.8f;
 
@@ -56,7 +57,7 @@ public class WinCheck : MonoBehaviour
         score = PlayerPrefs.GetInt("currentScore");
         scoreCounter.text = score.ToString("D6");
         isPaused = false;
-        changeScene.ChooseCursor("crosshairShooting");
+        changeScene.ChooseCursor(cursorType.crosshairShooting);
     }
 
     private void Update()
@@ -155,7 +156,7 @@ public class WinCheck : MonoBehaviour
     {
         if (enemyHurtStage == 2)
         {
-            StartCoroutine(Completed());
+            enemyColliderRef.EnableHitCheck();
         }
         else if (enemyHurtStage == 3)
         {
@@ -228,20 +229,16 @@ public class WinCheck : MonoBehaviour
             isPaused = false;
         }
     }
-    IEnumerator Completed()
+
+    public void FinishingShot()
     {
-        // W przypadku zwyklej wygranej nie przechodzimy do etapu bonusowego, a bezposrednio do nastepnego poziomu
         score += 5000;
         scoreCounter.text = score.ToString("D6");
         gunRef.readyToFire = false;
 
-        backgroundRef.KillEnemy();
-        Unpause();
-        yield return new WaitForSeconds(2f);
-        fadeAnimatorRef.SetTrigger("fade_in");
-        popupAnimatorRef.SetTrigger("win_regular");
-        StartCoroutine(FinishLevelAndReturnToMenu());
+        KillEnemy();
     }
+
     IEnumerator Finisher()
     {
         // Podmien pasek postepu na pasek czasu etapu bonusowego
@@ -251,7 +248,7 @@ public class WinCheck : MonoBehaviour
         progressUI.SetActive(false);
         finisherUI.SetActive(true);
         uiAnimatorRef.SetTrigger("roll_up");
-        changeScene.ChooseCursor("fistCrosshair");
+        changeScene.ChooseCursor(cursorType.fistCrosshair);
 
         // Poczekaj na zakonczenie etapu, a nastepnie przyznaj dodatkowe punkty za pokonanie przeciwnika
         yield return new WaitForSeconds(0.5f);
@@ -261,13 +258,30 @@ public class WinCheck : MonoBehaviour
         scoreCounter.text = score.ToString("D6");
         gunRef.readyToFire = false;
 
-        // Zagraj animacje pokonanego przeciwnika, animacje wygrania etapu a nastepnie zmien poziom na nastepny
+        KillEnemy();
+    }
+
+    public void KillEnemy()
+    {
         backgroundRef.KillEnemy();
-        changeScene.ChooseCursor("crosshairShooting");
+        changeScene.ChooseCursor(cursorType.crosshairShooting);
+        StartCoroutine(ClosingAnimations());
+    }
+
+    IEnumerator ClosingAnimations()
+    {
         Unpause();
         yield return new WaitForSeconds(2f);
         fadeAnimatorRef.SetTrigger("fade_in");
-        popupAnimatorRef.SetTrigger("win_domination");
+
+        if( enemyHurtStage == 3)
+        {
+            popupAnimatorRef.SetTrigger("win_domination");
+        }
+        else
+        {
+            popupAnimatorRef.SetTrigger("win_regular");
+        }
 
         StartCoroutine(FinishLevelAndReturnToMenu());
     }

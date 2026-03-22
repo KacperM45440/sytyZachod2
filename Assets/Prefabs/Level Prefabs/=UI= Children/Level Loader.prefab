@@ -33,7 +33,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4954649165109716370}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -92,7 +91,7 @@ CanvasGroup:
   m_IgnoreParentGroups: 0
 --- !u!95 &4954649164800321449
 Animator:
-  serializedVersion: 4
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,10 +105,12 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4954649165109716371
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +144,6 @@ RectTransform:
   m_Children:
   - {fileID: 4954649164800321452}
   m_Father: {fileID: 4954649166398029787}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -167,7 +167,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -235,6 +237,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4954649166398029784}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -242,7 +245,6 @@ Transform:
   m_Children:
   - {fileID: 4954649165109716370}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4954649166398029786
 MonoBehaviour:
@@ -258,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fistCrosshair: {fileID: 2800000, guid: 08416bfd3e19cea48b6d562be2afe647, type: 3}
   crosshairShooting: {fileID: 2800000, guid: 50b1a1a50dafb8d4984f377b4a533e2c, type: 3}
+  crosshairKill: {fileID: 2800000, guid: 904f92aec138428419b2bca0c372cddd, type: 3}
   menuCrosshair: {fileID: 2800000, guid: b9e654770376b6c438234572a2199940, type: 3}
   animatorRef: {fileID: 4954649164800321449}
   startRn: 0
