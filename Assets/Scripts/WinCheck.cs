@@ -128,7 +128,7 @@ public class WinCheck : MonoBehaviour
         if (enemyHurtStage == 1 && targetCounter >= maxScore * minWinScorePercent)
         {
             enemyHurtStage++;
-            characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.hurt);
+            characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.defeated);
         }
         else if (enemyHurtStage == 2 && targetCounter >= maxScore * minDominationScorePercent)
         {
@@ -156,6 +156,7 @@ public class WinCheck : MonoBehaviour
     {
         if (enemyHurtStage == 2)
         {
+            characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.dominated);
             enemyColliderRef.EnableHitCheck();
         }
         else if (enemyHurtStage == 3)
