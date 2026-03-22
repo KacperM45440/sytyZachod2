@@ -18,6 +18,7 @@ public class GunScript : MonoBehaviour
     [SerializeField] private AudioSource reloadSource;
     [SerializeField] private SpawnMag spawnMagRef;
     [SerializeField] private ParticleSystem dustParticleSystemRef;
+    [SerializeField] private Animator playerGunAnimatorRef;
     [SerializeField] private int maxAmmo = 6;
 
     private GameObject currentBullet;
@@ -72,6 +73,7 @@ public class GunScript : MonoBehaviour
             shotSource.Play();
             currentAmmo--;
             animatorRef.SetTrigger("Rotate Single");
+            playerGunAnimatorRef.SetTrigger("Shoot");
             DestroyBullet();
             if (currentAmmo <= 0)
             {

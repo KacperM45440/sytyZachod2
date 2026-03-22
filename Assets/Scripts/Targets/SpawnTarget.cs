@@ -22,6 +22,9 @@ public class SpawnTarget : MonoBehaviour
     [Header("Level Specific Variables")]
     [SerializeField] private int currentLevel;
 
+    [Header("Debug")]
+    [SerializeField] private bool skipDialogue = false;
+
     [Header("Target Prefabs")]
     [SerializeField] private List<GameObject> targets = new();
 
@@ -101,7 +104,10 @@ public class SpawnTarget : MonoBehaviour
             StartRound();
             return;
         }
-        PlayerPrefs.SetInt(playerPrefKey, 1); //ODBLOKUJ TO ABY TEKST NIE POWTARA£ SIÊ CO KA¯DE PODEJŒCIE
+        if (!skipDialogue)
+        {
+            PlayerPrefs.SetInt(playerPrefKey, 1);
+        }
         PlayerPrefs.Save();
         switch (roundNumber)
         {

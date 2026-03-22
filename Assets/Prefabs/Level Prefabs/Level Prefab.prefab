@@ -391,6 +391,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 630874219576240296}
     - target: {fileID: 3619277848326797065, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
+      propertyPath: playerGunAnimatorRef
+      value: 
+      objectReference: {fileID: 2776518481712313396}
+    - target: {fileID: 3619277848326797065, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
       propertyPath: dustParticleSystemRef
       value: 
       objectReference: {fileID: 8516579224174967411}
@@ -641,6 +645,11 @@ Transform:
 --- !u!212 &2344194418850810171 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8774552592082934957, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}
+  m_PrefabInstance: {fileID: 6434862598702257558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2776518481712313396 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9206788831387099554, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}
   m_PrefabInstance: {fileID: 6434862598702257558}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &3692983319668970081 stripped

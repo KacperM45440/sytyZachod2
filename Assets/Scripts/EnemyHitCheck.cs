@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHitCheck : MonoBehaviour
 {
     [SerializeField] private TransitionScript cursorTransitionRef;
     [SerializeField] private GunScript gunRef;
+    [SerializeField] private Animator charactersAnimatorRef;
 
     private Collider2D enemyCollider;
 
@@ -15,6 +17,7 @@ public class EnemyHitCheck : MonoBehaviour
 
     public void EnableHitCheck()
     {
+        charactersAnimatorRef.SetTrigger("PullOutGun");
         enemyCollider.enabled = true;
     }
 

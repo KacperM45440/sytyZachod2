@@ -5,6 +5,7 @@ using UnityEngine;
 public class TargetShieldedBehaviour : TargetBehaviour
 {
     [SerializeField] private GameObject shieldShards;
+    [SerializeField] private Sprite shieldBrokenSprite;
 
     private SpriteRenderer rendererRef;
     private Animator shieldShardsAnimator;
@@ -27,7 +28,7 @@ public class TargetShieldedBehaviour : TargetBehaviour
         if (hasShield)
         {
             hasShield = false;
-            rendererRef.color = new Color32(255, 255, 255, 255);
+            rendererRef.sprite = shieldBrokenSprite;
             PlayShardsAnimation(shieldShards, shieldShardsAnimator);
 
             gun.ShotFired();

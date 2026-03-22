@@ -1390,16 +1390,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3019871066406621334, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cc8c723586b30374cb41a3c75ba0f87f, type: 3}
+    - target: {fileID: 3019871066406621334, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Color.b
-      value: 0.10559807
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3019871066406621334, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Color.g
-      value: 0.10559807
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3019871066406621334, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Color.r
-      value: 0.1981132
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8210039709605267988, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Name
@@ -1490,6 +1494,7 @@ MonoBehaviour:
   breakSource2: {fileID: 7312611776097060435}
   shards: {fileID: 1739610925304303642}
   shieldShards: {fileID: 2100473971846939831}
+  shieldBrokenSprite: {fileID: 21300000, guid: a59f360cc36d36b43919448822c99b4c, type: 3}
 --- !u!82 &6788086243585264346 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6414515963299157392, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
