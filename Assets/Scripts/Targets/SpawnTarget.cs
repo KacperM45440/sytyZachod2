@@ -184,8 +184,12 @@ public class SpawnTarget : MonoBehaviour
             targetScript.InitializeTarget(this, chosenLevel.finishedTable[i].animation);
             targetScript.targetParent = targetsContainer;
 
-            // Dodanie przerwy pomiedzy tworzeniem celow umozliwia sekwencyjnie ulozyc poziomy
-            yield return new WaitForSeconds(chosenLevel.finishedTable[i].delay);
+            float spawnDelayModifier = 1;
+            if(roundNumber > 0 && chosenLevel.finishedTable[i].spawnDelayBoost)
+            {
+                spawnDelayModifier = 0.6f;
+            }
+            yield return new WaitForSeconds(chosenLevel.finishedTable[i].delay * spawnDelayModifier);
         }
         // Runda konczy sie kiedy wszystkie cele sie pojawia oraz wszystkie znikna
         yield return new WaitUntil(() => targetsContainer.childCount.Equals(2));

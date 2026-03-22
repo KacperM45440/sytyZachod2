@@ -2,6 +2,8 @@ using System.Collections.Generic;
 
 public enum targetAnimation
 {
+    dblUp,
+    dblDown,
     dblLeft,
     dblRight,
     triLeft,
@@ -37,6 +39,22 @@ public static class AnimationDatabase
 {
     public static readonly Dictionary<targetAnimation, animationStep[]> Animations = new()
     {
+        {
+            targetAnimation.dblUp,
+            new[]
+            {
+                animationStep.Up,
+                animationStep.Up
+            }
+        },
+        {
+            targetAnimation.dblDown,
+            new[]
+            {
+                animationStep.Down,
+                animationStep.Down
+            }
+        },
         {
             targetAnimation.dblLeft,
             new[]

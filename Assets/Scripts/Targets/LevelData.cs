@@ -8,6 +8,7 @@ public class TargetData
     public targetAnimation animation;
     public float delay;
     public Vector2 spawnLocation;
+    public bool spawnDelayBoost = false;
 }
 
 public enum targetType : int
@@ -73,13 +74,14 @@ public class LevelData
         enemySprite = enemySprites.banana;
         levelSpeed = 1f;
         levelSpeedBoosted = 1.8f;
+
         List<TargetData> table = new();
 
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, -2f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-2f, -1.5f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, -0.5f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(2.5f, 1.5f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, 3f), delay = 0f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, -2f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-2f, -1.5f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, -0.5f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(2.5f, 1.5f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, 3f), delay = 0.5f, spawnDelayBoost = true });
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.triRight, spawnLocation = new Vector2(-4f, -2f), delay = 3f });
 
         table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, 0f), delay = 0.5f });
@@ -93,18 +95,18 @@ public class LevelData
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, -2f), delay = 0.5f });
         table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, 0f), delay = 0.5f });
         table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, 0f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, 3f), delay = 1.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, 3f), delay = 2f });
 
         table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, 0f), delay = 0f });
         table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, 0f), delay = 0f });
-        table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, 0f), delay = 2f });
+        table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, 0f), delay = 3f });
 
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, -2f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-2f, 0f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, 2f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(2f, 0f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, -2f), delay = 0.5f });
-        table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, 0f), delay = 1.5f });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, -2f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-2f, 0f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, 2f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(2f, 0f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, -2f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.splat, animation = targetAnimation.dblUp, spawnLocation = new Vector2(0f, 0f), delay = 1.5f });
 
         finishedTable = table;
 
