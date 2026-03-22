@@ -101,7 +101,7 @@ public class SpawnTarget : MonoBehaviour
             StartRound();
             return;
         }
-        //PlayerPrefs.SetInt(playerPrefKey, 1); //ODBLOKUJ TO ABY TEKST NIE POWTARA£ SIÊ CO KA¯DE PODEJŒCIE
+        PlayerPrefs.SetInt(playerPrefKey, 1); //ODBLOKUJ TO ABY TEKST NIE POWTARA£ SIÊ CO KA¯DE PODEJŒCIE
         PlayerPrefs.Save();
         switch (roundNumber)
         {

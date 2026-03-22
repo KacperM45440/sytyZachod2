@@ -4,6 +4,10 @@ public enum targetAnimation
 {
     dblLeft,
     dblRight,
+    triLeft,
+    triRight,
+    quadLeft,
+    quadRight,
     stop3Sec,
     stop2Sec,
     leftSpinny,
@@ -45,6 +49,44 @@ public static class AnimationDatabase
             targetAnimation.dblRight,
             new[]
             {
+                animationStep.Right,
+                animationStep.Right
+            }
+        },
+        {
+            targetAnimation.triLeft,
+            new[]
+            {
+                animationStep.Left,
+                animationStep.Left,
+                animationStep.Left
+            }
+        },
+        {
+            targetAnimation.triRight,
+            new[]
+            {
+                animationStep.Right,
+                animationStep.Right,
+                animationStep.Right
+            }
+        },
+        {
+            targetAnimation.quadLeft,
+            new[]
+            {
+                animationStep.Left,
+                animationStep.Left,
+                animationStep.Left,
+                animationStep.Left
+            }
+        },
+        {
+            targetAnimation.quadRight,
+            new[]
+            {
+                animationStep.Right,
+                animationStep.Right,               
                 animationStep.Right,
                 animationStep.Right
             }
