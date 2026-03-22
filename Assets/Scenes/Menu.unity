@@ -609,7 +609,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1475714064}
+  - {fileID: 1145147905}
   - {fileID: 2029950685}
   m_Father: {fileID: 1776192642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2084,7 +2084,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -348, y: 381}
+  m_AnchoredPosition: {x: -347.99994, y: 381}
   m_SizeDelta: {x: -1394.81, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516909112
@@ -3641,7 +3641,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 95871099}
-  - {fileID: 1145147905}
+  - {fileID: 1475714064}
   m_Father: {fileID: 1776192642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4465,7 +4465,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 956963118}
+    m_TransformParent: {fileID: 109034242}
     m_Modifications:
     - target: {fileID: 1472462518662135063, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_Pivot.x
@@ -4613,11 +4613,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8082644612928308356, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_text
-      value: Gin, Cynamon, Karambola
+      value: Rum, Cynamon, Karambola
       objectReference: {fileID: 0}
     - target: {fileID: 8082644612928308356, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_fontSize
-      value: 24.65
+      value: 23.8
       objectReference: {fileID: 0}
     - target: {fileID: 8701107872047685015, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5706,7 +5706,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -358, y: -388.61}
+  m_AnchoredPosition: {x: -357.99994, y: -388.61}
   m_SizeDelta: {x: -1822.68, y: -1020.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466460085
@@ -5815,7 +5815,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 109034242}
+    m_TransformParent: {fileID: 956963118}
     m_Modifications:
     - target: {fileID: 1472462518662135063, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_Pivot.x
@@ -6832,7 +6832,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   handWithGunRef: {fileID: 1196743874}
-  originalGunRotation: 70
   specialAnimationTimeRange: {x: 8, y: 16}
   numberOfSpecialAnimations: 3
 --- !u!1 &1620053044
@@ -13723,7 +13722,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -358, y: 331}
+  m_AnchoredPosition: {x: -357.99994, y: 331}
   m_SizeDelta: {x: -1522.74, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105812843
@@ -14189,7 +14188,7 @@ PrefabInstance:
       objectReference: {fileID: 284520861}
     - target: {fileID: 8082644612928308356, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_text
-      value: Rum, Limoncello, Banan
+      value: Gin, Limoncello, Banan
       objectReference: {fileID: 0}
     - target: {fileID: 8701107872047685015, guid: f3e11ff7730bf7444bb02ef28652328c, type: 3}
       propertyPath: m_AnchoredPosition.x
