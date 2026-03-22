@@ -10,6 +10,10 @@ public enum targetAnimation
     triRight,
     quadLeft,
     quadRight,
+    upRight,
+    upLeft,
+    dblUpLeft,
+    dblUpRight,
     stop3Sec,
     stop2Sec,
     leftSpinny,
@@ -24,6 +28,8 @@ public enum animationStep
     Right,
     Up,
     Down,
+    UpRight,
+    UpLeft,
     Spinny,
     SpinnyMirror,
     ZigZag,
@@ -107,6 +113,36 @@ public static class AnimationDatabase
                 animationStep.Right,               
                 animationStep.Right,
                 animationStep.Right
+            }
+        },
+        {
+            targetAnimation.upRight,
+            new[]
+            {
+                animationStep.UpRight,
+            }
+        },
+        {
+            targetAnimation.upLeft,
+            new[]
+            {
+                animationStep.UpLeft,
+            }
+        },
+        {
+            targetAnimation.dblUpRight,
+            new[]
+            {
+                animationStep.UpRight,
+                animationStep.UpRight,
+            }
+        },
+        {
+            targetAnimation.dblUpLeft,
+            new[]
+            {
+                animationStep.UpLeft,
+                animationStep.UpLeft,
             }
         },
         {
