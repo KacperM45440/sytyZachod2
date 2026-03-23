@@ -391,10 +391,6 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 6653294277223702623, guid: 884a89fd2a1321246bf6e102e0c4e1dd, type: 2}
-    - target: {fileID: 8633331877233442408, guid: 6716ce7318b0f544395ca21d7ae464c6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 96.4
-      objectReference: {fileID: 0}
     - target: {fileID: 8766643665636288107, guid: 6716ce7318b0f544395ca21d7ae464c6, type: 3}
       propertyPath: m_text
       value: 'Kombo:'

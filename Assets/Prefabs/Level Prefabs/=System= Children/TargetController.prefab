@@ -53,7 +53,7 @@ MonoBehaviour:
   targetsContainer: {fileID: 0}
   popupAnimator: {fileID: 0}
   fadeAnimator: {fileID: 0}
-  currentLevel: 0
+  currentLevel: -1
   targets:
   - {fileID: 8210039709605267988, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
   - {fileID: 8565630639922402654, guid: 0888582cd34d9ee459ac5a1f68bea7bd, type: 3}

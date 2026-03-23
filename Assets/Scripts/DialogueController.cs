@@ -25,6 +25,7 @@ public class DialogueController : MonoBehaviour
     private float defaultFontSize;
     private bool textIsAppearing = false;
     private bool skipDialogue = false;
+    private bool finished = false;
 
     private void Start()
     {
@@ -95,10 +96,11 @@ public class DialogueController : MonoBehaviour
             return;
         }
 
+        finished = false;
         dialogue = newDialogue;
         MoveCharacters(true);
 
-        gunScriptRef.ChangeToTalk();
+        gunScriptRef.ChangeToTalkMode();
         StartCoroutine(WaitThenShowText());
     }
 
@@ -110,7 +112,7 @@ public class DialogueController : MonoBehaviour
 
     public void ShowNextLine()
     {
-        if (textIsAppearing)
+        if (textIsAppearing || finished)
         {
             skipDialogue = true;
             return;
@@ -125,8 +127,6 @@ public class DialogueController : MonoBehaviour
         charactersAnimatorRef.SetTrigger("StartTalking");
         StartCoroutine(TextAppearAnimation());
     }
-
-
 
     private IEnumerator TextAppearAnimation()
     {
@@ -179,23 +179,12 @@ public class DialogueController : MonoBehaviour
         textIsAppearing = false;
 
         yield return null;
-        TextFinishAppearing();
-    }
-
-    private void TextFinishAppearing()
-    {
         charactersAnimatorRef.SetTrigger("StopTalking");
-        /*
-        float a = dialogueTargetSpawnVariation;
-        Vector3 spawnPosition = spawnSpotTarget.position + new Vector3(Random.Range(-a, a), Random.Range(-a, a));
-        GameObject newTarget = Instantiate(prefabDialogueTarget, spawnPosition, transform.rotation, targetsParent);
-
-        newTarget.GetComponentInChildren<TargetDialogueButtonBehaviour>().InitializeDialogueTarget(this);
-        */
     }
 
     private void FinishDialogue()
     {
+        finished = true;
         gunScriptRef.StopTalking();
         if (!finalDialogue)
         {

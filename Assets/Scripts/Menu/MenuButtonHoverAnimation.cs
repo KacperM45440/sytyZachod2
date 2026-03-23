@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MenuButtonHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -8,10 +9,13 @@ public class MenuButtonHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPo
     [SerializeField] private float additionalRotation = 5f;
     [SerializeField] private float rotationSpeed = 0.8f;
 
+    private Button buttonRef;
     private Vector3 rotationDefault;
     private Vector3 rotationTarget;
     private void Start()
     {
+        buttonRef = GetComponent<Button>();
+
         rotationDefault = rectTransform.localEulerAngles;
 
         float z = NormalizeAngle(rotationDefault.z);
@@ -20,14 +24,20 @@ public class MenuButtonHoverAnimation : MonoBehaviour, IPointerEnterHandler, IPo
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        rectTransform.DOKill();
-        rectTransform.DOLocalRotate(rotationTarget, rotationSpeed).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+        if (buttonRef.interactable)
+        {
+            rectTransform.DOKill();
+            rectTransform.DOLocalRotate(rotationTarget, rotationSpeed).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+        }
     }
 
     public void OnPointerExit(PointerEventData pointerEventData)
     {
-        rectTransform.DOKill();
-        rectTransform.DOLocalRotate(rotationDefault, 0.5f).SetEase(Ease.OutBack);
+        if (buttonRef.interactable)
+        {
+            rectTransform.DOKill();
+            rectTransform.DOLocalRotate(rotationDefault, 0.5f).SetEase(Ease.OutBack);
+        }
     }
 
 

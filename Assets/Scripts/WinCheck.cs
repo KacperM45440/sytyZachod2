@@ -186,7 +186,7 @@ public class WinCheck : MonoBehaviour
     IEnumerator FinishLevelAndReturnToMenu()
     {
         //PlayerPrefs.SetInt("currentScore", score);
-        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        int currentLevel = PlayerPrefs.GetInt("currentLevel", 0);
         string highscoreIndex = "highScore_level" + currentLevel;
         int highscore = PlayerPrefs.GetInt(highscoreIndex, 0);
         if (score > highscore)

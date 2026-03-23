@@ -76,5 +76,6 @@ public class MainMenu : MonoBehaviour
     public void ResetData()
     {
         PlayerPrefs.DeleteAll();
+        transitionRef.ThisLevel();
     }
 }

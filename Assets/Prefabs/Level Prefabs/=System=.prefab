@@ -374,10 +374,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3725116624098921005}
     - target: {fileID: 1018837502828827450, guid: 193c221b4b3986a4fb152ae5ece5fd88, type: 3}
-      propertyPath: currentLevel
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1018837502828827450, guid: 193c221b4b3986a4fb152ae5ece5fd88, type: 3}
       propertyPath: gunScriptRef
       value: 
       objectReference: {fileID: 3619277848326797065}

@@ -11,6 +11,8 @@ public class TargetBehaviour : MonoBehaviour
     [HideInInspector] public float speed = 1;
     [HideInInspector] public Transform targetParent;
 
+    [SerializeField] protected SpriteRenderer targetRendererRef;
+
     [SerializeField] private float speedModifier = 1f;
     [SerializeField] private AudioSource breakSource1;
     [SerializeField] private AudioSource breakSource2;
@@ -99,7 +101,7 @@ public class TargetBehaviour : MonoBehaviour
     {
         PlayShardsAnimation(shards, shardAnimator);
 
-        transform.GetComponent<SpriteRenderer>().enabled = false;
+        targetRendererRef.enabled = false;
         DisableHitbox();
 
         yield return null;

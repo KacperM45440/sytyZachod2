@@ -107,16 +107,14 @@ public class GunScript : MonoBehaviour
         }
     }
 
-    public void ChangeToTalk()
+    public void ChangeToTalkMode()
     {
-        transitionScriptRef.ChooseCursor(cursorType.crosshairTalk);
-        readyToFire = false;
         isTalking = true;
+        transitionScriptRef.ChooseCursor(cursorType.crosshairTalk);
     }
 
     public void StopTalking()
     {
-        readyToFire = true;
         isTalking = false;
         transitionScriptRef.ChooseCursor(cursorType.crosshairShooting);
     }

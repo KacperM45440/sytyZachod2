@@ -20,6 +20,7 @@ public class BackgroundScript : MonoBehaviour
     [SerializeField] private AudioClip punchSound1;
     [SerializeField] private AudioClip punchSound2;
     [SerializeField] private AudioClip punchSound3;
+    [SerializeField] private int punchOutTimer = 5;
 
     private SpriteRenderer rendererRef;
 
@@ -34,7 +35,6 @@ public class BackgroundScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Jako ze mozna nie trafic celu, klikniecie w tlo powoduje wystrzelenie (i zmarnowanie) pocisku
         if (!dominated)
         {
             gunControllerRef.ShotFired();
@@ -42,7 +42,6 @@ public class BackgroundScript : MonoBehaviour
         }
         else
         {
-            // W etapie bonusowym, z zalozenia mozna klikac nieskonczonosc razy, dlatego nie ma koniecznosci podpinania (i konfigurowania) go pod system strzelania
             if (canPunch)
             {
                 EnemyPunched();              
@@ -50,8 +49,6 @@ public class BackgroundScript : MonoBehaviour
         }
     }
 
-
-    // Przy uderzeniu, losowo wybierz animacje pobicia. Nie moze byc ona taka sama jak poprzednia
     public void EnemyPunched()
     {
         winCheckRef.DominationPunch();
@@ -84,6 +81,7 @@ public class BackgroundScript : MonoBehaviour
         int j = Random.Range(1, 3);
         enemyAnimator.SetTrigger("recoil"+ j);
     }
+
     public void PunchOut()
     {
         // Zamiana broni na piesci, zaczecie odliczania czasu etapu bonusowego
@@ -92,6 +90,7 @@ public class BackgroundScript : MonoBehaviour
         StartCoroutine(Timer());
         StartCoroutine(DrainBar());
     }
+
     public void KillEnemy()
     {
         enemyAnimator.SetTrigger("dead");
@@ -101,17 +100,16 @@ public class BackgroundScript : MonoBehaviour
 
     private IEnumerator Timer()
     {
-        // Odmierz 5 sekund etapu bonusowego, po tym czasie zablokuj mozliwosc bicia
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(punchOutTimer);
         canPunch = false;
     }
+
     private IEnumerator DrainBar()
     {
-        // Zaktualizuj wizualnie stan poziomu bonusowego na pasku
-        for (int i=0; i<5; i++)
+        for (int i=0; i< punchOutTimer; i++)
         {
             yield return new WaitForSeconds(1);
-            finisherBar.value -= 0.2f;
+            finisherBar.value -= 1/(float)punchOutTimer;
         }
     }
 }

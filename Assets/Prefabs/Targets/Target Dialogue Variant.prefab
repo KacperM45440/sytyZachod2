@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3962264
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3962264
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4074013164484770167, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
     m_RemovedGameObjects: []
@@ -69,6 +81,11 @@ AudioSource:
 --- !u!82 &2504813084741168828 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7082840169996605721, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 4650441198094038949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4582718067611351036 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
   m_PrefabInstance: {fileID: 4650441198094038949}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &6529830117052384353 stripped
@@ -94,6 +111,7 @@ MonoBehaviour:
   destroyQueue: {fileID: 0}
   speed: 1
   targetParent: {fileID: 0}
+  targetRendererRef: {fileID: 4582718067611351036}
   speedModifier: 1
   breakSource1: {fileID: 1841233277461488181}
   breakSource2: {fileID: 2504813084741168828}

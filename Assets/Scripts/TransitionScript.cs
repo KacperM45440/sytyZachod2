@@ -44,6 +44,8 @@ public class TransitionScript : MonoBehaviour
     public void PlayLevel(int levelIndex)
     {
         PlayerPrefs.SetInt("currentScore", 0);
+        PlayerPrefs.SetInt("currentLevel", levelIndex);
+        PlayerPrefs.Save();
         StartCoroutine(LoadLevel(levelIndex));
     }
 
@@ -87,9 +89,16 @@ public class TransitionScript : MonoBehaviour
     }
     IEnumerator LoadLevel(int levelIndex)
     {
-        // Rozpocznij przyciemnianie
+        Debug.Log("Loading level " + levelIndex);
         animatorRef.SetTrigger("Started");
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex);
+        if (levelIndex > 0)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }

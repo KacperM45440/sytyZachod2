@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Threading;
 using Unity.VisualScripting;
+using UnityEditor;
 
 public class SpawnTarget : MonoBehaviour
 {
@@ -19,11 +20,9 @@ public class SpawnTarget : MonoBehaviour
     [SerializeField] private Animator popupAnimator;
     [SerializeField] private Animator fadeAnimator;
 
-    [Header("Level Specific Variables")]
-    [SerializeField] private int currentLevel;
-
     [Header("Debug")]
-    [SerializeField] private bool skipDialogue = false;
+    [Tooltip("Set -1 for default. This value is not relevant for Builds")]
+    [SerializeField] private int currentLevel = -1;
 
     [Header("Target Prefabs")]
     [SerializeField] private List<GameObject> targets = new();
@@ -72,6 +71,12 @@ public class SpawnTarget : MonoBehaviour
 
     private void ChooseLevel()
     {
+        if (Application.isEditor == true && currentLevel > -1)
+        {
+            PlayerPrefs.SetInt("currentLevel", currentLevel);
+        }
+        currentLevel = PlayerPrefs.GetInt("currentLevel", 0);
+
         switch (currentLevel)
         {
             case 0:
@@ -104,10 +109,7 @@ public class SpawnTarget : MonoBehaviour
             StartRound();
             return;
         }
-        if (!skipDialogue)
-        {
-            PlayerPrefs.SetInt(playerPrefKey, 1);
-        }
+        PlayerPrefs.SetInt(playerPrefKey, 1);
         PlayerPrefs.Save();
         switch (roundNumber)
         {

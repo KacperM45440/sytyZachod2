@@ -7,14 +7,12 @@ public class TargetShieldedBehaviour : TargetBehaviour
     [SerializeField] private GameObject shieldShards;
     [SerializeField] private Sprite shieldBrokenSprite;
 
-    private SpriteRenderer rendererRef;
     private Animator shieldShardsAnimator;
     private bool hasShield = true;
 
     protected override void Start()
     {
         base.Start();
-        rendererRef = GetComponent<SpriteRenderer>();
         shieldShardsAnimator = shieldShards.GetComponent<Animator>();
     }
 
@@ -28,7 +26,7 @@ public class TargetShieldedBehaviour : TargetBehaviour
         if (hasShield)
         {
             hasShield = false;
-            rendererRef.sprite = shieldBrokenSprite;
+            targetRendererRef.sprite = shieldBrokenSprite;
             PlayShardsAnimation(shieldShards, shieldShardsAnimator);
 
             gun.ShotFired();

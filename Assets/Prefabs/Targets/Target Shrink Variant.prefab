@@ -192,8 +192,25 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.90588236
       objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5cbfd9b971dc69947ad746241b07f601, type: 3}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Color.b
+      value: 0.11098258
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.68441474
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8113208
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4074013164484770167, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+    - {fileID: 3019871066406621334, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -204,6 +221,11 @@ PrefabInstance:
 --- !u!82 &435540464244046734 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6414515963299157392, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 6849880435872755230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2314590289506233927 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
   m_PrefabInstance: {fileID: 6849880435872755230}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &4414904693605807879 stripped
@@ -239,6 +261,7 @@ MonoBehaviour:
   destroyQueue: {fileID: 0}
   speed: 0
   targetParent: {fileID: 0}
+  targetRendererRef: {fileID: 2314590289506233927}
   speedModifier: 1
   breakSource1: {fileID: 435540464244046734}
   breakSource2: {fileID: 4414904693605807879}

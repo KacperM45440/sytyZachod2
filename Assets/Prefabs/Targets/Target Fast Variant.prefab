@@ -4980,6 +4980,18 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 0.3764706
       objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Color.b
+      value: 0.19624422
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Color.g
+      value: 0.23455863
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8490566
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4074013164484770167, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
     m_RemovedGameObjects: []
@@ -4995,6 +5007,11 @@ PrefabInstance:
 --- !u!82 &537415686969652328 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7082840169996605721, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 7295274098078231921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1886655643487448360 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
   m_PrefabInstance: {fileID: 7295274098078231921}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &4340051033344145633 stripped
@@ -5035,6 +5052,7 @@ MonoBehaviour:
   destroyQueue: {fileID: 0}
   speed: 0
   targetParent: {fileID: 0}
+  targetRendererRef: {fileID: 1886655643487448360}
   speedModifier: 1.5
   breakSource1: {fileID: 4340051033344145633}
   breakSource2: {fileID: 537415686969652328}

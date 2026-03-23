@@ -1449,6 +1449,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cc8c723586b30374cb41a3c75ba0f87f, type: 3}
     m_RemovedComponents:
     - {fileID: 4074013164484770167, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
     m_RemovedGameObjects: []
@@ -1489,6 +1493,7 @@ MonoBehaviour:
   destroyQueue: {fileID: 0}
   speed: 0
   targetParent: {fileID: 0}
+  targetRendererRef: {fileID: 8656035431530946323}
   speedModifier: 1
   breakSource1: {fileID: 6788086243585264346}
   breakSource2: {fileID: 7312611776097060435}
@@ -1508,5 +1513,10 @@ AudioSource:
 --- !u!4 &8565630639922402652 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8210039709605267990, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+  m_PrefabInstance: {fileID: 518142866876882762}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8656035431530946323 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
   m_PrefabInstance: {fileID: 518142866876882762}
   m_PrefabAsset: {fileID: 0}

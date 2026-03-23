@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,14 +32,19 @@ public class EnemySpriteSet
     public Sprite dominated;
     public Sprite dead;
     public Sprite[] punched;
+    public Sprite hat;
 }
 
 public class CharacterSpritesChanger : MonoBehaviour
 {
     [SerializeField] private List<EnemySpriteSet> enemySprites;
     [SerializeField] private SpriteRenderer enemySpriteRenderer;
+    [SerializeField] private SpriteRenderer hatRenderer;
 
+    private enemySprites currentEnemy;
     private EnemySpriteSet currentEnemySpriteSet;
+    private enemySpriteType currentEnemySpriteType;
+    private Coroutine punchedCoroutine;
 
     public void Start()
     {
@@ -50,14 +56,16 @@ public class CharacterSpritesChanger : MonoBehaviour
 
     public void SetEnemy(enemySprites sprite)
     {
-        currentEnemySpriteSet = enemySprites[(int)sprite];
+        currentEnemy = sprite;
+        currentEnemySpriteSet = enemySprites[(int)currentEnemy];
         ChangeEnemySprite(enemySpriteType.idle);
     }
 
     public void ChangeEnemySprite(enemySpriteType type)
     {
+        currentEnemySpriteType = type;
         Sprite setSprite = currentEnemySpriteSet.idle;
-        switch (type)
+        switch (currentEnemySpriteType)
         {
             case enemySpriteType.idle:
                 setSprite = currentEnemySpriteSet.idle;
@@ -67,6 +75,10 @@ public class CharacterSpritesChanger : MonoBehaviour
                 break;
             case enemySpriteType.defeated:
                 setSprite = currentEnemySpriteSet.defeated;
+                if (currentEnemySpriteSet.hat != null)
+                {
+                    EnableHat();
+                }
                 break;
             case enemySpriteType.dominated:
                 setSprite = currentEnemySpriteSet.dominated;
@@ -77,8 +89,29 @@ public class CharacterSpritesChanger : MonoBehaviour
             case enemySpriteType.punched:
                 int i = Random.Range(0, currentEnemySpriteSet.punched.Length);
                 setSprite = currentEnemySpriteSet.punched[i];
+                if(punchedCoroutine != null)
+                {
+                    StopCoroutine(punchedCoroutine);
+                }
+                punchedCoroutine = StartCoroutine(SwitchBackFromPunched());
                 break;
         }
         enemySpriteRenderer.sprite = setSprite;
+    }
+
+    private IEnumerator SwitchBackFromPunched()
+    {
+        yield return new WaitForSeconds(0.3f);
+        if(currentEnemySpriteType == enemySpriteType.punched)
+        {
+            ChangeEnemySprite(enemySpriteType.dominated);
+        }
+    }
+
+    private void EnableHat()
+    {
+        hatRenderer.gameObject.SetActive(true);
+        hatRenderer.transform.parent = gameObject.transform;
+        hatRenderer.sprite = currentEnemySpriteSet.hat;
     }
 }
