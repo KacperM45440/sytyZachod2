@@ -16,7 +16,6 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private Transform spawnSpotTarget;
     [SerializeField] private float textAppearSpeed;
     [SerializeField] private float fontSizeIncrease;
-    [SerializeField] private float dialogueTargetSpawnVariation = 1f;
 
     private List<string> dialogue = new();
     private Vector2 shakyTextBounds = new Vector2(-1, -1);

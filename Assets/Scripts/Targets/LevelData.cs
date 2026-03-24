@@ -28,7 +28,7 @@ public class LevelData
     public List<string> dialogueMiddle = new();
     public List<string> dialogueOutro = new();
 
-    public enemySprites enemySprite;
+    public enemies enemySprite;
 
     public float levelSpeed = 1f;
     public float levelSpeedBoosted = 2f;
@@ -45,7 +45,7 @@ public class LevelData
         //Tutorial level:
         //Ma wprowadziæ fabu³ê i nauczyæ graæ
 
-        enemySprite = enemySprites.cucumberWestern;
+        enemySprite = enemies.cucumberWestern;
         levelSpeed = 0.8f;
         levelSpeedBoosted = 1.2f;
         List<TargetData> table = new();
@@ -71,7 +71,7 @@ public class LevelData
 
     public void Level1()
     {
-        enemySprite = enemySprites.banana;
+        enemySprite = enemies.banana;
         levelSpeed = 1f;
         levelSpeedBoosted = 1.8f;
 
@@ -121,7 +121,7 @@ public class LevelData
 
     public void Level2()
     {
-        enemySprite = enemySprites.starFruit;
+        enemySprite = enemies.starFruit;
         levelSpeed = 1f;
         levelSpeedBoosted = 1.8f;
 
@@ -152,8 +152,27 @@ public class LevelData
 
     public void Level3()
     {
+        enemySprite = enemies.pineappleCoconut;
+        levelSpeed = 1f;
+        levelSpeedBoosted = 1.8f;
+
         List<TargetData> table = new();
         finishedTable = table;
+
+        table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, -2f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-2f, -1.5f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, -0.5f), delay = 0.5f, spawnDelayBoost = true });
+        
+        table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(2.5f, 1.5f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, 3f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.triRight, spawnLocation = new Vector2(-4f, -2f), delay = 3f });
+
+        dialogueIntro.Add("Jesteœmy siostry Pina i Colada");
+        dialogueIntro.Add("I skopiemy ci cztery litery pomaranczowy korzeniu warzywny");
+
+        dialogueMiddle.Add("*Hot lesbian noises*");
+
+        dialogueOutro.Add("Chyba z³ama³eœ nam piszczele");
     }
 
     public void Level4()

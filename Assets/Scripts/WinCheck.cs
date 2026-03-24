@@ -119,7 +119,7 @@ public class WinCheck : MonoBehaviour
     {
         // Gdy zestrzelony jest cel, przeciwnik gra animacje bolu
         // Sprawdzane jest rowniez, czy zostalo zestrzelone wystarczajaco celow aby podmienic mu obrazek na bardziej zmeczony, zaznaczajac tym samym postep poziomu
-        enemyAnimatorRef.SetTrigger("hurt");
+        backgroundRef.PlayAnimationOnEnemy("hurt");
         if (enemyHurtStage == 0 && targetCounter >= maxScore * 0.3f)
         {
             enemyHurtStage++;
@@ -237,7 +237,7 @@ public class WinCheck : MonoBehaviour
         scoreCounter.text = score.ToString("D6");
         gunRef.readyToFire = false;
 
-        KillEnemy();
+        StartCoroutine(ClosingAnimations());
     }
 
     IEnumerator Finisher()
@@ -259,11 +259,6 @@ public class WinCheck : MonoBehaviour
         scoreCounter.text = score.ToString("D6");
         gunRef.readyToFire = false;
 
-        KillEnemy();
-    }
-
-    public void KillEnemy()
-    {
         backgroundRef.KillEnemy();
         changeScene.ChooseCursor(cursorType.crosshairShooting);
         StartCoroutine(ClosingAnimations());

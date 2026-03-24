@@ -102,6 +102,8 @@ public class SpawnTarget : MonoBehaviour
 
     private void PlayDialogue()
     {
+        //WY£¥CZAM SYSTEM SKIPOWANIA DIALOGÓW - JAK MO¯NA JE PRZEKLIKIWAÆ, TO BYM ZOSTAWI£ JE
+        /*
         string playerPrefKey = "dialoguePlayed" + roundNumber;
         if(PlayerPrefs.GetInt(playerPrefKey, 0) == 1)
         {
@@ -111,6 +113,7 @@ public class SpawnTarget : MonoBehaviour
         }
         PlayerPrefs.SetInt(playerPrefKey, 1);
         PlayerPrefs.Save();
+        */
         switch (roundNumber)
         {
             case 0:

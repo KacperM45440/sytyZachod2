@@ -20,6 +20,8 @@ public class BackgroundScript : MonoBehaviour
     [SerializeField] private AudioClip punchSound1;
     [SerializeField] private AudioClip punchSound2;
     [SerializeField] private AudioClip punchSound3;
+    [SerializeField] private Animator dualEnemyAnimator1;
+    [SerializeField] private Animator dualEnemyAnimator2;
     [SerializeField] private int punchOutTimer = 5;
 
     private SpriteRenderer rendererRef;
@@ -52,7 +54,7 @@ public class BackgroundScript : MonoBehaviour
     public void EnemyPunched()
     {
         winCheckRef.DominationPunch();
-        enemyAnimator.SetTrigger("hurt");
+        PlayAnimationOnEnemy("hurt");
         characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.punched);
 
         int i;
@@ -79,7 +81,7 @@ public class BackgroundScript : MonoBehaviour
         rendererRef.flipX = Random.Range(0, 2) == 0;
 
         int j = Random.Range(1, 3);
-        enemyAnimator.SetTrigger("recoil"+ j);
+        PlayAnimationOnEnemy("recoil"+ j);
     }
 
     public void PunchOut()
@@ -93,9 +95,29 @@ public class BackgroundScript : MonoBehaviour
 
     public void KillEnemy()
     {
-        enemyAnimator.SetTrigger("dead");
+        PlayAnimationOnEnemy("dead");
         enemyDeathSound.Play();
         characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.dead);
+    }
+
+    public void KillOneOfDualEnemy(Animator oneEnemyAnimator, SpriteRenderer oneEnemyRenderer)
+    {
+        oneEnemyAnimator.SetTrigger("dead");
+        enemyDeathSound.Play();
+        characterSpriteChangerRef.ChangeSpriteOneOfDual(enemySpriteType.dead, oneEnemyRenderer);
+    }
+
+    public void PlayAnimationOnEnemy(string trigger)
+    {
+        if (!characterSpriteChangerRef.dualEnemies)
+        {
+            enemyAnimator.SetTrigger(trigger);
+        }
+        else
+        {
+            dualEnemyAnimator1.SetTrigger(trigger);
+            dualEnemyAnimator2.SetTrigger(trigger);
+        }
     }
 
     private IEnumerator Timer()

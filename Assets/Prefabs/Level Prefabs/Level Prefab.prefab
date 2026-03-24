@@ -591,6 +591,10 @@ PrefabInstance:
       propertyPath: cursorTransitionRef
       value: 
       objectReference: {fileID: 4863408041091991689}
+    - target: {fileID: 2682444077667890075, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}
+      propertyPath: gunRef
+      value: 
+      objectReference: {fileID: 556177240966820499}
     - target: {fileID: 3546937431422101215, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}
       propertyPath: m_Name
       value: =Game=
@@ -635,6 +639,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7008503434824789370, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}
+      propertyPath: gunRef
+      value: 
+      objectReference: {fileID: 556177240966820499}
     - target: {fileID: 8335697600319690231, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}
       propertyPath: m_IsActive
       value: 0

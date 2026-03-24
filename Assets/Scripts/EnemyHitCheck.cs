@@ -6,8 +6,13 @@ public class EnemyHitCheck : MonoBehaviour
     [SerializeField] private TransitionScript cursorTransitionRef;
     [SerializeField] private GunScript gunRef;
     [SerializeField] private Animator charactersAnimatorRef;
+    [SerializeField] private CharacterSpritesChanger characterSpitesChangerRef;
+    [SerializeField] private BackgroundScript backgroundScriptRef;
+    [SerializeField] private Collider2D dualEnemyColliderRef1;
+    [SerializeField] private Collider2D dualEnemyColliderRef2;
 
     private Collider2D enemyCollider;
+    private int dualEnemiesShot = 0;
 
     private void Start()
     {
@@ -18,15 +23,24 @@ public class EnemyHitCheck : MonoBehaviour
     public void EnableHitCheck()
     {
         charactersAnimatorRef.SetTrigger("PullOutGun");
-        enemyCollider.enabled = true;
+
+        if(!characterSpitesChangerRef.dualEnemies)
+        {
+            enemyCollider.enabled = true;
+        }
+        else
+        {
+            dualEnemyColliderRef1.enabled = true;
+            dualEnemyColliderRef2.enabled = true;
+        }
     }
 
-    private void OnMouseEnter()
+    public void OnMouseEnter()
     {
         cursorTransitionRef.ChooseCursor(cursorType.crosshairKill);
     }
 
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
         cursorTransitionRef.ChooseCursor(cursorType.crosshairShooting);
     }
@@ -36,8 +50,18 @@ public class EnemyHitCheck : MonoBehaviour
         if (gunRef.readyToFire)
         {
             gunRef.ShotFired();
+            backgroundScriptRef.KillEnemy();
             WinCheck.Instance.FinishingShot();
             enemyCollider.enabled = false;
+        }
+    }
+
+    public void ShotOneOfDualEnemy()
+    {
+        dualEnemiesShot++;
+        if(dualEnemiesShot >= 2)
+        {
+            WinCheck.Instance.FinishingShot();
         }
     }
 }

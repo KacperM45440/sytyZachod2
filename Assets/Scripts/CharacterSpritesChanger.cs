@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum enemySprites : int
+public enum enemies : int
 {
     cucumberWestern = 0,
     banana = 1,
@@ -37,12 +37,18 @@ public class EnemySpriteSet
 
 public class CharacterSpritesChanger : MonoBehaviour
 {
+    public bool dualEnemies = false;
+
     [SerializeField] private List<EnemySpriteSet> enemySprites;
     [SerializeField] private SpriteRenderer enemySpriteRenderer;
     [SerializeField] private SpriteRenderer hatRenderer;
+    [SerializeField] private GameObject dualEnemiesParent;
+    [SerializeField] private SpriteRenderer dualEnemySpriteRenderer1;
+    [SerializeField] private SpriteRenderer dualEnemySpriteRenderer2;
 
-    private enemySprites currentEnemy;
+    private enemies currentEnemy;
     private EnemySpriteSet currentEnemySpriteSet;
+    private EnemySpriteSet currentDualEnemySpriteSet2;
     private enemySpriteType currentEnemySpriteType;
     private Coroutine punchedCoroutine;
 
@@ -54,49 +60,80 @@ public class CharacterSpritesChanger : MonoBehaviour
         }
     }
 
-    public void SetEnemy(enemySprites sprite)
+    public void SetEnemy(enemies enemy)
     {
-        currentEnemy = sprite;
+        currentEnemy = enemy;
         currentEnemySpriteSet = enemySprites[(int)currentEnemy];
+
+        if(currentEnemy == enemies.pineappleCoconut)
+        {
+            dualEnemies = true;
+            enemySpriteRenderer.gameObject.SetActive(false);
+            dualEnemiesParent.SetActive(true);
+            currentDualEnemySpriteSet2 = enemySprites[enemySprites.Count - 1];
+        }
         ChangeEnemySprite(enemySpriteType.idle);
     }
 
     public void ChangeEnemySprite(enemySpriteType type)
     {
         currentEnemySpriteType = type;
-        Sprite setSprite = currentEnemySpriteSet.idle;
-        switch (currentEnemySpriteType)
+        Sprite mainEnemySprite = GetSpriteByType(currentEnemySpriteType, currentEnemySpriteSet);
+
+        if (!dualEnemies)
         {
-            case enemySpriteType.idle:
-                setSprite = currentEnemySpriteSet.idle;
-                break;
-            case enemySpriteType.hurt:
-                setSprite = currentEnemySpriteSet.hurt;
-                break;
-            case enemySpriteType.defeated:
-                setSprite = currentEnemySpriteSet.defeated;
-                if (currentEnemySpriteSet.hat != null)
-                {
-                    EnableHat();
-                }
-                break;
-            case enemySpriteType.dominated:
-                setSprite = currentEnemySpriteSet.dominated;
-                break;
-            case enemySpriteType.dead:
-                setSprite = currentEnemySpriteSet.dead;
-                break;
-            case enemySpriteType.punched:
-                int i = Random.Range(0, currentEnemySpriteSet.punched.Length);
-                setSprite = currentEnemySpriteSet.punched[i];
-                if(punchedCoroutine != null)
-                {
-                    StopCoroutine(punchedCoroutine);
-                }
-                punchedCoroutine = StartCoroutine(SwitchBackFromPunched());
-                break;
+            enemySpriteRenderer.sprite = mainEnemySprite;
         }
-        enemySpriteRenderer.sprite = setSprite;
+        else
+        {
+            dualEnemySpriteRenderer1.sprite = mainEnemySprite;
+            dualEnemySpriteRenderer2.sprite = GetSpriteByType(currentEnemySpriteType, currentDualEnemySpriteSet2);
+        }
+
+        //Special cases
+        if (currentEnemySpriteType == enemySpriteType.defeated && currentEnemySpriteSet.hat != null)
+        {
+            SpawnHat();
+        }
+        
+        if (currentEnemySpriteType == enemySpriteType.punched)
+        {
+            if (punchedCoroutine != null)
+            {
+                StopCoroutine(punchedCoroutine);
+            }
+            punchedCoroutine = StartCoroutine(SwitchBackFromPunched());
+        }
+    }
+
+    public void ChangeSpriteOneOfDual(enemySpriteType type, SpriteRenderer renderer)
+    {
+        enemySpriteType previousType = currentEnemySpriteType;
+
+        ChangeEnemySprite(type);
+
+        if (renderer == dualEnemySpriteRenderer1)
+        {
+            dualEnemySpriteRenderer2.sprite = GetSpriteByType(previousType, currentDualEnemySpriteSet2);
+        }
+        else if (renderer == dualEnemySpriteRenderer2)
+        {
+            dualEnemySpriteRenderer1.sprite = GetSpriteByType(previousType, currentEnemySpriteSet);
+        }
+    }
+
+    private Sprite GetSpriteByType(enemySpriteType type, EnemySpriteSet spriteSet)
+    {
+        return type switch
+        {
+            enemySpriteType.idle => spriteSet.idle,
+            enemySpriteType.hurt => spriteSet.hurt,
+            enemySpriteType.defeated => spriteSet.defeated,
+            enemySpriteType.dominated => spriteSet.dominated,
+            enemySpriteType.dead => spriteSet.dead,
+            enemySpriteType.punched => spriteSet.punched[Random.Range(0, spriteSet.punched.Length)],
+            _ => spriteSet.idle,
+        };
     }
 
     private IEnumerator SwitchBackFromPunched()
@@ -108,7 +145,7 @@ public class CharacterSpritesChanger : MonoBehaviour
         }
     }
 
-    private void EnableHat()
+    private void SpawnHat()
     {
         hatRenderer.gameObject.SetActive(true);
         hatRenderer.transform.parent = gameObject.transform;
