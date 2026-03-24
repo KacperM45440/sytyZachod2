@@ -129,6 +129,7 @@ public class WinCheck : MonoBehaviour
         {
             enemyHurtStage++;
             characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.defeated);
+            // Tutaj i w stage 3 mo¿na zmieniæ prêdkoœæ animacji Idle przeciwnika, aby wolniej dysza³ dysza³
         }
         else if (enemyHurtStage == 2 && targetCounter >= maxScore * minDominationScorePercent)
         {
@@ -156,7 +157,6 @@ public class WinCheck : MonoBehaviour
     {
         if (enemyHurtStage == 2)
         {
-            characterSpriteChangerRef.ChangeEnemySprite(enemySpriteType.dominated);
             enemyColliderRef.EnableHitCheck();
         }
         else if (enemyHurtStage == 3)
