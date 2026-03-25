@@ -159,12 +159,12 @@ public class LevelData
         List<TargetData> table = new();
         finishedTable = table;
 
-        table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, -2f), delay = 0.5f, spawnDelayBoost = true });
-        table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-2f, -1.5f), delay = 0.5f, spawnDelayBoost = true });
-        table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, -0.5f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-4f, -2f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(-2f, -1.5f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.shield, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(0f, -0.5f), delay = 0.5f });
         
-        table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(2.5f, 1.5f), delay = 0.5f, spawnDelayBoost = true });
-        table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, 3f), delay = 0.5f, spawnDelayBoost = true });
+        table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(2.5f, 1.5f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.stop2Sec, spawnLocation = new Vector2(4f, 3f), delay = 0.5f });
         table.Add(new TargetData() { targetType = targetType.hole, animation = targetAnimation.triRight, spawnLocation = new Vector2(-4f, -2f), delay = 3f });
 
         dialogueIntro.Add("Jesteœmy siostry Pina i Colada");
@@ -177,8 +177,22 @@ public class LevelData
 
     public void Level4()
     {
+        enemySprite = enemies.dragonFruit;
+        levelSpeed = 1f;
+        levelSpeedBoosted = 1.8f;
+
         List<TargetData> table = new();
         finishedTable = table;
+
+        table.Add(new TargetData() { targetType = targetType.normal, animation = targetAnimation.dblUp, spawnLocation = new Vector2(-4f, -2f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.fast, animation = targetAnimation.dblUp, spawnLocation = new Vector2(-2f, -1.5f), delay = 0.5f });
+        table.Add(new TargetData() { targetType = targetType.fast, animation = targetAnimation.dblUp, spawnLocation = new Vector2(0f, -0.5f), delay = 0.5f });
+
+        dialogueIntro.Add("I skopiemy ci cztery litery pomaranczowy korzeniu warzywny");
+
+        dialogueMiddle.Add("*Hot lesbian noises*");
+
+        dialogueOutro.Add("Chyba z³ama³eœ nam piszczele");
     }
 
     public void Level5()
