@@ -117,10 +117,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1136570933441198311, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: adce85416f9e64e4a9f88601acf11df6, type: 3}
+    - target: {fileID: 2239563186665656144, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3019871066406621334, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 96bacb0560564a74cbd67cb24e53ecbb, type: 3}
+    - target: {fileID: 3636945346488410783, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 81b50d7633b815d4f85685fcd9c717af, type: 3}
+    - target: {fileID: 4872595222405684612, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f43d6f9bbaa0f0345be6951db1e93f33, type: 3}
+    - target: {fileID: 5668332052605825379, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fa08407ce085a2f4b84e683179f1694c, type: 3}
+    - target: {fileID: 7371660884124210012, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0656eb4ae71e73d4f88857cc747085cd, type: 3}
+    - target: {fileID: 7906191352689100045, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 06bf1e5f6952e6f4086895cf3b4433c0, type: 3}
     - target: {fileID: 8210039709605267988, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Name
       value: Target Hole Variant
@@ -165,12 +193,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8280551682504309980, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b4f4b69f352b4e7498604d9dee08cd34, type: 3}
     - target: {fileID: 9156023016277246041, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a1efd01cd46355c4aadfb5b2ad41ab9a, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6170982546401269253, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
+    - {fileID: 1382732444587005432, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2989138070082970419, guid: 8d5c7b4fb73564f48b73833c811f7ec3, type: 3}
       insertIndex: -1

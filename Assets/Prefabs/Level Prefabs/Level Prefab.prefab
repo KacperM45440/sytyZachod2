@@ -139,14 +139,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 450350699656449975}
     - target: {fileID: 4651595992206002405, guid: bb98e6b2935b2a7419fdfdf3bb68bd8c, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4651595992206002405, guid: bb98e6b2935b2a7419fdfdf3bb68bd8c, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4651595992206002405, guid: bb98e6b2935b2a7419fdfdf3bb68bd8c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -189,10 +181,6 @@ PrefabInstance:
     - target: {fileID: 7998812503298582206, guid: bb98e6b2935b2a7419fdfdf3bb68bd8c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8519259583301617012, guid: bb98e6b2935b2a7419fdfdf3bb68bd8c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -27.900002
       objectReference: {fileID: 0}
     - target: {fileID: 8915366264165810761, guid: bb98e6b2935b2a7419fdfdf3bb68bd8c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -241,11 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
---- !u!1 &2104617513235914145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1957011367176485156, guid: bb98e6b2935b2a7419fdfdf3bb68bd8c, type: 3}
-  m_PrefabInstance: {fileID: 440694164633068677}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &2224289304478019097 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1784527525722344092, guid: bb98e6b2935b2a7419fdfdf3bb68bd8c, type: 3}
@@ -257,17 +240,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 440694164633068677}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5603288080860475655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3218294778783793760 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3077092205575120613, guid: bb98e6b2935b2a7419fdfdf3bb68bd8c, type: 3}
-  m_PrefabInstance: {fileID: 440694164633068677}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104617513235914145}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
@@ -409,7 +381,7 @@ PrefabInstance:
     - target: {fileID: 3725116624098921005, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
       propertyPath: finisherUI
       value: 
-      objectReference: {fileID: 2104617513235914145}
+      objectReference: {fileID: 0}
     - target: {fileID: 3725116624098921005, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
       propertyPath: progressUI
       value: 
@@ -574,7 +546,7 @@ PrefabInstance:
     - target: {fileID: 2276103011762084286, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}
       propertyPath: finisherBar
       value: 
-      objectReference: {fileID: 3218294778783793760}
+      objectReference: {fileID: 0}
     - target: {fileID: 2276103011762084286, guid: 41765ea8e7edd5f43a47bbbe8bb5c120, type: 3}
       propertyPath: winCheckRef
       value: 
