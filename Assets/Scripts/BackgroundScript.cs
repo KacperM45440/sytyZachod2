@@ -11,6 +11,7 @@ public class BackgroundScript : MonoBehaviour
     [SerializeField] private Animator enemyAnimator;
     [SerializeField] private WinCheck winCheckRef;
     [SerializeField] private Slider finisherBar;
+    [SerializeField] private Image finisherFill;
     [SerializeField] private Sprite enemyDeadSprite;
     [SerializeField] private Sprite enemyPunched1;
     [SerializeField] private Sprite enemyPunched2;
@@ -123,6 +124,7 @@ public class BackgroundScript : MonoBehaviour
     private IEnumerator Timer()
     {
         yield return new WaitForSeconds(punchOutTimer);
+        finisherFill.enabled = false;
         canPunch = false;
     }
 

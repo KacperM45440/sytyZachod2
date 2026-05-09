@@ -30,6 +30,7 @@ public class WinCheck : MonoBehaviour
     [SerializeField] private SpawnTarget spawnRef;
     [SerializeField] private TransitionScript changeScene;
     [SerializeField] private Slider scoreBar;
+    [SerializeField] private Image fillImage;
     [SerializeField] private TMP_Text comboCounter;
     [SerializeField] private TMP_Text scoreCounter;
     [SerializeField] private EnemyHitCheck enemyColliderRef;
@@ -110,6 +111,7 @@ public class WinCheck : MonoBehaviour
         {
             combo++;
         }
+        fillImage.enabled = true;
         comboCounter.text = "x" + combo;
         progress = (float)targetCounter / (float)maxScore;
         scoreBar.value = progress;
