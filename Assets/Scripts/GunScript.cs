@@ -18,6 +18,8 @@ public class GunScript : MonoBehaviour
     [SerializeField] private Transform destroyQueue;
     [SerializeField] private AudioSource shotSource;
     [SerializeField] private AudioSource reloadSource;
+    [SerializeField] private AudioClip reloadFinished;
+    [SerializeField] private AudioClip missSound;
     [SerializeField] private SpawnMag spawnMagRef;
     [SerializeField] private ParticleSystem dustParticleSystemRef;
     [SerializeField] private Animator playerGunAnimatorRef;
@@ -63,7 +65,7 @@ public class GunScript : MonoBehaviour
         }
     }
 
-    public void ShotFired()
+    public void ShotFired(bool missed = false)
     {
         if (isTalking)
         {
@@ -85,7 +87,8 @@ public class GunScript : MonoBehaviour
             dustParticleSystemRef.transform.position = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
             dustParticleSystemRef.Play();
 
-            shotSource.Play();
+            shotSource.pitch = UnityEngine.Random.Range(0.99f, 1.10f);
+            shotSource.PlayOneShot(shotSource.clip);
             currentAmmo--;
             animatorRef.SetTrigger("Rotate Single");
             playerGunAnimatorRef.SetTrigger("Shoot");
@@ -94,6 +97,10 @@ public class GunScript : MonoBehaviour
             {
                 ReloadGun();
                 return;
+            }
+            if (missed)
+            {
+                shotSource.PlayOneShot(missSound);
             }
         }
     }
@@ -169,6 +176,7 @@ public class GunScript : MonoBehaviour
     public void FinishReload()
     {
         currentMagazine = spawnMagRef.NewMagazine();
+        shotSource.PlayOneShot(reloadFinished);
         isReloading = false;
         readyToFire = true;
     }

@@ -162,6 +162,14 @@ PrefabInstance:
       propertyPath: finisherUI
       value: 
       objectReference: {fileID: 234270782}
+    - target: {fileID: 556177240966820499, guid: 39ebc58853a9bc541852914b4d82368a, type: 3}
+      propertyPath: missSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c4a12e8e87ae3a5439015ee11a48821d, type: 3}
+    - target: {fileID: 556177240966820499, guid: 39ebc58853a9bc541852914b4d82368a, type: 3}
+      propertyPath: reloadFinished
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f963d774dbd0ef419c0a427372d865c, type: 3}
     - target: {fileID: 697640437922538954, guid: 39ebc58853a9bc541852914b4d82368a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -270,6 +278,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5105796450480999464, guid: 39ebc58853a9bc541852914b4d82368a, type: 3}
+      propertyPath: missSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c4a12e8e87ae3a5439015ee11a48821d, type: 3}
+    - target: {fileID: 5105796450480999464, guid: 39ebc58853a9bc541852914b4d82368a, type: 3}
+      propertyPath: missSound1
+      value: 
+      objectReference: {fileID: 8300000, guid: c4a12e8e87ae3a5439015ee11a48821d, type: 3}
+    - target: {fileID: 5105796450480999464, guid: 39ebc58853a9bc541852914b4d82368a, type: 3}
+      propertyPath: missSound2
+      value: 
+      objectReference: {fileID: 8300000, guid: 30716fdcded02ba43b1afbd25fb2a22e, type: 3}
+    - target: {fileID: 5105796450480999464, guid: 39ebc58853a9bc541852914b4d82368a, type: 3}
+      propertyPath: missSound3
+      value: 
+      objectReference: {fileID: 8300000, guid: f25d3f4ed16540a4895a777d909b117d, type: 3}
     - target: {fileID: 5105796450480999464, guid: 39ebc58853a9bc541852914b4d82368a, type: 3}
       propertyPath: finisherBar
       value: 

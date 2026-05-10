@@ -40,7 +40,7 @@ public class BackgroundScript : MonoBehaviour
     {
         if (!dominated)
         {
-            gunControllerRef.ShotFired();
+            gunControllerRef.ShotFired(true);
             winCheckRef.Missed();
         }
         else
