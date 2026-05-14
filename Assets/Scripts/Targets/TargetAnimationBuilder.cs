@@ -12,8 +12,14 @@ public enum targetAnimation
     quadRight,
     upRight,
     upLeft,
+    upDown,
     dblUpLeft,
     dblUpRight,
+    downLeft,
+    downRight,
+    downUp,
+    dblDownLeft,
+    dblDownRight,
     stop3Sec,
     stop2Sec,
     leftSpinny,
@@ -30,6 +36,8 @@ public enum animationStep
     Down,
     UpRight,
     UpLeft,
+    DownLeft,
+    DownRight,
     Spinny,
     SpinnyMirror,
     ZigZag,
@@ -130,6 +138,14 @@ public static class AnimationDatabase
             }
         },
         {
+            targetAnimation.upDown,
+            new[]
+            {
+                animationStep.Up,
+                animationStep.Down,
+            }
+        },
+        {
             targetAnimation.dblUpRight,
             new[]
             {
@@ -143,6 +159,44 @@ public static class AnimationDatabase
             {
                 animationStep.UpLeft,
                 animationStep.UpLeft,
+            }
+        },
+        {
+            targetAnimation.downLeft,
+            new[]
+            {
+                animationStep.DownLeft,
+            }
+        },
+        {
+            targetAnimation.downRight,
+            new[]
+            {
+                animationStep.DownRight,
+            }
+        },
+        {
+            targetAnimation.downUp,
+            new[]
+            {
+                animationStep.Down,
+                animationStep.Up,
+            }
+        },
+        {
+            targetAnimation.dblDownLeft,
+            new[]
+            {
+                animationStep.DownLeft,
+                animationStep.DownLeft,
+            }
+        },
+        {
+            targetAnimation.dblDownRight,
+            new[]
+            {
+                animationStep.DownRight,
+                animationStep.DownRight,
             }
         },
         {
