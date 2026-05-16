@@ -85,7 +85,7 @@ public class GunScript : MonoBehaviour
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dustParticleSystemRef.transform.position = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
-            dustParticleSystemRef.Play();
+            //dustParticleSystemRef.Play();
 
             shotSource.pitch = UnityEngine.Random.Range(0.99f, 1.10f);
             shotSource.PlayOneShot(shotSource.clip);

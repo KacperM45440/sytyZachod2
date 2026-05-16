@@ -91,7 +91,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: c73fc99874d41674e95d733b0dddd495, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 0}
   winCheckRef: {fileID: 0}
   finisherBar: {fileID: 0}
+  finisherFill: {fileID: 0}
   enemyDeadSprite: {fileID: 21300000, guid: 1fa43fb2e838eeb4fa7a7afad5aaab53, type: 3}
   enemyPunched1: {fileID: 21300000, guid: b481d89539830d444a973045fd500bce, type: 3}
   enemyPunched2: {fileID: 21300000, guid: 72b7d56a1c90b5740a18c38fe1797a7f, type: 3}
@@ -173,6 +174,9 @@ MonoBehaviour:
   punchSound1: {fileID: 8300000, guid: b956b10aa21f84748afa40c43abb0b19, type: 3}
   punchSound2: {fileID: 8300000, guid: 376c8f4fed3fae7488fb75e395e4307b, type: 3}
   punchSound3: {fileID: 8300000, guid: 12c44cd0b7fb7d24f8d6374b566457d2, type: 3}
+  dualEnemyAnimator1: {fileID: 0}
+  dualEnemyAnimator2: {fileID: 0}
+  punchOutTimer: 5
 --- !u!82 &5367001676991734922
 AudioSource:
   m_ObjectHideFlags: 0

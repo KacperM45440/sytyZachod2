@@ -45,6 +45,7 @@ public class CharacterSpritesChanger : MonoBehaviour
     [SerializeField] private GameObject dualEnemiesParent;
     [SerializeField] private SpriteRenderer dualEnemySpriteRenderer1;
     [SerializeField] private SpriteRenderer dualEnemySpriteRenderer2;
+    [SerializeField] private GameObject hatContainer;
 
     private enemies currentEnemy;
     private EnemySpriteSet currentEnemySpriteSet;
@@ -148,7 +149,7 @@ public class CharacterSpritesChanger : MonoBehaviour
     private void SpawnHat()
     {
         hatRenderer.gameObject.SetActive(true);
-        hatRenderer.transform.parent = gameObject.transform;
+        hatRenderer.transform.parent = hatContainer.transform;
         hatRenderer.sprite = currentEnemySpriteSet.hat;
     }
 }
