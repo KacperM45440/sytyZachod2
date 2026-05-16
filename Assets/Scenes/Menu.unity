@@ -2053,7 +2053,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 291e8e88b919e194f908187e50eaaabb, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 721e094a8f101cc49b77e5ce40f22979, type: 3}
+  m_Resource: {fileID: 8300000, guid: 8b8904592473472419a9fcc4bb217d4f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3150,7 +3150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -348, y: 381}
+  m_AnchoredPosition: {x: -347.99994, y: 381}
   m_SizeDelta: {x: -1394.81, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516909112
@@ -7295,7 +7295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -622, y: 28}
+  m_AnchoredPosition: {x: -621.99994, y: 28}
   m_SizeDelta: {x: -1614.84, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1320495199
@@ -7507,7 +7507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -358, y: -388.61}
+  m_AnchoredPosition: {x: -357.99994, y: -388.61}
   m_SizeDelta: {x: -1822.68, y: -1020.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466460085
@@ -7825,7 +7825,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 291e8e88b919e194f908187e50eaaabb, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 6b38f62dd57372d4d8815829228c6922, type: 3}
+  m_Resource: {fileID: 8300000, guid: f22df17770c86e644b41b8b5af3337e7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8400,7 +8400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -622, y: 162.44995}
+  m_AnchoredPosition: {x: -621.99994, y: 162.44995}
   m_SizeDelta: {x: -1614.84, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1545943555
@@ -16035,7 +16035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -358, y: 331}
+  m_AnchoredPosition: {x: -357.99994, y: 331}
   m_SizeDelta: {x: -1522.74, y: -945.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105812843

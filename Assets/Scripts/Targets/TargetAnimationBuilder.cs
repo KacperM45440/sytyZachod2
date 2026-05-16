@@ -25,7 +25,8 @@ public enum targetAnimation
     leftSpinny,
     rightSpinny,
     leftThenCircleUp,
-    rightThenCircleUp
+    rightThenCircleUp,
+    leftThenCircleDown
 }
 
 public enum animationStep
@@ -232,7 +233,7 @@ public static class AnimationDatabase
                 animationStep.SpinnyMirror
             }
         },
-                {
+        {
         targetAnimation.leftThenCircleUp,
             new[]
             {
@@ -243,7 +244,7 @@ public static class AnimationDatabase
                 animationStep.HalfcircleDownRight,
             }
         },
-                        {
+        {
         targetAnimation.rightThenCircleUp,
             new[]
             {
@@ -252,6 +253,17 @@ public static class AnimationDatabase
                 animationStep.HalfcircleDownLeft,
                 animationStep.HalfcircleUpRight,
                 animationStep.HalfcircleDownLeft,
+            }
+        },
+        { 
+        targetAnimation.leftThenCircleDown,
+            new[]
+            {
+                animationStep.Left,
+                animationStep.HalfcircleDownLeft,
+                animationStep.HalfcircleUpRight,
+                animationStep.HalfcircleDownLeft,
+                animationStep.HalfcircleUpRight,
             }
         },
     };

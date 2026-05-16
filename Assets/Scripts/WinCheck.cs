@@ -67,7 +67,8 @@ public class WinCheck : MonoBehaviour
         // Zarowno wyjscie do menu jak zresetowanie poziomu wiaze sie z wyzerowaniem wyniku
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            CheckPause();
+            //CheckPause();
+            ExitToMenu();
         }
     }
 
@@ -170,9 +171,10 @@ public class WinCheck : MonoBehaviour
         {
             // W przypadku przegranej, przeciwnik nie ginie
             gunRef.readyToFire = false;
-            Unpause();
-            fadeAnimatorRef.SetTrigger("fade_in");
-            popupAnimatorRef.SetTrigger("defeat");
+            //Unpause();
+            //fadeAnimatorRef.SetTrigger("fade_in");
+            //popupAnimatorRef.SetTrigger("defeat");
+            ExitToMenu();
         }
     }
 
@@ -199,6 +201,7 @@ public class WinCheck : MonoBehaviour
         PlayerPrefs.SetInt("completed_level" + currentLevel, 1);
 
         PlayerPrefs.Save();
+        GameMusicScript.Instance.FadeOut();
         yield return new WaitForSeconds(4);
         changeScene.MainMenu();
     }
