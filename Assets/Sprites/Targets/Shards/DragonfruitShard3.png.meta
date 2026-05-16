@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 0430616232efefc4fbaf47980bc44c97
+guid: 0509285c5dcbb604c90bcb1502482810
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2428867280942198484
-    second: BananaSplat_0
-  - first:
-      213: 4431492248807804018
-    second: BananaSplat_1
+      213: 3449936996401292076
+    second: DragonfruitShard3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BananaSplat_0
+      name: DragonfruitShard3_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 17
-        width: 1995
-        height: 1836
+        x: 316
+        y: 262
+        width: 211
+        height: 181
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4dee02f5ce115b120800000000000000
-      internalID: 2428867280942198484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BananaSplat_1
-      rect:
-        serializedVersion: 2
-        x: 769
-        y: 1827
-        width: 146
-        height: 116
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 27c0613a8b2df7d30800000000000000
-      internalID: 4431492248807804018
+      spriteID: c232aff6b63a0ef20800000000000000
+      internalID: 3449936996401292076
       vertices: []
       indices: 
       edges: []
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BananaSplat_0: 2428867280942198484
-      BananaSplat_1: 4431492248807804018
+      DragonfruitShard3_0: 3449936996401292076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
