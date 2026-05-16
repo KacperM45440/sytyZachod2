@@ -38,7 +38,7 @@ public class TransitionScript : MonoBehaviour
     
     public void MainMenu()
     {
-        StartCoroutine(LoadLevel(0)); 
+        StartCoroutine(LoadLevel(-1)); 
     }
 
     public void PlayLevel(int levelIndex)
@@ -92,13 +92,13 @@ public class TransitionScript : MonoBehaviour
         Debug.Log("Loading level " + levelIndex);
         animatorRef.SetTrigger("Started");
         yield return new WaitForSeconds(transitionTime);
-        if (levelIndex > 0)
+        if (levelIndex == -1)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
         else
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }
