@@ -24,6 +24,7 @@ public class WinCheck : MonoBehaviour
     [SerializeField] private Animator popupAnimatorRef;
     [SerializeField] private Animator uiAnimatorRef;
     [SerializeField] private Animator enemyAnimatorRef;
+    [SerializeField] private Animator charactersAnimatorRef;
     [SerializeField] private BackgroundScript backgroundRef;
     [SerializeField] private GameObject progressUI;
     [SerializeField] private GameObject finisherUI;
@@ -158,6 +159,14 @@ public class WinCheck : MonoBehaviour
     // Sprawdz, czy gracz wygral w gre. 
     public void Checker() 
     {
+        // Jeœli jesteœmy w tutorialu
+        if (PlayerPrefs.GetInt("currentLevel", 0) == 0)
+        {
+            charactersAnimatorRef.SetTrigger("EnemyRun");
+            StartCoroutine(ExitToMenuDelayed());
+            return;
+        }
+
         if (enemyHurtStage == 2)
         {
             enemyColliderRef.EnableHitCheck();
@@ -212,6 +221,12 @@ public class WinCheck : MonoBehaviour
         PlayerPrefs.SetInt("currentScore", score);
         popupAnimatorRef.SetTrigger("idle");
         changeScene.ThisLevel();
+    }
+
+    private IEnumerator ExitToMenuDelayed()
+    {
+        yield return new WaitForSeconds(2);
+        ExitToMenu();
     }
 
     public void ExitToMenu()

@@ -1444,6 +1444,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8378836924485931305}
     - target: {fileID: 3725116624098921005, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
+      propertyPath: charactersAnimatorRef
+      value: 
+      objectReference: {fileID: 3692983319668970081}
+    - target: {fileID: 3725116624098921005, guid: d9030f4e95cdd3e4ca96ab6c13c8052b, type: 3}
       propertyPath: characterSpriteChangerRef
       value: 
       objectReference: {fileID: 7809789043158937416}
